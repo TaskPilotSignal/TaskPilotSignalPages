@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고객지원 - HyungGwangBot</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #1b2838; --card: #2a3f5f; --nav: #171d25; --text: #c7d5e0; --dim: #8f98a0; --accent: #67c1f5; --border: #3d5a7a; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; }
+    nav { background: var(--nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+    .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; height: 50px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-weight: 700; color: var(--accent); text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav a { color: var(--dim); text-decoration: none; font-size: .875rem; }
+    nav a:hover { color: var(--accent); }
+    main { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem; }
+    h1 { font-size: 1.8rem; color: #e8f0f7; margin-bottom: 2rem; }
+    h2 { font-size: 1.15rem; color: var(--accent); margin: 2rem 0 .8rem; }
+    p { font-size: .92rem; margin-bottom: .5rem; }
+    a.link { color: var(--accent); }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .contact-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
+    .contact-card h3 { font-size: .95rem; color: #dde8f0; margin-bottom: .5rem; }
+    .contact-card p { font-size: .85rem; color: var(--dim); }
+    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: .8rem; }
+    .faq-q { font-weight: 700; color: #dde8f0; font-size: .92rem; margin-bottom: .4rem; }
+    .faq-a { font-size: .85rem; color: var(--dim); }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+    footer { background: var(--nav); border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: .5rem; }
+    .footer-links a { color: var(--dim); text-decoration: none; font-size: .85rem; }
+    .footer-links a:hover { color: var(--accent); }
+    .copy { font-size: .78rem; color: #576370; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="/">HyungGwangBot</a>
+      <ul>
+        <li><a href="/">홈</a></li>
+        <li><a href="/privacy/">개인정보처리방침</a></li>
+        <li><a href="/support/">고객지원</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <h1>고객지원 / Support</h1>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>GitHub Issues</h3>
+        <p>버그 제보, 기능 요청, 일반 문의</p>
+        <p><a class="link" href="https://github.com/ChoGwangHyung/HyungGwangBot/issues" target="_blank">github.com/ChoGwangHyung/HyungGwangBot/issues</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>이메일 / Email</h3>
+        <p>직접 문의가 필요한 경우</p>
+        <!-- TODO: 실제 이메일 주소로 교체 -->
+        <p><a class="link" href="mailto:support@example.com">support@example.com</a></p>
+      </div>
+    </div>
+
+    <h2>자주 묻는 질문 / FAQ</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Q: AI 기능이 작동하지 않아요</div>
+      <div class="faq-a">A: AI 제공자 계정과 API 키가 올바르게 설정되었는지 확인하세요. 설정 화면에서 AI 연결 상태를 확인할 수 있습니다. API 키가 만료되었거나 잔액이 부족한 경우에도 오류가 발생할 수 있습니다.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q: 텔레그램 봇이 응답하지 않아요</div>
+      <div class="faq-a">A: 봇 토큰이 유효한지, 인터넷 연결이 정상인지 확인하세요. 봇이 다른 곳에서 동시에 실행 중이면 충돌이 발생할 수 있습니다. 앱을 재시작해보세요.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q: 프로그램이 시작되지 않아요</div>
+      <div class="faq-a">A: Windows 10 이상인지 확인하세요. 앱을 재설치하거나, 설치 경로에 쓰기 권한이 있는지 확인해보세요.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q: API 키는 안전한가요?</div>
+      <div class="faq-a">A: 모든 인증 정보는 Windows DPAPI로 암호화되어 로컬에만 저장됩니다. 외부 서버로 전송되지 않습니다. config.json 파일을 삭제하면 모든 인증 정보를 즉시 제거할 수 있습니다.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q: 파이프라인 실행 중 오류가 발생해요</div>
+      <div class="faq-a">A: 연결된 외부 서비스(Notion, Google Docs 등)의 접근 권한이 유효한지 확인하세요. 로그 파일에서 상세한 오류 내용을 확인할 수 있습니다.</div>
+    </div>
+
+    <hr class="divider">
+
+    <h2>English FAQ</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Q: AI features are not working</div>
+      <div class="faq-a">A: Verify that your AI provider account and API key are correctly configured. Check the connection status in Settings. Errors may occur if your API key has expired or your balance is insufficient.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q: Telegram bot is not responding</div>
+      <div class="faq-a">A: Check if the bot token is valid and your internet connection is stable. Conflicts may occur if the bot is running elsewhere simultaneously. Try restarting the app.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q: The program won't start</div>
+      <div class="faq-a">A: Ensure you are running Windows 10 or later. Try reinstalling the app and verify write permissions on the installation path.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q: Are my API keys safe?</div>
+      <div class="faq-a">A: All credentials are encrypted with Windows DPAPI and stored locally only. Nothing is sent to external servers. Deleting config.json immediately removes all stored credentials.</div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/">홈 / Home</a>
+      <a href="/privacy/">개인정보처리방침 / Privacy</a>
+      <a href="/support/">고객지원 / Support</a>
+    </div>
+    <p class="copy">&copy; 2026 HyungGwangBot. All rights reserved.</p>
+  </footer>
+</body>
+</html>
