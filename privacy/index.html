@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>개인정보처리방침 - HyungGwangBot</title>
+  <title>Privacy Policy - HyungGwangBot</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg: #1b2838; --card: #2a3f5f; --nav: #171d25; --text: #c7d5e0; --dim: #8f98a0; --accent: #67c1f5; --border: #3d5a7a; }
@@ -11,16 +11,21 @@
     nav { background: var(--nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
     .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; height: 50px; display: flex; align-items: center; justify-content: space-between; }
     .brand { font-weight: 700; color: var(--accent); text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
     nav ul { list-style: none; display: flex; gap: 1.5rem; }
     nav a { color: var(--dim); text-decoration: none; font-size: .875rem; }
     nav a:hover { color: var(--accent); }
+    .lang-btn { background: transparent; border: 1px solid var(--border); color: var(--accent); padding: .25rem .7rem; border-radius: 4px; cursor: pointer; font-size: .8rem; font-weight: 600; transition: background .15s; }
+    .lang-btn:hover { background: rgba(103,193,245,.12); }
     main { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem; }
     h1 { font-size: 1.8rem; color: #e8f0f7; margin-bottom: .3rem; }
     .subtitle { font-size: .9rem; color: var(--dim); margin-bottom: 2.5rem; }
     h2 { font-size: 1.15rem; color: var(--accent); margin: 2rem 0 .6rem; }
     p, li { font-size: .92rem; color: var(--text); margin-bottom: .5rem; }
     ul { padding-left: 1.5rem; margin-bottom: .5rem; }
-    .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+    a.link { color: var(--accent); }
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
     footer { background: var(--nav); border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; }
     .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: .5rem; }
     .footer-links a { color: var(--dim); text-decoration: none; font-size: .85rem; }
@@ -31,108 +36,131 @@
 <body>
   <nav>
     <div class="nav-inner">
-      <a class="brand" href="/">HyungGwangBot</a>
-      <ul>
-        <li><a href="/">홈</a></li>
-        <li><a href="/privacy/">개인정보처리방침</a></li>
-        <li><a href="/support/">고객지원</a></li>
-      </ul>
+      <a class="brand" href="/HyungGwangBotPages/">HyungGwangBot</a>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/HyungGwangBotPages/" class="nav-en">Home</a><a href="/HyungGwangBotPages/" class="nav-ko" style="display:none">홈</a></li>
+          <li><a href="/HyungGwangBotPages/privacy/" class="nav-en">Privacy</a><a href="/HyungGwangBotPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a></li>
+          <li><a href="/HyungGwangBotPages/support/" class="nav-en">Support</a><a href="/HyungGwangBotPages/support/" class="nav-ko" style="display:none">고객지원</a></li>
+        </ul>
+        <button class="lang-btn" onclick="toggleLang()">한국어</button>
+      </div>
     </div>
   </nav>
 
   <main>
-    <h1>개인정보처리방침</h1>
-    <p class="subtitle">최종 수정일: 2026-04-09</p>
+    <div data-lang="en" class="active">
+      <h1>Privacy Policy</h1>
+      <p class="subtitle">Last updated: 2026-04-09</p>
 
-    <h2>1. 수집하는 정보</h2>
-    <p>HyungGwangBot은 사용자가 직접 입력한 다음 정보를 처리합니다:</p>
-    <ul>
-      <li>AI 제공자 API 키 (Anthropic, Google 등)</li>
-      <li>텔레그램 봇 토큰</li>
-      <li>Notion / Google 서비스 연결 정보</li>
-    </ul>
-    <p>이 정보는 모두 사용자의 로컬 PC에만 저장되며, Windows DPAPI로 암호화되어 보호됩니다.</p>
+      <h2>1. Information We Process</h2>
+      <p>HyungGwangBot processes information that users directly provide:</p>
+      <ul>
+        <li>AI provider API keys (Anthropic, Google, etc.)</li>
+        <li>Telegram bot tokens</li>
+        <li>Notion / Google service connection credentials</li>
+      </ul>
+      <p>All information is stored only on the user's local PC, encrypted with Windows DPAPI.</p>
 
-    <h2>2. 외부 전송</h2>
-    <p>사용자가 설정한 외부 서비스에만 요청을 전송합니다:</p>
-    <ul>
-      <li>AI 제공자 (Anthropic Claude, Google Gemini 등) — AI 분석 요청</li>
-      <li>Telegram API — 봇 메시지 송수신</li>
-      <li>Notion API, Google Workspace API — 문서 작성/수정</li>
-    </ul>
-    <p><strong>당사 서버로 데이터를 전송하지 않습니다.</strong> HyungGwangBot은 별도의 서버를 운영하지 않습니다.</p>
+      <h2>2. External Transmission</h2>
+      <p>Requests are sent only to external services configured by the user:</p>
+      <ul>
+        <li>AI providers (Anthropic Claude, Google Gemini, etc.) — AI analysis requests</li>
+        <li>Telegram API — bot message communication</li>
+        <li>Notion API, Google Workspace API — document creation/editing</li>
+      </ul>
+      <p><strong>We do not transmit data to our own servers.</strong> HyungGwangBot does not operate any separate servers.</p>
 
-    <h2>3. 텔레그램 데이터</h2>
-    <p>사용자의 텔레그램 봇 토큰을 사용하여 Telegram API와 통신합니다. 대화 내용 및 세션 데이터는 로컬에만 저장됩니다.</p>
+      <h2>3. Telegram Data</h2>
+      <p>The app communicates with the Telegram API using the user's own bot token. Conversation content and session data are stored locally only.</p>
 
-    <h2>4. 로컬 저장</h2>
-    <p>모든 설정, 로그, 세션 데이터는 사용자 PC의 앱 설치 경로에만 저장됩니다. 외부 서버로 전송되지 않습니다.</p>
+      <h2>4. Local Storage</h2>
+      <p>All settings, logs, and session data are stored only in the app's installation directory on the user's PC. Nothing is sent to external servers.</p>
 
-    <h2>5. 제3자 서비스</h2>
-    <p>각 AI 제공자 및 외부 서비스의 개인정보 처리방침은 해당 서비스의 약관에 따릅니다:</p>
-    <ul>
-      <li>Anthropic: <a href="https://www.anthropic.com/privacy" style="color:var(--accent)">anthropic.com/privacy</a></li>
-      <li>Google: <a href="https://policies.google.com/privacy" style="color:var(--accent)">policies.google.com/privacy</a></li>
-      <li>Telegram: <a href="https://telegram.org/privacy" style="color:var(--accent)">telegram.org/privacy</a></li>
-    </ul>
+      <h2>5. Third-Party Services</h2>
+      <p>Each AI provider and external service has its own privacy policy:</p>
+      <ul>
+        <li>Anthropic: <a class="link" href="https://www.anthropic.com/privacy">anthropic.com/privacy</a></li>
+        <li>Google: <a class="link" href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+        <li>Telegram: <a class="link" href="https://telegram.org/privacy">telegram.org/privacy</a></li>
+      </ul>
 
-    <h2>6. 데이터 삭제</h2>
-    <p>앱 삭제 시 모든 로컬 데이터가 삭제됩니다. config.json 파일을 삭제하면 모든 인증 정보를 즉시 제거할 수 있습니다.</p>
+      <h2>6. Data Deletion</h2>
+      <p>All local data is removed when the app is uninstalled. Deleting config.json immediately removes all stored credentials.</p>
 
-    <h2>7. 문의</h2>
-    <p>개인정보 관련 문의: <a href="https://github.com/ChoGwangHyung/HyungGwangBot/issues" style="color:var(--accent)">GitHub Issues</a></p>
+      <h2>7. Contact</h2>
+      <p>Privacy inquiries: <a class="link" href="https://github.com/ChoGwangHyung/HyungGwangBot/issues">GitHub Issues</a></p>
+    </div>
 
-    <hr class="divider">
+    <div data-lang="ko">
+      <h1>개인정보처리방침</h1>
+      <p class="subtitle">최종 수정일: 2026-04-09</p>
 
-    <h1>Privacy Policy</h1>
-    <p class="subtitle">Last updated: 2026-04-09</p>
+      <h2>1. 수집하는 정보</h2>
+      <p>HyungGwangBot은 사용자가 직접 입력한 다음 정보를 처리합니다:</p>
+      <ul>
+        <li>AI 제공자 API 키 (Anthropic, Google 등)</li>
+        <li>텔레그램 봇 토큰</li>
+        <li>Notion / Google 서비스 연결 정보</li>
+      </ul>
+      <p>이 정보는 모두 사용자의 로컬 PC에만 저장되며, Windows DPAPI로 암호화되어 보호됩니다.</p>
 
-    <h2>1. Information We Process</h2>
-    <p>HyungGwangBot processes information that users directly provide:</p>
-    <ul>
-      <li>AI provider API keys (Anthropic, Google, etc.)</li>
-      <li>Telegram bot tokens</li>
-      <li>Notion / Google service connection credentials</li>
-    </ul>
-    <p>All information is stored only on the user's local PC, encrypted with Windows DPAPI.</p>
+      <h2>2. 외부 전송</h2>
+      <p>사용자가 설정한 외부 서비스에만 요청을 전송합니다:</p>
+      <ul>
+        <li>AI 제공자 (Anthropic Claude, Google Gemini 등) — AI 분석 요청</li>
+        <li>Telegram API — 봇 메시지 송수신</li>
+        <li>Notion API, Google Workspace API — 문서 작성/수정</li>
+      </ul>
+      <p><strong>당사 서버로 데이터를 전송하지 않습니다.</strong> HyungGwangBot은 별도의 서버를 운영하지 않습니다.</p>
 
-    <h2>2. External Transmission</h2>
-    <p>Requests are sent only to external services configured by the user:</p>
-    <ul>
-      <li>AI providers (Anthropic Claude, Google Gemini, etc.) — AI analysis requests</li>
-      <li>Telegram API — bot message communication</li>
-      <li>Notion API, Google Workspace API — document creation/editing</li>
-    </ul>
-    <p><strong>We do not transmit data to our own servers.</strong> HyungGwangBot does not operate any separate servers.</p>
+      <h2>3. 텔레그램 데이터</h2>
+      <p>사용자의 텔레그램 봇 토큰을 사용하여 Telegram API와 통신합니다. 대화 내용 및 세션 데이터는 로컬에만 저장됩니다.</p>
 
-    <h2>3. Telegram Data</h2>
-    <p>The app communicates with the Telegram API using the user's own bot token. Conversation content and session data are stored locally only.</p>
+      <h2>4. 로컬 저장</h2>
+      <p>모든 설정, 로그, 세션 데이터는 사용자 PC의 앱 설치 경로에만 저장됩니다. 외부 서버로 전송되지 않습니다.</p>
 
-    <h2>4. Local Storage</h2>
-    <p>All settings, logs, and session data are stored only in the app's installation directory on the user's PC. Nothing is sent to external servers.</p>
+      <h2>5. 제3자 서비스</h2>
+      <p>각 AI 제공자 및 외부 서비스의 개인정보 처리방침은 해당 서비스의 약관에 따릅니다:</p>
+      <ul>
+        <li>Anthropic: <a class="link" href="https://www.anthropic.com/privacy">anthropic.com/privacy</a></li>
+        <li>Google: <a class="link" href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+        <li>Telegram: <a class="link" href="https://telegram.org/privacy">telegram.org/privacy</a></li>
+      </ul>
 
-    <h2>5. Third-Party Services</h2>
-    <p>Each AI provider and external service has its own privacy policy:</p>
-    <ul>
-      <li>Anthropic: <a href="https://www.anthropic.com/privacy" style="color:var(--accent)">anthropic.com/privacy</a></li>
-      <li>Google: <a href="https://policies.google.com/privacy" style="color:var(--accent)">policies.google.com/privacy</a></li>
-      <li>Telegram: <a href="https://telegram.org/privacy" style="color:var(--accent)">telegram.org/privacy</a></li>
-    </ul>
+      <h2>6. 데이터 삭제</h2>
+      <p>앱 삭제 시 모든 로컬 데이터가 삭제됩니다. config.json 파일을 삭제하면 모든 인증 정보를 즉시 제거할 수 있습니다.</p>
 
-    <h2>6. Data Deletion</h2>
-    <p>All local data is removed when the app is uninstalled. Deleting config.json immediately removes all stored credentials.</p>
-
-    <h2>7. Contact</h2>
-    <p>Privacy inquiries: <a href="https://github.com/ChoGwangHyung/HyungGwangBot/issues" style="color:var(--accent)">GitHub Issues</a></p>
+      <h2>7. 문의</h2>
+      <p>개인정보 관련 문의: <a class="link" href="https://github.com/ChoGwangHyung/HyungGwangBot/issues">GitHub Issues</a></p>
+    </div>
   </main>
 
   <footer>
     <div class="footer-links">
-      <a href="/">홈 / Home</a>
-      <a href="/privacy/">개인정보처리방침 / Privacy</a>
-      <a href="/support/">고객지원 / Support</a>
+      <a href="/HyungGwangBotPages/" class="nav-en">Home</a><a href="/HyungGwangBotPages/" class="nav-ko" style="display:none">홈</a>
+      <a href="/HyungGwangBotPages/privacy/" class="nav-en">Privacy</a><a href="/HyungGwangBotPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a>
+      <a href="/HyungGwangBotPages/support/" class="nav-en">Support</a><a href="/HyungGwangBotPages/support/" class="nav-ko" style="display:none">고객지원</a>
     </div>
     <p class="copy">&copy; 2026 HyungGwangBot. All rights reserved.</p>
   </footer>
+
+  <script>
+    var lang = localStorage.getItem('lang') || 'en';
+    apply(lang);
+    function toggleLang() {
+      lang = lang === 'en' ? 'ko' : 'en';
+      localStorage.setItem('lang', lang);
+      apply(lang);
+    }
+    function apply(l) {
+      document.querySelectorAll('[data-lang]').forEach(function(el) {
+        el.classList.toggle('active', el.getAttribute('data-lang') === l);
+      });
+      document.querySelectorAll('.nav-en').forEach(function(el) { el.style.display = l === 'en' ? '' : 'none'; });
+      document.querySelectorAll('.nav-ko').forEach(function(el) { el.style.display = l === 'ko' ? '' : 'none'; });
+      document.querySelector('.lang-btn').textContent = l === 'en' ? '한국어' : 'English';
+    }
+  </script>
 </body>
 </html>

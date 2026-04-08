@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +11,15 @@
     nav { background: var(--nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
     .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; height: 50px; display: flex; align-items: center; justify-content: space-between; }
     .brand { font-weight: 700; color: var(--accent); text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
     nav ul { list-style: none; display: flex; gap: 1.5rem; }
     nav a { color: var(--dim); text-decoration: none; font-size: .875rem; }
     nav a:hover { color: var(--accent); }
+    .lang-btn { background: transparent; border: 1px solid var(--border); color: var(--accent); padding: .25rem .7rem; border-radius: 4px; cursor: pointer; font-size: .8rem; font-weight: 600; transition: background .15s; }
+    .lang-btn:hover { background: rgba(103,193,245,.12); }
     .hero { text-align: center; padding: 5rem 1.5rem 4rem; background: linear-gradient(160deg, #1b2838, #1e3a5f, #1b2838); border-bottom: 1px solid var(--border); }
     .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: #e8f0f7; margin-bottom: .5rem; }
-    .tagline { font-size: 1.2rem; color: var(--accent); font-weight: 600; margin-bottom: .3rem; }
-    .tagline-en { font-size: .95rem; color: var(--dim); margin-bottom: 2rem; }
+    .tagline { font-size: 1.2rem; color: var(--accent); font-weight: 600; margin-bottom: 2rem; }
     section { padding: 3.5rem 1.5rem; }
     .inner { max-width: 900px; margin: 0 auto; }
     h2 { font-size: 1.4rem; color: #dde8f0; margin-bottom: 1.5rem; text-align: center; }
@@ -25,8 +27,7 @@
     .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; transition: border-color .2s; }
     .card:hover { border-color: var(--accent); }
     .card-icon { font-size: 1.5rem; margin-bottom: .6rem; }
-    .card h3 { font-size: .95rem; color: #dde8f0; margin-bottom: .15rem; }
-    .card .en { font-size: .75rem; color: var(--accent); margin-bottom: .5rem; }
+    .card h3 { font-size: .95rem; color: #dde8f0; margin-bottom: .4rem; }
     .card p { font-size: .83rem; color: var(--dim); }
     .pipeline-section { background: #192535; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .flow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem; margin-top: 1rem; }
@@ -43,54 +44,88 @@
     .footer-links a { color: var(--dim); text-decoration: none; font-size: .85rem; }
     .footer-links a:hover { color: var(--accent); }
     .copy { font-size: .78rem; color: #576370; }
-    @media(max-width:600px) { nav ul { gap: .75rem; } section { padding: 2.5rem 1rem; } }
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+    .hero [data-lang].active { display: block; }
+    .features [data-lang].active, .req-grid [data-lang].active { display: block; }
+    @media(max-width:600px) { nav ul { gap: .75rem; } section { padding: 2.5rem 1rem; } .nav-right { gap: .75rem; } }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-inner">
-      <a class="brand" href="/">HyungGwangBot</a>
-      <ul>
-        <li><a href="/">홈</a></li>
-        <li><a href="/privacy/">개인정보처리방침</a></li>
-        <li><a href="/support/">고객지원</a></li>
-      </ul>
+      <a class="brand" href="/HyungGwangBotPages/">HyungGwangBot</a>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/HyungGwangBotPages/" data-nav="home-en" class="nav-en">Home</a><a href="/HyungGwangBotPages/" data-nav="home-ko" class="nav-ko" style="display:none">홈</a></li>
+          <li><a href="/HyungGwangBotPages/privacy/" data-nav="privacy-en" class="nav-en">Privacy</a><a href="/HyungGwangBotPages/privacy/" data-nav="privacy-ko" class="nav-ko" style="display:none">개인정보처리방침</a></li>
+          <li><a href="/HyungGwangBotPages/support/" data-nav="support-en" class="nav-en">Support</a><a href="/HyungGwangBotPages/support/" data-nav="support-ko" class="nav-ko" style="display:none">고객지원</a></li>
+        </ul>
+        <button class="lang-btn" onclick="toggleLang()">한국어</button>
+      </div>
     </div>
   </nav>
 
   <div class="hero">
     <h1>HyungGwangBot</h1>
-    <p class="tagline">AI 파이프라인 자동화 & 텔레그램 봇 관리 도구</p>
-    <p class="tagline-en">AI Pipeline Automation & Telegram Bot Manager</p>
+    <div data-lang="en" class="active">
+      <p class="tagline">AI Pipeline Automation & Telegram Bot Manager</p>
+    </div>
+    <div data-lang="ko">
+      <p class="tagline">AI 파이프라인 자동화 & 텔레그램 봇 관리 도구</p>
+    </div>
   </div>
 
   <section>
     <div class="inner">
-      <h2>주요 기능 / Features</h2>
-      <div class="features">
-        <div class="card">
-          <div class="card-icon">&#9881;</div>
-          <h3>파이프라인 자동화</h3>
-          <div class="en">Pipeline Automation</div>
-          <p>YouTube, 웹 콘텐츠를 AI로 분석하고 Notion, Google Docs, Sheets로 자동 전달합니다.</p>
+      <div data-lang="en" class="active">
+        <h2>Features</h2>
+        <div class="features">
+          <div class="card">
+            <div class="card-icon">&#9881;</div>
+            <h3>Pipeline Automation</h3>
+            <p>Analyze YouTube and web content with AI, then automatically deliver to Notion, Google Docs, and Sheets.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">&#129302;</div>
+            <h3>Telegram AI Bot</h3>
+            <p>Manage Claude, Gemini, and Codex CLI in one unified Telegram bot.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">&#128187;</div>
+            <h3>Intuitive Desktop App</h3>
+            <p>No coding required. A desktop app designed for everyone. Windows only.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">&#128274;</div>
+            <h3>Secure by Design</h3>
+            <p>All credentials encrypted with Windows DPAPI. No data sent to external servers.</p>
+          </div>
         </div>
-        <div class="card">
-          <div class="card-icon">&#129302;</div>
-          <h3>텔레그램 AI 봇</h3>
-          <div class="en">Telegram AI Bot</div>
-          <p>Claude, Gemini, Codex CLI를 텔레그램에서 통합 관리합니다.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">&#128187;</div>
-          <h3>직관적 GUI</h3>
-          <div class="en">Intuitive Desktop App</div>
-          <p>코딩 없이 사용할 수 있는 데스크톱 앱. Windows 전용.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">&#128274;</div>
-          <h3>보안 설계</h3>
-          <div class="en">Secure by Design</div>
-          <p>모든 인증 정보는 Windows DPAPI로 암호화. 외부 서버 전송 없음.</p>
+      </div>
+      <div data-lang="ko">
+        <h2>주요 기능</h2>
+        <div class="features">
+          <div class="card">
+            <div class="card-icon">&#9881;</div>
+            <h3>파이프라인 자동화</h3>
+            <p>YouTube, 웹 콘텐츠를 AI로 분석하고 Notion, Google Docs, Sheets로 자동 전달합니다.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">&#129302;</div>
+            <h3>텔레그램 AI 봇</h3>
+            <p>Claude, Gemini, Codex CLI를 텔레그램에서 통합 관리합니다.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">&#128187;</div>
+            <h3>직관적 GUI</h3>
+            <p>코딩 없이 사용할 수 있는 데스크톱 앱. Windows 전용.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">&#128274;</div>
+            <h3>보안 설계</h3>
+            <p>모든 인증 정보는 Windows DPAPI로 암호화. 외부 서버 전송 없음.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -98,11 +133,16 @@
 
   <section class="pipeline-section">
     <div class="inner">
-      <h2>파이프라인 흐름 / Pipeline Flow</h2>
+      <div data-lang="en" class="active">
+        <h2>Pipeline Flow</h2>
+      </div>
+      <div data-lang="ko">
+        <h2>파이프라인 흐름</h2>
+      </div>
       <div class="flow">
-        <div class="flow-node">YouTube / 웹</div>
+        <div class="flow-node">YouTube / Web</div>
         <span class="flow-arrow">&rarr;</span>
-        <div class="flow-node">AI 분석</div>
+        <div class="flow-node">AI Analysis</div>
         <span class="flow-arrow">&rarr;</span>
         <div class="flow-node">Notion</div>
         <span class="flow-arrow">&middot;</span>
@@ -115,30 +155,60 @@
 
   <section class="req-section">
     <div class="inner">
-      <h2>시스템 요구사항 / Requirements</h2>
-      <div class="req-grid">
-        <div class="req-card">
-          <h3>시스템</h3>
-          <ul>
-            <li>Windows 10/11 64-bit</li>
-            <li>인터넷 연결 필수</li>
-            <li>4 GB RAM 이상</li>
-          </ul>
+      <div data-lang="en" class="active">
+        <h2>Requirements</h2>
+        <div class="req-grid">
+          <div class="req-card">
+            <h3>System</h3>
+            <ul>
+              <li>Windows 10/11 64-bit</li>
+              <li>Internet connection required</li>
+              <li>4 GB RAM or more</li>
+            </ul>
+          </div>
+          <div class="req-card">
+            <h3>AI Features</h3>
+            <ul>
+              <li>External AI provider account required</li>
+              <li>Anthropic Claude, Google Gemini, etc.</li>
+              <li>API key or CLI login required</li>
+            </ul>
+          </div>
+          <div class="req-card">
+            <h3>Telegram Bot</h3>
+            <ul>
+              <li>Telegram account required</li>
+              <li>Bot token required (create via BotFather)</li>
+            </ul>
+          </div>
         </div>
-        <div class="req-card">
-          <h3>AI 기능</h3>
-          <ul>
-            <li>외부 AI 제공자 계정 필요</li>
-            <li>Anthropic Claude, Google Gemini 등</li>
-            <li>API 키 또는 CLI 로그인 필요</li>
-          </ul>
-        </div>
-        <div class="req-card">
-          <h3>텔레그램 봇</h3>
-          <ul>
-            <li>Telegram 계정 필요</li>
-            <li>봇 토큰 필요 (BotFather로 생성)</li>
-          </ul>
+      </div>
+      <div data-lang="ko">
+        <h2>시스템 요구사항</h2>
+        <div class="req-grid">
+          <div class="req-card">
+            <h3>시스템</h3>
+            <ul>
+              <li>Windows 10/11 64-bit</li>
+              <li>인터넷 연결 필수</li>
+              <li>4 GB RAM 이상</li>
+            </ul>
+          </div>
+          <div class="req-card">
+            <h3>AI 기능</h3>
+            <ul>
+              <li>외부 AI 제공자 계정 필요</li>
+              <li>Anthropic Claude, Google Gemini 등</li>
+              <li>API 키 또는 CLI 로그인 필요</li>
+            </ul>
+          </div>
+          <div class="req-card">
+            <h3>텔레그램 봇</h3>
+            <ul>
+              <li>Telegram 계정 필요</li>
+              <li>봇 토큰 필요 (BotFather로 생성)</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -146,11 +216,29 @@
 
   <footer>
     <div class="footer-links">
-      <a href="/">홈 / Home</a>
-      <a href="/privacy/">개인정보처리방침 / Privacy</a>
-      <a href="/support/">고객지원 / Support</a>
+      <a href="/HyungGwangBotPages/" class="nav-en">Home</a><a href="/HyungGwangBotPages/" class="nav-ko" style="display:none">홈</a>
+      <a href="/HyungGwangBotPages/privacy/" class="nav-en">Privacy</a><a href="/HyungGwangBotPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a>
+      <a href="/HyungGwangBotPages/support/" class="nav-en">Support</a><a href="/HyungGwangBotPages/support/" class="nav-ko" style="display:none">고객지원</a>
     </div>
     <p class="copy">&copy; 2026 HyungGwangBot. All rights reserved.</p>
   </footer>
+
+  <script>
+    var lang = localStorage.getItem('lang') || 'en';
+    apply(lang);
+    function toggleLang() {
+      lang = lang === 'en' ? 'ko' : 'en';
+      localStorage.setItem('lang', lang);
+      apply(lang);
+    }
+    function apply(l) {
+      document.querySelectorAll('[data-lang]').forEach(function(el) {
+        el.classList.toggle('active', el.getAttribute('data-lang') === l);
+      });
+      document.querySelectorAll('.nav-en').forEach(function(el) { el.style.display = l === 'en' ? '' : 'none'; });
+      document.querySelectorAll('.nav-ko').forEach(function(el) { el.style.display = l === 'ko' ? '' : 'none'; });
+      document.querySelector('.lang-btn').textContent = l === 'en' ? '한국어' : 'English';
+    }
+  </script>
 </body>
 </html>
