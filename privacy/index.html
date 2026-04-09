@@ -41,6 +41,7 @@
         <ul>
           <li><a href="/TaskPilotSignalPages/" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" class="nav-ko" style="display:none">홈</a></li>
           <li><a href="/TaskPilotSignalPages/privacy/" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a></li>
+          <li><a href="/TaskPilotSignalPages/eula/" class="nav-en">EULA</a><a href="/TaskPilotSignalPages/eula/" class="nav-ko" style="display:none">이용약관</a></li>
           <li><a href="/TaskPilotSignalPages/support/" class="nav-en">Support</a><a href="/TaskPilotSignalPages/support/" class="nav-ko" style="display:none">고객지원</a></li>
         </ul>
         <button class="lang-btn" onclick="toggleLang()">한국어</button>
@@ -54,28 +55,31 @@
       <p class="subtitle">Last updated: 2026-04-09</p>
 
       <h2>1. Information We Process</h2>
-      <p>TaskPilotSignal processes information that users directly provide:</p>
+      <p>TaskPilotSignal processes information that users directly provide or generate while using the app, including:</p>
       <ul>
-        <li>AI provider API keys (Anthropic, Google, etc.)</li>
         <li>Telegram bot tokens</li>
-        <li>Notion / Google service connection credentials</li>
+        <li>Notion, Google, YouTube, or other service credentials that the user chooses to configure</li>
+        <li>Task definitions, app settings, and bot/session metadata required for local operation</li>
+        <li>Local sign-in or session data used by third-party CLI tools that the user chooses to use</li>
       </ul>
-      <p>All information is stored only on the user's local PC, encrypted with Windows DPAPI.</p>
+      <p>Sensitive local settings are stored on the user's PC. On Windows, supported secret fields are protected with Windows DPAPI.</p>
 
       <h2>2. External Transmission</h2>
-      <p>Requests are sent only to external services configured by the user:</p>
+      <p>TaskPilotSignal sends data only to the external services that the user chooses to connect:</p>
       <ul>
-        <li>AI providers (Anthropic Claude, Google Gemini, etc.) — AI analysis requests</li>
+        <li>AI providers or AI CLI tools chosen by the user — prompt/response processing</li>
         <li>Telegram API — bot message communication</li>
         <li>Notion API, Google Workspace API — document creation/editing</li>
+        <li>YouTube API or similar connected services — user-requested data access</li>
       </ul>
-      <p><strong>We do not transmit data to our own servers.</strong> TaskPilotSignal does not operate any separate servers.</p>
+      <p><strong>We do not operate our own relay or storage server for this app.</strong> TaskPilotSignal does not send your data to a separate developer-run backend.</p>
 
       <h2>3. Telegram Data</h2>
-      <p>The app communicates with the Telegram API using the user's own bot token. Conversation content and session data are stored locally only.</p>
+      <p>The app communicates with the Telegram API using the user's own bot token. Raw transcript persistence is off by default, but limited local session/state metadata may be stored privately so the bot can operate and resume safely.</p>
 
       <h2>4. Local Storage</h2>
-      <p>All settings, logs, and session data are stored only in the app's installation directory on the user's PC. Nothing is sent to external servers.</p>
+      <p>Release builds are designed to store settings, logs, and session/state files in app-specific per-user storage such as <code>%LOCALAPPDATA%\TaskPilotSignal</code>, not in the app installation directory.</p>
+      <p>These local files may include diagnostics, queue/session state, and configuration data needed for runtime stability.</p>
 
       <h2>5. Third-Party Services</h2>
       <p>Each AI provider and external service has its own privacy policy:</p>
@@ -86,7 +90,7 @@
       </ul>
 
       <h2>6. Data Deletion</h2>
-      <p>All local data is removed when the app is uninstalled. Deleting config.json immediately removes all stored credentials.</p>
+      <p>Uninstalling the app may not automatically remove per-user app data. Users can remove local settings, logs, and stored credentials by deleting the TaskPilotSignal app-data folder, typically under <code>%LOCALAPPDATA%\TaskPilotSignal</code>.</p>
 
       <h2>7. Contact</h2>
       <p>Privacy inquiries: <a class="link" href="mailto:rkddkdkdl@gmail.com">rkddkdkdl@gmail.com</a></p>
@@ -96,29 +100,32 @@
       <h1>개인정보처리방침</h1>
       <p class="subtitle">최종 수정일: 2026-04-09</p>
 
-      <h2>1. 수집하는 정보</h2>
-      <p>TaskPilotSignal은 사용자가 직접 입력한 다음 정보를 처리합니다:</p>
+      <h2>1. 처리하는 정보</h2>
+      <p>TaskPilotSignal은 사용자가 직접 입력하거나 사용 중에 생성되는 다음 정보를 처리합니다:</p>
       <ul>
-        <li>AI 제공자 API 키 (Anthropic, Google 등)</li>
         <li>텔레그램 봇 토큰</li>
-        <li>Notion / Google 서비스 연결 정보</li>
+        <li>사용자가 연결한 Notion, Google, YouTube 등 외부 서비스 자격 정보</li>
+        <li>작업 정의, 앱 설정, 봇/세션 운영에 필요한 메타데이터</li>
+        <li>사용자가 선택한 외부 CLI 도구의 로컬 로그인 또는 세션 정보</li>
       </ul>
-      <p>이 정보는 모두 사용자의 로컬 PC에만 저장되며, Windows DPAPI로 암호화되어 보호됩니다.</p>
+      <p>민감한 로컬 설정값은 사용자 PC에 저장되며, Windows에서는 지원되는 항목이 Windows DPAPI로 보호됩니다.</p>
 
       <h2>2. 외부 전송</h2>
       <p>사용자가 설정한 외부 서비스에만 요청을 전송합니다:</p>
       <ul>
-        <li>AI 제공자 (Anthropic Claude, Google Gemini 등) — AI 분석 요청</li>
+        <li>사용자가 선택한 AI 제공자 또는 AI CLI 도구 — 프롬프트/응답 처리</li>
         <li>Telegram API — 봇 메시지 송수신</li>
         <li>Notion API, Google Workspace API — 문서 작성/수정</li>
+        <li>YouTube API 등 연결된 서비스 — 사용자가 요청한 데이터 접근</li>
       </ul>
-      <p><strong>당사 서버로 데이터를 전송하지 않습니다.</strong> TaskPilotSignal은 별도의 서버를 운영하지 않습니다.</p>
+      <p><strong>별도의 개발자 운영 중계/저장 서버로 데이터를 보내지 않습니다.</strong> TaskPilotSignal은 이 앱을 위한 별도 백엔드를 운영하지 않습니다.</p>
 
       <h2>3. 텔레그램 데이터</h2>
-      <p>사용자의 텔레그램 봇 토큰을 사용하여 Telegram API와 통신합니다. 대화 내용 및 세션 데이터는 로컬에만 저장됩니다.</p>
+      <p>사용자의 텔레그램 봇 토큰을 사용하여 Telegram API와 통신합니다. 원문 대화 저장은 기본적으로 꺼져 있지만, 봇의 안정적 동작과 세션 복구를 위해 제한적인 로컬 상태/메타데이터가 비공개 저장소에 기록될 수 있습니다.</p>
 
       <h2>4. 로컬 저장</h2>
-      <p>모든 설정, 로그, 세션 데이터는 사용자 PC의 앱 설치 경로에만 저장됩니다. 외부 서버로 전송되지 않습니다.</p>
+      <p>릴리스 빌드는 설정, 로그, 세션/상태 파일을 앱 설치 폴더가 아니라 보통 <code>%LOCALAPPDATA%\TaskPilotSignal</code> 같은 사용자별 앱 데이터 경로에 저장하도록 설계되어 있습니다.</p>
+      <p>이 로컬 파일에는 진단 로그, 큐/세션 상태, 런타임 안정성을 위한 설정 데이터가 포함될 수 있습니다.</p>
 
       <h2>5. 제3자 서비스</h2>
       <p>각 AI 제공자 및 외부 서비스의 개인정보 처리방침은 해당 서비스의 약관에 따릅니다:</p>
@@ -129,7 +136,7 @@
       </ul>
 
       <h2>6. 데이터 삭제</h2>
-      <p>앱 삭제 시 모든 로컬 데이터가 삭제됩니다. config.json 파일을 삭제하면 모든 인증 정보를 즉시 제거할 수 있습니다.</p>
+      <p>앱 제거만으로 사용자별 앱 데이터가 항상 자동 삭제되는 것은 아닙니다. 로컬 설정, 로그, 저장된 인증 정보는 보통 <code>%LOCALAPPDATA%\TaskPilotSignal</code> 아래의 앱 데이터 폴더를 삭제하여 함께 제거할 수 있습니다.</p>
 
       <h2>7. 문의</h2>
       <p>개인정보 관련 문의: <a class="link" href="mailto:rkddkdkdl@gmail.com">rkddkdkdl@gmail.com</a></p>
@@ -140,6 +147,7 @@
     <div class="footer-links">
       <a href="/TaskPilotSignalPages/" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" class="nav-ko" style="display:none">홈</a>
       <a href="/TaskPilotSignalPages/privacy/" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a>
+      <a href="/TaskPilotSignalPages/eula/" class="nav-en">EULA</a><a href="/TaskPilotSignalPages/eula/" class="nav-ko" style="display:none">이용약관</a>
       <a href="/TaskPilotSignalPages/support/" class="nav-en">Support</a><a href="/TaskPilotSignalPages/support/" class="nav-ko" style="display:none">고객지원</a>
     </div>
     <p class="copy">&copy; 2026 TaskPilotSignal. All rights reserved.</p>

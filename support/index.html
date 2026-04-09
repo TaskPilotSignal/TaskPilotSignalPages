@@ -46,6 +46,7 @@
         <ul>
           <li><a href="/TaskPilotSignalPages/" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" class="nav-ko" style="display:none">홈</a></li>
           <li><a href="/TaskPilotSignalPages/privacy/" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a></li>
+          <li><a href="/TaskPilotSignalPages/eula/" class="nav-en">EULA</a><a href="/TaskPilotSignalPages/eula/" class="nav-ko" style="display:none">이용약관</a></li>
           <li><a href="/TaskPilotSignalPages/support/" class="nav-en">Support</a><a href="/TaskPilotSignalPages/support/" class="nav-ko" style="display:none">고객지원</a></li>
         </ul>
         <button class="lang-btn" onclick="toggleLang()">한국어</button>
@@ -69,7 +70,7 @@
 
       <div class="faq-item">
         <div class="faq-q">Q: AI features are not working</div>
-        <div class="faq-a">A: Verify that your AI provider account and API key are correctly configured. Check the connection status in Settings. Errors may occur if your API key has expired or your balance is insufficient.</div>
+        <div class="faq-a">A: Verify that the required provider CLI is installed and signed in, or that the needed third-party credentials are configured in the app. Check the connection status in Settings before retrying.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Q: Telegram bot is not responding</div>
@@ -80,12 +81,12 @@
         <div class="faq-a">A: Ensure you are running Windows 10 or later. Try reinstalling the app and verify write permissions on the installation path.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Q: Are my API keys safe?</div>
-        <div class="faq-a">A: All credentials are encrypted with Windows DPAPI and stored locally only. Nothing is sent to external servers. Deleting config.json immediately removes all stored credentials.</div>
+        <div class="faq-q">Q: Are my credentials safe?</div>
+        <div class="faq-a">A: Supported secret fields are protected locally with Windows DPAPI when available. TaskPilotSignal does not operate its own backend server, but any data you send to connected third-party services is processed by those services under their own terms.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Q: Pipeline fails during execution</div>
-        <div class="faq-a">A: Verify that connected external services (Notion, Google Docs, etc.) have valid access permissions. Check the log files for detailed error information.</div>
+        <div class="faq-a">A: Verify that connected external services (Notion, Google Docs, YouTube, etc.) still have valid access permissions. Release builds store diagnostics under %LOCALAPPDATA%\\TaskPilotSignal if support asks you to check runtime logs.</div>
       </div>
     </div>
 
@@ -104,7 +105,7 @@
 
       <div class="faq-item">
         <div class="faq-q">Q: AI 기능이 작동하지 않아요</div>
-        <div class="faq-a">A: AI 제공자 계정과 API 키가 올바르게 설정되었는지 확인하세요. 설정 화면에서 AI 연결 상태를 확인할 수 있습니다. API 키가 만료되었거나 잔액이 부족한 경우에도 오류가 발생할 수 있습니다.</div>
+        <div class="faq-a">A: 필요한 AI CLI가 설치되어 있고 로그인되어 있는지, 또는 필요한 외부 서비스 자격 정보가 앱에 설정되어 있는지 확인하세요. 다시 시도하기 전에 설정 화면에서 연결 상태를 확인해보세요.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Q: 텔레그램 봇이 응답하지 않아요</div>
@@ -115,12 +116,12 @@
         <div class="faq-a">A: Windows 10 이상인지 확인하세요. 앱을 재설치하거나, 설치 경로에 쓰기 권한이 있는지 확인해보세요.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Q: API 키는 안전한가요?</div>
-        <div class="faq-a">A: 모든 인증 정보는 Windows DPAPI로 암호화되어 로컬에만 저장됩니다. 외부 서버로 전송되지 않습니다. config.json 파일을 삭제하면 모든 인증 정보를 즉시 제거할 수 있습니다.</div>
+        <div class="faq-q">Q: 인증 정보는 안전한가요?</div>
+        <div class="faq-a">A: 지원되는 민감 정보는 가능할 때 Windows DPAPI로 로컬 보호됩니다. TaskPilotSignal은 별도의 자체 백엔드 서버를 운영하지 않지만, 사용자가 연결한 외부 서비스로 보낸 데이터는 각 서비스의 약관과 정책에 따라 처리됩니다.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Q: 파이프라인 실행 중 오류가 발생해요</div>
-        <div class="faq-a">A: 연결된 외부 서비스(Notion, Google Docs 등)의 접근 권한이 유효한지 확인하세요. 로그 파일에서 상세한 오류 내용을 확인할 수 있습니다.</div>
+        <div class="faq-a">A: 연결된 외부 서비스(Notion, Google Docs, YouTube 등)의 접근 권한이 여전히 유효한지 확인하세요. 릴리스 빌드의 진단 로그는 보통 %LOCALAPPDATA%\\TaskPilotSignal 아래에 저장되므로, 지원 요청 시 그 경로를 확인하면 됩니다.</div>
       </div>
     </div>
   </main>
@@ -129,6 +130,7 @@
     <div class="footer-links">
       <a href="/TaskPilotSignalPages/" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" class="nav-ko" style="display:none">홈</a>
       <a href="/TaskPilotSignalPages/privacy/" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a>
+      <a href="/TaskPilotSignalPages/eula/" class="nav-en">EULA</a><a href="/TaskPilotSignalPages/eula/" class="nav-ko" style="display:none">이용약관</a>
       <a href="/TaskPilotSignalPages/support/" class="nav-en">Support</a><a href="/TaskPilotSignalPages/support/" class="nav-ko" style="display:none">고객지원</a>
     </div>
     <p class="copy">&copy; 2026 TaskPilotSignal. All rights reserved.</p>

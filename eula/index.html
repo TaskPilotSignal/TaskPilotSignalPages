@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EULA - TaskPilotSignal</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #1b2838; --card: #2a3f5f; --nav: #171d25; --text: #c7d5e0; --dim: #8f98a0; --accent: #67c1f5; --border: #3d5a7a; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; }
+    nav { background: var(--nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+    .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; height: 50px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-weight: 700; color: var(--accent); text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav a { color: var(--dim); text-decoration: none; font-size: .875rem; }
+    nav a:hover { color: var(--accent); }
+    .lang-btn { background: transparent; border: 1px solid var(--border); color: var(--accent); padding: .25rem .7rem; border-radius: 4px; cursor: pointer; font-size: .8rem; font-weight: 600; transition: background .15s; }
+    .lang-btn:hover { background: rgba(103,193,245,.12); }
+    main { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem; }
+    h1 { font-size: 1.8rem; color: #e8f0f7; margin-bottom: .3rem; }
+    .subtitle { font-size: .9rem; color: var(--dim); margin-bottom: 2.5rem; }
+    h2 { font-size: 1.15rem; color: var(--accent); margin: 2rem 0 .6rem; }
+    p, li { font-size: .92rem; color: var(--text); margin-bottom: .5rem; }
+    ul { padding-left: 1.5rem; margin-bottom: .5rem; }
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+    footer { background: var(--nav); border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: .5rem; }
+    .footer-links a { color: var(--dim); text-decoration: none; font-size: .85rem; }
+    .footer-links a:hover { color: var(--accent); }
+    .copy { font-size: .78rem; color: #576370; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="/TaskPilotSignalPages/">TaskPilotSignal</a>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/TaskPilotSignalPages/" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" class="nav-ko" style="display:none">홈</a></li>
+          <li><a href="/TaskPilotSignalPages/privacy/" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a></li>
+          <li><a href="/TaskPilotSignalPages/eula/" class="nav-en">EULA</a><a href="/TaskPilotSignalPages/eula/" class="nav-ko" style="display:none">이용약관</a></li>
+          <li><a href="/TaskPilotSignalPages/support/" class="nav-en">Support</a><a href="/TaskPilotSignalPages/support/" class="nav-ko" style="display:none">고객지원</a></li>
+        </ul>
+        <button class="lang-btn" onclick="toggleLang()">한국어</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div data-lang="en" class="active">
+      <h1>End User License Agreement</h1>
+      <p class="subtitle">Last updated: 2026-04-09</p>
+
+      <p>This End User License Agreement ("Agreement") is between you and the Licensor of TaskPilotSignal ("Licensor"). By installing, launching, or using TaskPilotSignal, you agree to this Agreement.</p>
+
+      <h2>1. License Grant</h2>
+      <p>The Licensor grants you a limited, non-exclusive, non-transferable, revocable license to install and use TaskPilotSignal for your own lawful use.</p>
+      <p>Except as permitted by applicable law or applicable third-party open-source licenses included with the software, you may not copy, redistribute, sublicense, sell, or reverse engineer TaskPilotSignal.</p>
+
+      <h2>2. Third-Party Services</h2>
+      <p>TaskPilotSignal may interact with third-party services selected or configured by you, including AI tools, Telegram, Notion, Google services, YouTube, and similar providers.</p>
+      <p>Some features may require third-party accounts, local CLI sign-in, tokens, credentials, or service permissions. You are responsible for obtaining and maintaining those rights and for complying with the terms of the third-party services you use.</p>
+
+      <h2>3. Local Storage and Data Flow</h2>
+      <p>TaskPilotSignal stores settings, credentials, logs, and session data locally on your device. In release builds, runtime data is intended to be stored primarily under per-user application data paths rather than the app installation directory.</p>
+      <p>When you use integrated features, prompts, messages, files, or other content may be transmitted to the third-party services you configured so those services can respond or perform the requested work.</p>
+      <p>The Licensor does not operate a separate hosted backend service for routing this data.</p>
+
+      <h2>4. User Responsibility</h2>
+      <ul>
+        <li>the content you send through the software;</li>
+        <li>reviewing outputs produced by third-party AI or automation tools;</li>
+        <li>keeping your device, accounts, and third-party credentials secure;</li>
+        <li>ensuring your use of the software complies with applicable law and third-party terms.</li>
+      </ul>
+
+      <h2>5. Updates</h2>
+      <p>TaskPilotSignal may be updated, patched, or modified over time. Features may change, be added, or be removed without notice.</p>
+
+      <h2>6. No Warranty</h2>
+      <p>To the maximum extent permitted by applicable law, TaskPilotSignal is provided "AS IS" and "AS AVAILABLE", without warranties of any kind, whether express, implied, or statutory.</p>
+
+      <h2>7. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable law, the Licensor will not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for any loss of data, business, profits, goodwill, or service availability arising from or related to TaskPilotSignal or its use with third-party services.</p>
+    </div>
+
+    <div data-lang="ko">
+      <h1>최종 사용자 사용권 계약</h1>
+      <p class="subtitle">최종 수정일: 2026-04-09</p>
+
+      <p>본 최종 사용자 사용권 계약("계약")은 귀하와 TaskPilotSignal의 사용권 허여자("Licensor") 사이에 체결됩니다. TaskPilotSignal을 설치, 실행 또는 사용하는 경우 귀하는 본 계약에 동의한 것으로 간주됩니다.</p>
+
+      <h2>1. 사용권 부여</h2>
+      <p>Licensor는 귀하에게 TaskPilotSignal을 합법적인 목적 범위에서 설치하고 사용할 수 있는 제한적, 비독점적, 양도 불가, 철회 가능한 사용권을 부여합니다.</p>
+      <p>적용 법률 또는 소프트웨어에 포함된 제3자 오픈소스 라이선스가 허용하는 범위를 제외하고, 귀하는 TaskPilotSignal을 복제, 재배포, 재허가, 판매 또는 리버스 엔지니어링할 수 없습니다.</p>
+
+      <h2>2. 제3자 서비스</h2>
+      <p>TaskPilotSignal은 귀하가 선택하거나 설정한 제3자 서비스와 연동될 수 있으며, 여기에는 AI 도구, Telegram, Notion, Google 서비스, YouTube 및 유사한 제공자가 포함됩니다.</p>
+      <p>일부 기능은 제3자 계정, 로컬 CLI 로그인, 토큰, 자격 정보 또는 서비스 권한을 요구할 수 있습니다. 귀하는 이러한 권한을 스스로 확보하고 유지해야 하며, 사용하는 제3자 서비스의 약관을 준수할 책임이 있습니다.</p>
+
+      <h2>3. 로컬 저장 및 데이터 흐름</h2>
+      <p>TaskPilotSignal은 설정, 자격 정보, 로그 및 세션 데이터를 귀하의 장치에 로컬로 저장합니다. 릴리스 빌드에서는 런타임 데이터가 앱 설치 폴더가 아니라 사용자별 앱 데이터 경로에 저장되도록 설계되어 있습니다.</p>
+      <p>귀하가 통합 기능을 사용할 때, 프롬프트, 메시지, 파일 또는 기타 콘텐츠는 귀하가 설정한 제3자 서비스로 전송될 수 있으며, 해당 서비스는 이를 바탕으로 응답하거나 요청된 작업을 수행합니다.</p>
+      <p>Licensor는 이러한 데이터를 중계하거나 저장하기 위한 별도의 호스팅 백엔드 서비스를 운영하지 않습니다.</p>
+
+      <h2>4. 사용자 책임</h2>
+      <ul>
+        <li>소프트웨어를 통해 전송하는 콘텐츠</li>
+        <li>제3자 AI 또는 자동화 도구가 생성한 결과물의 검토</li>
+        <li>자신의 장치, 계정 및 제3자 자격 정보의 보안 유지</li>
+        <li>소프트웨어 사용이 관련 법률 및 제3자 약관을 준수하도록 하는 것</li>
+      </ul>
+
+      <h2>5. 업데이트</h2>
+      <p>TaskPilotSignal은 시간이 지남에 따라 업데이트, 패치 또는 수정될 수 있습니다. 기능은 사전 통지 없이 추가, 변경 또는 제거될 수 있습니다.</p>
+
+      <h2>6. 보증 부인</h2>
+      <p>적용 법률이 허용하는 최대 범위 내에서, TaskPilotSignal은 "있는 그대로(AS IS)" 그리고 "제공 가능한 상태(AS AVAILABLE)"로 제공되며, 어떠한 명시적, 묵시적, 법정 보증도 제공하지 않습니다.</p>
+
+      <h2>7. 책임 제한</h2>
+      <p>적용 법률이 허용하는 최대 범위 내에서, Licensor는 TaskPilotSignal 또는 제3자 서비스와 함께 사용하는 과정에서 발생하는 간접손해, 부수손해, 특별손해, 결과손해, 징벌적 손해 또는 데이터, 사업, 이익, 영업권, 서비스 가용성의 손실에 대해 책임지지 않습니다.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/TaskPilotSignalPages/" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" class="nav-ko" style="display:none">홈</a>
+      <a href="/TaskPilotSignalPages/privacy/" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a>
+      <a href="/TaskPilotSignalPages/eula/" class="nav-en">EULA</a><a href="/TaskPilotSignalPages/eula/" class="nav-ko" style="display:none">이용약관</a>
+      <a href="/TaskPilotSignalPages/support/" class="nav-en">Support</a><a href="/TaskPilotSignalPages/support/" class="nav-ko" style="display:none">고객지원</a>
+    </div>
+    <p class="copy">&copy; 2026 TaskPilotSignal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    var lang = localStorage.getItem('lang') || 'en';
+    apply(lang);
+    function toggleLang() {
+      lang = lang === 'en' ? 'ko' : 'en';
+      localStorage.setItem('lang', lang);
+      apply(lang);
+    }
+    function apply(l) {
+      document.querySelectorAll('[data-lang]').forEach(function(el) {
+        el.classList.toggle('active', el.getAttribute('data-lang') === l);
+      });
+      document.querySelectorAll('.nav-en').forEach(function(el) { el.style.display = l === 'en' ? '' : 'none'; });
+      document.querySelectorAll('.nav-ko').forEach(function(el) { el.style.display = l === 'ko' ? '' : 'none'; });
+      document.querySelector('.lang-btn').textContent = l === 'en' ? 'English' : '한국어';
+    }
+  </script>
+</body>
+</html>
