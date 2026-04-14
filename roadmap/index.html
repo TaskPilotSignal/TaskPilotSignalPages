@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap - TaskPilotSignal</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #1b2838; --card: #2a3f5f; --nav: #171d25; --text: #c7d5e0; --dim: #8f98a0; --accent: #67c1f5; --border: #3d5a7a; --green: #4caf50; --orange: #ff9800; --blue: #2196f3; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; }
+    nav { background: var(--nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+    .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; height: 50px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-weight: 700; color: var(--accent); text-decoration: none; }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav a { color: var(--dim); text-decoration: none; font-size: .875rem; }
+    nav a:hover, nav a.active { color: var(--accent); }
+    .lang-btn { background: transparent; border: 1px solid var(--border); color: var(--accent); padding: .25rem .7rem; border-radius: 4px; cursor: pointer; font-size: .8rem; font-weight: 600; transition: background .15s; }
+    .lang-btn:hover { background: rgba(103,193,245,.12); }
+    .hero { text-align: center; padding: 3rem 1.5rem 2rem; background: linear-gradient(160deg, #1b2838, #1e3a5f, #1b2838); border-bottom: 1px solid var(--border); }
+    .hero h1 { font-size: 2rem; color: #e8f0f7; margin-bottom: .5rem; }
+    .hero p { color: var(--dim); font-size: 1rem; }
+    section { padding: 2.5rem 1.5rem; }
+    .inner { max-width: 900px; margin: 0 auto; }
+    h2 { font-size: 1.3rem; color: var(--accent); margin-bottom: 1.2rem; display: flex; align-items: center; gap: .5rem; }
+    .update-group { margin-bottom: 2.5rem; }
+    .update-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.5rem; margin-bottom: .8rem; transition: border-color .2s; }
+    .update-card:hover { border-color: var(--accent); }
+    .update-card h3 { font-size: .95rem; color: #dde8f0; margin-bottom: .4rem; }
+    .update-card p { font-size: .85rem; color: var(--dim); }
+    .tag { display: inline-block; font-size: .7rem; font-weight: 600; padding: .15rem .5rem; border-radius: 3px; margin-right: .4rem; text-transform: uppercase; }
+    .tag-new { background: rgba(76,175,80,.2); color: var(--green); }
+    .tag-improve { background: rgba(33,150,243,.2); color: var(--blue); }
+    .tag-security { background: rgba(255,152,0,.2); color: var(--orange); }
+    .timeline { font-size: .8rem; color: var(--dim); margin-bottom: .3rem; }
+    footer { background: var(--nav); border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: .5rem; }
+    .footer-links a { color: var(--dim); text-decoration: none; font-size: .85rem; }
+    .footer-links a:hover { color: var(--accent); }
+    .copy { font-size: .78rem; color: #576370; }
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+    @media(max-width:600px) { nav ul { gap: .75rem; } section { padding: 2rem 1rem; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="/TaskPilotSignalPages/">TaskPilotSignal</a>
+      <div class="nav-right">
+        <ul>
+          <li><a href="/TaskPilotSignalPages/" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" class="nav-ko" style="display:none">Home</a></li>
+          <li><a href="/TaskPilotSignalPages/roadmap/" class="nav-en active">Roadmap</a><a href="/TaskPilotSignalPages/roadmap/" class="nav-ko active" style="display:none">Roadmap</a></li>
+          <li><a href="/TaskPilotSignalPages/privacy/" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" class="nav-ko" style="display:none">Privacy</a></li>
+          <li><a href="/TaskPilotSignalPages/support/" class="nav-en">Support</a><a href="/TaskPilotSignalPages/support/" class="nav-ko" style="display:none">Support</a></li>
+        </ul>
+        <button class="lang-btn" onclick="toggleLang()">English</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Roadmap</h1>
+    <div data-lang="en" class="active">
+      <p>Upcoming updates planned within 2 weeks of launch (April 22, 2026)</p>
+    </div>
+    <div data-lang="ko">
+      <p>4/22 출시 후 2주 내 업데이트 예정 항목</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="inner">
+
+      <!-- v1.1 -->
+      <div data-lang="en" class="active">
+        <div class="update-group">
+          <h2>v1.1 &mdash; UI & Performance</h2>
+          <p class="timeline">Target: 1-2 weeks after launch</p>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> Faster UI Rendering</h3>
+            <p>Smoother tab switching and language changes. No more screen flickering when navigating between pages.</p>
+          </div>
+          <div class="update-card">
+            <h3><span class="tag tag-new">New</span> Pipeline Execution History</h3>
+            <p>See how long each pipeline run took and when it completed, right on the dashboard.</p>
+          </div>
+          <div class="update-card">
+            <h3><span class="tag tag-new">New</span> AI Auto-Generate Pipeline Tasks</h3>
+            <p>Describe what you want in plain language, and AI will automatically configure your pipeline settings.</p>
+          </div>
+        </div>
+
+        <div class="update-group">
+          <h2>v1.2 &mdash; Telegram Bot Enhancements</h2>
+          <p class="timeline">Target: 2-3 weeks after launch</p>
+          <div class="update-card">
+            <h3><span class="tag tag-new">New</span> Session ID Sharing</h3>
+            <p>View active AI session IDs in Telegram. Continue conversations seamlessly between Telegram and your local CLI.</p>
+          </div>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> Smarter AI Switching</h3>
+            <p>Improved AI provider fallback when rate limits are hit. Conversations continue without interruption.</p>
+          </div>
+        </div>
+
+        <div class="update-group">
+          <h2>v1.3 &mdash; Settings & Security</h2>
+          <p class="timeline">Target: 3-4 weeks after launch</p>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> Global Google Credentials</h3>
+            <p>Set up Google service accounts once in Settings, then use them across all tasks by name.</p>
+          </div>
+          <div class="update-card">
+            <h3><span class="tag tag-security">Security</span> Enhanced Protection</h3>
+            <p>Stronger path validation, improved log sanitization, and hardened subprocess handling.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Korean -->
+      <div data-lang="ko">
+        <div class="update-group">
+          <h2>v1.1 &mdash; UI & Performance</h2>
+          <p class="timeline">Target: 1-2 weeks after launch</p>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> UI Performance</h3>
+            <p>Tab switching, language change smoother. Screen flickering reduced.</p>
+          </div>
+          <div class="update-card">
+            <h3><span class="tag tag-new">New</span> Pipeline Execution History</h3>
+            <p>See how long each pipeline run took and when it completed, right on the dashboard.</p>
+          </div>
+          <div class="update-card">
+            <h3><span class="tag tag-new">New</span> AI Auto-Generate Pipeline Tasks</h3>
+            <p>Describe what you want in plain language, and AI will automatically configure your pipeline settings.</p>
+          </div>
+        </div>
+
+        <div class="update-group">
+          <h2>v1.2 &mdash; Telegram Bot Enhancements</h2>
+          <p class="timeline">Target: 2-3 weeks after launch</p>
+          <div class="update-card">
+            <h3><span class="tag tag-new">New</span> Session ID Sharing</h3>
+            <p>View active AI session IDs in Telegram. Continue conversations seamlessly between Telegram and your local CLI.</p>
+          </div>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> Smarter AI Switching</h3>
+            <p>Improved AI provider fallback when rate limits are hit. Conversations continue without interruption.</p>
+          </div>
+        </div>
+
+        <div class="update-group">
+          <h2>v1.3 &mdash; Settings & Security</h2>
+          <p class="timeline">Target: 3-4 weeks after launch</p>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> Global Google Credentials</h3>
+            <p>Set up Google service accounts once in Settings, then use them across all tasks by name.</p>
+          </div>
+          <div class="update-card">
+            <h3><span class="tag tag-security">Security</span> Enhanced Protection</h3>
+            <p>Stronger path validation, improved log sanitization, and hardened subprocess handling.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/TaskPilotSignalPages/" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" class="nav-ko" style="display:none">Home</a>
+      <a href="/TaskPilotSignalPages/roadmap/" class="nav-en">Roadmap</a><a href="/TaskPilotSignalPages/roadmap/" class="nav-ko" style="display:none">Roadmap</a>
+      <a href="/TaskPilotSignalPages/privacy/" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" class="nav-ko" style="display:none">Privacy</a>
+      <a href="/TaskPilotSignalPages/support/" class="nav-en">Support</a><a href="/TaskPilotSignalPages/support/" class="nav-ko" style="display:none">Support</a>
+    </div>
+    <p class="copy">&copy; 2026 TaskPilotSignal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    var lang = localStorage.getItem('lang') || 'en';
+    apply(lang);
+    function toggleLang() {
+      lang = lang === 'en' ? 'ko' : 'en';
+      localStorage.setItem('lang', lang);
+      apply(lang);
+    }
+    function apply(l) {
+      document.querySelectorAll('[data-lang]').forEach(function(el) {
+        el.classList.toggle('active', el.getAttribute('data-lang') === l);
+      });
+      document.querySelectorAll('.nav-en').forEach(function(el) { el.style.display = l === 'en' ? '' : 'none'; });
+      document.querySelectorAll('.nav-ko').forEach(function(el) { el.style.display = l === 'ko' ? '' : 'none'; });
+      document.querySelector('.lang-btn').textContent = l === 'en' ? 'English' : 'Korean';
+    }
+  </script>
+</body>
+</html>
