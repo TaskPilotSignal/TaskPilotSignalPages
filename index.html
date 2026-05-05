@@ -20,6 +20,13 @@
     .hero { text-align: center; padding: 5rem 1.5rem 4rem; background: linear-gradient(160deg, #1b2838, #1e3a5f, #1b2838); border-bottom: 1px solid var(--border); }
     .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: #e8f0f7; margin-bottom: .5rem; }
     .tagline { font-size: 1.2rem; color: var(--accent); font-weight: 600; margin-bottom: 2rem; }
+    .showcase { background: #162130; border-bottom: 1px solid var(--border); }
+    .showcase-lead { max-width: 640px; margin: -0.6rem auto 1.6rem; text-align: center; color: var(--dim); font-size: .92rem; }
+    .screenshot-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(240px, .8fr); gap: 1rem; align-items: stretch; }
+    .shot-card { background: #101923; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 18px 45px rgba(0,0,0,.22); }
+    .shot-card img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .shot-stack { display: grid; gap: 1rem; }
+    .shot-caption { padding: .8rem 1rem; border-top: 1px solid rgba(103,193,245,.18); color: var(--dim); font-size: .82rem; background: rgba(23,29,37,.86); }
     section { padding: 3.5rem 1.5rem; }
     .inner { max-width: 900px; margin: 0 auto; }
     h2 { font-size: 1.4rem; color: #dde8f0; margin-bottom: 1.5rem; text-align: center; }
@@ -53,6 +60,7 @@
     [data-lang].active { display: block; }
     .hero [data-lang].active { display: block; }
     .features [data-lang].active, .req-grid [data-lang].active { display: block; }
+    @media(max-width:760px) { .screenshot-grid { grid-template-columns: 1fr; } .shot-card img { height: auto; } }
     @media(max-width:600px) { nav ul { gap: .75rem; } section { padding: 2.5rem 1rem; } .nav-right { gap: .75rem; } }
   </style>
 </head>
@@ -82,6 +90,35 @@
       <p class="tagline">AI 파이프라인 자동화 & 텔레그램 봇 관리 도구</p>
     </div>
   </div>
+
+  <section class="showcase">
+    <div class="inner">
+      <div data-lang="en" class="active">
+        <h2>Built for Real Windows Workflows</h2>
+        <p class="showcase-lead">Create scheduled AI pipelines, manage Telegram bot assistants, and connect delivery targets from one native desktop app.</p>
+      </div>
+      <div data-lang="ko">
+        <h2>실제 Windows 작업 흐름을 위한 앱</h2>
+        <p class="showcase-lead">예약 AI 파이프라인, 텔레그램 AI 봇, 전달 대상 연결을 하나의 네이티브 데스크톱 앱에서 관리합니다.</p>
+      </div>
+      <div class="screenshot-grid" aria-label="TaskPilotSignal product screenshots">
+        <figure class="shot-card">
+          <img src="assets/screenshots/01_dashboard.png" alt="TaskPilotSignal dashboard with pipeline cards and quick actions">
+          <figcaption class="shot-caption">Dashboard overview with pipeline status and quick actions.</figcaption>
+        </figure>
+        <div class="shot-stack">
+          <figure class="shot-card">
+            <img src="assets/screenshots/02_pipeline_editor.png" alt="Pipeline editor with AI setup and scheduling options">
+            <figcaption class="shot-caption">AI-assisted pipeline setup.</figcaption>
+          </figure>
+          <figure class="shot-card">
+            <img src="assets/screenshots/04_settings_connections.png" alt="Settings page showing AI and service connection setup">
+            <figcaption class="shot-caption">Service connections and setup guide.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section>
     <div class="inner">
