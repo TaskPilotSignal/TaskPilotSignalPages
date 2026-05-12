@@ -46,6 +46,8 @@
     .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
     .guide-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
     .guide-card h3 { font-size: .98rem; color: #dde8f0; margin-bottom: .65rem; }
+    .guide-shot { margin: 0 0 .85rem; border: 1px solid rgba(103,193,245,.22); border-radius: 8px; overflow: hidden; background: #101923; }
+    .guide-shot img { width: 100%; display: block; }
     .guide-card ol, .guide-card ul { margin-left: 1.1rem; color: var(--dim); font-size: .84rem; }
     .guide-card li { margin-bottom: .4rem; }
     .guide-card code { display: inline-block; max-width: 100%; overflow-wrap: anywhere; background: rgba(23,29,37,.75); color: #d9edf8; border: 1px solid rgba(103,193,245,.18); border-radius: 4px; padding: .08rem .35rem; font-size: .78rem; }
@@ -221,6 +223,9 @@
         <div class="guide-grid">
           <div class="guide-card">
             <h3>1. Create a Pipeline Task</h3>
+            <figure class="guide-shot">
+              <img src="assets/guide/pipeline-auto-configure.png" alt="AI auto-configure panel in the pipeline task editor">
+            </figure>
             <ol>
               <li>Click <strong>Add New Feature / Task</strong> from the dashboard.</li>
               <li>Choose <strong>Pipeline Task</strong>.</li>
@@ -231,6 +236,9 @@
           </div>
           <div class="guide-card">
             <h3>2. Connect Google Workspace</h3>
+            <figure class="guide-shot">
+              <img src="assets/guide/google-workspace-connection.png" alt="Google Workspace connection card in Settings">
+            </figure>
             <ol>
               <li>Open <strong>Settings</strong> and click <strong>Connect Google</strong>.</li>
               <li>Follow the step-by-step Google Cloud guide shown in the app.</li>
@@ -241,6 +249,9 @@
           </div>
           <div class="guide-card">
             <h3>3. Get a Telegram Bot Token</h3>
+            <figure class="guide-shot">
+              <img src="assets/guide/telegram-bot-token.png" alt="Telegram bot token card with a verified demo bot">
+            </figure>
             <ol>
               <li>Open Telegram and search for <strong>@BotFather</strong>.</li>
               <li>Send <code>/newbot</code> and follow BotFather's prompts.</li>
@@ -276,6 +287,9 @@
         <div class="guide-grid">
           <div class="guide-card">
             <h3>1. 작업 파이프라인 만들기</h3>
+            <figure class="guide-shot">
+              <img src="assets/guide/pipeline-auto-configure.png" alt="파이프라인 작업 편집의 AI 자동 설정 화면">
+            </figure>
             <ol>
               <li>대시보드에서 <strong>새로운 기능/작업 추가</strong>를 누릅니다.</li>
               <li><strong>파이프라인 작업</strong>을 선택합니다.</li>
@@ -286,6 +300,9 @@
           </div>
           <div class="guide-card">
             <h3>2. Google Workspace 연결</h3>
+            <figure class="guide-shot">
+              <img src="assets/guide/google-workspace-connection.png" alt="설정 화면의 Google Workspace 연결 카드">
+            </figure>
             <ol>
               <li><strong>설정</strong>에서 <strong>Google 연결</strong>을 누릅니다.</li>
               <li>앱에 표시되는 단계별 Google Cloud 가이드를 따릅니다.</li>
@@ -296,6 +313,9 @@
           </div>
           <div class="guide-card">
             <h3>3. 텔레그램 봇 토큰 얻기</h3>
+            <figure class="guide-shot">
+              <img src="assets/guide/telegram-bot-token.png" alt="검증된 데모 봇이 표시된 텔레그램 봇 토큰 카드">
+            </figure>
             <ol>
               <li>Telegram에서 <strong>@BotFather</strong>를 검색합니다.</li>
               <li><code>/newbot</code>을 보내고 BotFather의 안내를 따릅니다.</li>
