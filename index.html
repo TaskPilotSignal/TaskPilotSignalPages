@@ -20,6 +20,7 @@
     .hero { text-align: center; padding: 5rem 1.5rem 4rem; background: linear-gradient(160deg, #1b2838, #1e3a5f, #1b2838); border-bottom: 1px solid var(--border); }
     .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: #e8f0f7; margin-bottom: .5rem; }
     .tagline { font-size: 1.2rem; color: var(--accent); font-weight: 600; margin-bottom: 2rem; }
+    .release-note { display: inline-block; margin-top: -1rem; padding: .45rem .85rem; border: 1px solid rgba(103,193,245,.35); border-radius: 999px; background: rgba(103,193,245,.12); color: #d9edf8; font-size: .85rem; font-weight: 600; }
     .showcase { background: #162130; border-bottom: 1px solid var(--border); }
     .showcase-lead { max-width: 640px; margin: -0.6rem auto 1.6rem; text-align: center; color: var(--dim); font-size: .92rem; }
     .screenshot-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(240px, .8fr); gap: 1rem; align-items: stretch; }
@@ -40,6 +41,18 @@
     .flow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem; margin-top: 1rem; }
     .flow-node { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: .5rem 1rem; font-size: .85rem; }
     .flow-arrow { color: var(--accent); font-size: 1.1rem; }
+    .guide-section { background: #162130; border-bottom: 1px solid var(--border); }
+    .guide-lead { max-width: 680px; margin: -0.5rem auto 1.5rem; text-align: center; color: var(--dim); font-size: .92rem; }
+    .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .guide-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+    .guide-card h3 { font-size: .98rem; color: #dde8f0; margin-bottom: .65rem; }
+    .guide-card ol, .guide-card ul { margin-left: 1.1rem; color: var(--dim); font-size: .84rem; }
+    .guide-card li { margin-bottom: .4rem; }
+    .guide-card code { display: inline-block; max-width: 100%; overflow-wrap: anywhere; background: rgba(23,29,37,.75); color: #d9edf8; border: 1px solid rgba(103,193,245,.18); border-radius: 4px; padding: .08rem .35rem; font-size: .78rem; }
+    .guide-wide { grid-column: 1 / -1; }
+    .example-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: .75rem; margin-top: .75rem; }
+    .example-box { background: rgba(23,29,37,.72); border: 1px solid rgba(103,193,245,.2); border-radius: 8px; padding: .8rem; color: var(--dim); font-size: .83rem; }
+    .example-box strong { display: block; color: var(--accent); margin-bottom: .35rem; }
     .req-section .req-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
     .req-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; }
     .req-card h3 { font-size: .85rem; color: var(--accent); margin-bottom: .5rem; text-transform: uppercase; letter-spacing: .05em; }
@@ -71,6 +84,7 @@
       <div class="nav-right">
         <ul>
           <li><a href="/TaskPilotSignalPages/" data-nav="home-en" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" data-nav="home-ko" class="nav-ko" style="display:none">홈</a></li>
+          <li><a href="/TaskPilotSignalPages/#guide" class="nav-en">Guide</a><a href="/TaskPilotSignalPages/#guide" class="nav-ko" style="display:none">가이드</a></li>
           <li><a href="/TaskPilotSignalPages/roadmap/" class="nav-en">Roadmap</a><a href="/TaskPilotSignalPages/roadmap/" class="nav-ko" style="display:none">업데이트 계획</a></li>
           <li><a href="/TaskPilotSignalPages/privacy/" data-nav="privacy-en" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" data-nav="privacy-ko" class="nav-ko" style="display:none">개인정보처리방침</a></li>
           <li><a href="/TaskPilotSignalPages/eula/" class="nav-en">EULA</a><a href="/TaskPilotSignalPages/eula/" class="nav-ko" style="display:none">이용약관</a></li>
@@ -85,9 +99,11 @@
     <h1>TaskPilotSignal</h1>
     <div data-lang="en" class="active">
       <p class="tagline">AI Pipeline Automation & Telegram Bot Manager</p>
+      <p class="release-note">Microsoft Store launch planned for May 2026</p>
     </div>
     <div data-lang="ko">
       <p class="tagline">AI 파이프라인 자동화 & 텔레그램 봇 관리 도구</p>
+      <p class="release-note">2026년 5월 Microsoft Store 출시 예정</p>
     </div>
   </div>
 
@@ -197,6 +213,121 @@
     </div>
   </section>
 
+  <section id="guide" class="guide-section">
+    <div class="inner">
+      <div data-lang="en" class="active">
+        <h2>Getting Started Guide</h2>
+        <p class="guide-lead">The most important setup paths are pipeline creation, Google Workspace connection, and Telegram bot token verification.</p>
+        <div class="guide-grid">
+          <div class="guide-card">
+            <h3>1. Create a Pipeline Task</h3>
+            <ol>
+              <li>Click <strong>Add New Feature / Task</strong> from the dashboard.</li>
+              <li>Choose <strong>Pipeline Task</strong>.</li>
+              <li>Use <strong>AI Auto-Configure</strong> for a guided setup, or switch to manual setup.</li>
+              <li>Select an AI agent and model, add a web or YouTube source, choose a delivery target, and set a schedule time.</li>
+              <li>Save the task. Use <strong>Start</strong> for scheduled runs or <strong>Run Now</strong> for a manual test.</li>
+            </ol>
+          </div>
+          <div class="guide-card">
+            <h3>2. Connect Google Workspace</h3>
+            <ol>
+              <li>Open <strong>Settings</strong> and click <strong>Connect Google</strong>.</li>
+              <li>Follow the step-by-step Google Cloud guide shown in the app.</li>
+              <li>Create or select a Google Cloud project, enable the required Docs and Sheets APIs, and create a Desktop OAuth client.</li>
+              <li>Select the downloaded OAuth JSON in TaskPilotSignal and complete the Google account authorization.</li>
+              <li>After connection succeeds, pipeline delivery can write to the Docs or Sheets URLs you provide.</li>
+            </ol>
+          </div>
+          <div class="guide-card">
+            <h3>3. Get a Telegram Bot Token</h3>
+            <ol>
+              <li>Open Telegram and search for <strong>@BotFather</strong>.</li>
+              <li>Send <code>/newbot</code> and follow BotFather's prompts.</li>
+              <li>Copy the generated bot token.</li>
+              <li>Open a 1:1 chat with your new bot and send <code>/start</code> or any message once.</li>
+              <li>In TaskPilotSignal, open <strong>Settings > Telegram Bot Tokens</strong>, add the token, and verify it. Chat ID is detected automatically.</li>
+            </ol>
+          </div>
+          <div class="guide-card">
+            <h3>Telegram Bot Commands</h3>
+            <ul>
+              <li><code>/help</code> - show available commands.</li>
+              <li><code>/ping</code> - check whether the bot is alive.</li>
+              <li><code>/change ai gemini</code> - switch the active AI provider.</li>
+              <li><code>/newsession</code> - start a fresh AI conversation.</li>
+              <li><code>/resume</code> - continue the saved session where available.</li>
+            </ul>
+          </div>
+          <div class="guide-card guide-wide">
+            <h3>Pipeline Examples</h3>
+            <div class="example-list">
+              <div class="example-box"><strong>Microsoft news digest</strong>Check <code>https://blogs.windows.com/windowsdeveloper/tag/news/</code> every day at 09:00 and send a Telegram summary.</div>
+              <div class="example-box"><strong>YouTube channel summary</strong>Check a YouTube channel once a day, summarize new videos, and save the result to Notion.</div>
+              <div class="example-box"><strong>Google Docs report</strong>Collect updates from a web page every weekday and append the AI summary to a Google Docs document.</div>
+              <div class="example-box"><strong>Google Sheets tracker</strong>Monitor a web source and add date, title, source URL, and short summary rows to Google Sheets.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-lang="ko">
+        <h2>시작 가이드</h2>
+        <p class="guide-lead">가장 중요한 설정은 작업 파이프라인 생성, Google Workspace 연결, 텔레그램 봇 토큰 검증입니다.</p>
+        <div class="guide-grid">
+          <div class="guide-card">
+            <h3>1. 작업 파이프라인 만들기</h3>
+            <ol>
+              <li>대시보드에서 <strong>새로운 기능/작업 추가</strong>를 누릅니다.</li>
+              <li><strong>파이프라인 작업</strong>을 선택합니다.</li>
+              <li>처음에는 <strong>AI 자동 설정</strong>으로 안내를 받거나, 직접 구성하려면 수동 설정으로 전환합니다.</li>
+              <li>AI 에이전트와 모델, 웹 또는 YouTube 소스, 전달 대상, 실행 시간을 설정합니다.</li>
+              <li>작업을 저장한 뒤 <strong>시작</strong>으로 예약 실행하거나 <strong>즉시 실행</strong>으로 테스트합니다.</li>
+            </ol>
+          </div>
+          <div class="guide-card">
+            <h3>2. Google Workspace 연결</h3>
+            <ol>
+              <li><strong>설정</strong>에서 <strong>Google 연결</strong>을 누릅니다.</li>
+              <li>앱에 표시되는 단계별 Google Cloud 가이드를 따릅니다.</li>
+              <li>Google Cloud 프로젝트를 만들거나 선택하고, Docs/Sheets API를 활성화한 뒤 Desktop OAuth 클라이언트를 만듭니다.</li>
+              <li>다운로드한 OAuth JSON 파일을 TaskPilotSignal에서 선택하고 Google 계정 권한 승인을 완료합니다.</li>
+              <li>연결이 완료되면 파이프라인 결과를 사용자가 입력한 Google Docs 또는 Sheets URL로 전달할 수 있습니다.</li>
+            </ol>
+          </div>
+          <div class="guide-card">
+            <h3>3. 텔레그램 봇 토큰 얻기</h3>
+            <ol>
+              <li>Telegram에서 <strong>@BotFather</strong>를 검색합니다.</li>
+              <li><code>/newbot</code>을 보내고 BotFather의 안내를 따릅니다.</li>
+              <li>생성된 봇 토큰을 복사합니다.</li>
+              <li>새 봇과 1:1 채팅을 열고 <code>/start</code> 또는 아무 메시지를 한 번 보냅니다.</li>
+              <li>TaskPilotSignal의 <strong>설정 > 텔레그램 봇 토큰</strong>에서 토큰을 추가하고 검증합니다. 채팅 ID는 자동으로 감지됩니다.</li>
+            </ol>
+          </div>
+          <div class="guide-card">
+            <h3>텔레그램 봇 명령어</h3>
+            <ul>
+              <li><code>/help</code> - 사용할 수 있는 명령어를 확인합니다.</li>
+              <li><code>/ping</code> - 봇이 정상 작동 중인지 확인합니다.</li>
+              <li><code>/change ai gemini</code> - 사용할 AI 제공자를 변경합니다.</li>
+              <li><code>/newsession</code> - 새 AI 대화를 시작합니다.</li>
+              <li><code>/resume</code> - 가능한 경우 저장된 세션을 이어갑니다.</li>
+            </ul>
+          </div>
+          <div class="guide-card guide-wide">
+            <h3>작업 파이프라인 예시</h3>
+            <div class="example-list">
+              <div class="example-box"><strong>Microsoft 뉴스 요약</strong><code>https://blogs.windows.com/windowsdeveloper/tag/news/</code>를 매일 09:00에 확인하고 텔레그램으로 요약을 보냅니다.</div>
+              <div class="example-box"><strong>YouTube 채널 요약</strong>YouTube 채널을 하루 한 번 확인하고 새 영상 요약을 Notion에 저장합니다.</div>
+              <div class="example-box"><strong>Google Docs 리포트</strong>웹페이지 업데이트를 평일마다 수집하고 AI 요약을 Google Docs 문서에 추가합니다.</div>
+              <div class="example-box"><strong>Google Sheets 추적</strong>웹 소스를 확인해 날짜, 제목, URL, 짧은 요약을 Google Sheets 행으로 추가합니다.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="req-section">
     <div class="inner">
       <div data-lang="en" class="active">
@@ -268,8 +399,8 @@
             <p>Per-task instructions will sync to provider-specific AI agent files for higher-quality results.</p>
           </div>
           <div class="soon-item">
-            <h3>Task-level token usage</h3>
-            <p>Pipeline and Telegram bot usage will be easier to review by task and by day.</p>
+            <h3>AI usage and reference limits</h3>
+            <p>Review task-level token usage, provider limit status, and documented plan reference limits in one place.</p>
           </div>
           <div class="soon-item">
             <h3>Interactive pipeline follow-up</h3>
@@ -285,8 +416,8 @@
             <p>작업별 지침을 AI 제공자별 에이전트 파일로 동기화해 더 높은 품질의 결과를 목표로 합니다.</p>
           </div>
           <div class="soon-item">
-            <h3>작업별 토큰 사용량</h3>
-            <p>파이프라인과 텔레그램 봇 사용량을 작업별/일별로 더 쉽게 확인할 수 있게 합니다.</p>
+            <h3>AI 사용량과 참고 한도</h3>
+            <p>작업별 토큰 사용량, 제공자 제한 상태, 요금제별 공식 참고 한도를 한 곳에서 확인할 수 있게 합니다.</p>
           </div>
           <div class="soon-item">
             <h3>파이프라인 후속 대화</h3>
@@ -300,6 +431,7 @@
   <footer>
     <div class="footer-links">
       <a href="/TaskPilotSignalPages/" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" class="nav-ko" style="display:none">홈</a>
+      <a href="/TaskPilotSignalPages/#guide" class="nav-en">Guide</a><a href="/TaskPilotSignalPages/#guide" class="nav-ko" style="display:none">가이드</a>
       <a href="/TaskPilotSignalPages/roadmap/" class="nav-en">Roadmap</a><a href="/TaskPilotSignalPages/roadmap/" class="nav-ko" style="display:none">업데이트 계획</a>
       <a href="/TaskPilotSignalPages/privacy/" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a>
       <a href="/TaskPilotSignalPages/eula/" class="nav-en">EULA</a><a href="/TaskPilotSignalPages/eula/" class="nav-ko" style="display:none">이용약관</a>
@@ -322,7 +454,7 @@
       });
       document.querySelectorAll('.nav-en').forEach(function(el) { el.style.display = l === 'en' ? '' : 'none'; });
       document.querySelectorAll('.nav-ko').forEach(function(el) { el.style.display = l === 'ko' ? '' : 'none'; });
-      document.querySelector('.lang-btn').textContent = l === 'en' ? 'English' : '한국어';
+      document.querySelector('.lang-btn').textContent = l === 'en' ? '한국어' : 'English';
     }
   </script>
 </body>

@@ -50,6 +50,7 @@
       <div class="nav-right">
         <ul>
           <li><a href="/TaskPilotSignalPages/" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" class="nav-ko" style="display:none">홈</a></li>
+          <li><a href="/TaskPilotSignalPages/#guide" class="nav-en">Guide</a><a href="/TaskPilotSignalPages/#guide" class="nav-ko" style="display:none">가이드</a></li>
           <li><a href="/TaskPilotSignalPages/roadmap/" class="nav-en active">Roadmap</a><a href="/TaskPilotSignalPages/roadmap/" class="nav-ko active" style="display:none">업데이트 계획</a></li>
           <li><a href="/TaskPilotSignalPages/privacy/" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a></li>
           <li><a href="/TaskPilotSignalPages/eula/" class="nav-en">EULA</a><a href="/TaskPilotSignalPages/eula/" class="nav-ko" style="display:none">이용약관</a></li>
@@ -63,10 +64,10 @@
   <div class="hero">
     <h1>Roadmap</h1>
     <div data-lang="en" class="active">
-      <p>Planned updates after the WinUI release</p>
+      <p>Microsoft Store launch is planned for May 2026. The next feature update is planned within June 2026.</p>
     </div>
     <div data-lang="ko">
-      <p>WinUI 출시 이후 업데이트 예정</p>
+      <p>2026년 5월 Microsoft Store 출시를 목표로 하며, 다음 기능 업데이트는 2026년 6월 내 진행 예정입니다.</p>
     </div>
   </div>
 
@@ -75,7 +76,11 @@
 
       <div data-lang="en" class="active">
         <div class="update-group">
-          <h2>Next Update &mdash; Within 2 Weeks</h2>
+          <h2>Next Update &mdash; Within June 2026</h2>
+          <div class="update-card">
+            <h3><span class="tag tag-new">Release</span> Microsoft Store Launch</h3>
+            <p>TaskPilotSignal is being prepared for Microsoft Store release in May 2026. The first release focuses on pipeline automation, Telegram bot setup, and local-first account connections.</p>
+          </div>
           <div class="update-card">
             <h3><span class="tag tag-new">New</span> Multi-Step Pipeline Tasks</h3>
             <p>Create more complex pipelines that combine multiple sources, analysis steps, and delivery targets in one task.</p>
@@ -93,8 +98,8 @@
             <p>Add per-bot and per-pipeline instructions that sync to provider-specific files such as AGENTS.md, CLAUDE.md, and GEMINI.md inside each task workspace.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Token Usage Visibility</h3>
-            <p>Show task-level token usage for Telegram bots and pipeline runs so users can understand daily and per-task AI usage more clearly.</p>
+            <h3><span class="tag tag-improve">Improve</span> AI Usage Visibility</h3>
+            <p>Show task-level token usage, provider limit status, and documented plan reference limits for Telegram bots and pipeline runs.</p>
           </div>
         </div>
 
@@ -116,24 +121,16 @@
 
         <div class="update-group">
           <h2>Recent Platform Update</h2>
-          <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Native WinUI 3 Desktop App</h3>
-            <p>TaskPilotSignal has moved from the prototype app to the WinUI 3 desktop app for a faster, smoother Windows experience.</p>
-          </div>
-          <div class="update-card">
-            <h3><span class="tag tag-new">New</span> AI Auto-Generate Pipeline Tasks</h3>
-            <p>Describe what you want in plain language. AI will automatically configure your pipeline sources, analysis, and delivery settings.</p>
-          </div>
-          <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Google Workspace Sign-In</h3>
-            <p>Google Docs and Sheets delivery now uses local gws sign-in. Official builds can connect with a Google sign-in, while personal builds can import a Desktop OAuth JSON file.</p>
-          </div>
         </div>
       </div>
 
       <div data-lang="ko">
         <div class="update-group">
-          <h2>다음 업데이트 &mdash; 2주 내</h2>
+          <h2>다음 업데이트 &mdash; 2026년 6월 내</h2>
+          <div class="update-card">
+            <h3><span class="tag tag-new">Release</span> Microsoft Store 출시</h3>
+            <p>TaskPilotSignal은 2026년 5월 Microsoft Store 출시를 준비 중입니다. 첫 출시는 파이프라인 자동화, 텔레그램 봇 설정, 로컬 중심 계정 연결에 집중합니다.</p>
+          </div>
           <div class="update-card">
             <h3><span class="tag tag-new">New</span> 복합 작업 파이프라인</h3>
             <p>여러 소스, 분석 단계, 전달 대상을 하나의 작업으로 묶는 더 복잡한 파이프라인을 만들 수 있게 됩니다.</p>
@@ -151,8 +148,8 @@
             <p>봇과 파이프라인별 지침을 입력하면 각 작업 루트 안의 AGENTS.md, CLAUDE.md, GEMINI.md 같은 제공자별 지침 파일로 동기화되도록 개선합니다.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> 토큰 사용량 표시</h3>
-            <p>텔레그램 봇과 파이프라인 실행별 토큰 사용량을 표시해 일일/작업별 AI 사용량을 더 쉽게 확인할 수 있게 합니다.</p>
+            <h3><span class="tag tag-improve">Improve</span> AI 사용량 표시</h3>
+            <p>텔레그램 봇과 파이프라인 실행별 토큰 사용량, 제공자 제한 상태, 요금제별 공식 참고 한도를 함께 확인할 수 있게 합니다.</p>
           </div>
         </div>
 
@@ -174,18 +171,6 @@
 
         <div class="update-group">
           <h2>최근 플랫폼 업데이트</h2>
-          <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> 네이티브 WinUI 3 데스크톱 앱</h3>
-            <p>TaskPilotSignal은 프로토타입 앱에서 WinUI 3 데스크톱 앱으로 전환되어 더 빠르고 부드러운 Windows 경험을 제공합니다.</p>
-          </div>
-          <div class="update-card">
-            <h3><span class="tag tag-new">New</span> AI 자동 파이프라인 생성</h3>
-            <p>원하는 작업을 자연어로 설명하면, AI가 소스/분석/배달 설정을 자동으로 구성합니다.</p>
-          </div>
-          <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Google Workspace 로그인</h3>
-            <p>Google Docs와 Sheets 전송은 로컬 gws 로그인을 사용합니다. 정식 빌드는 Google 로그인으로 연결하고, 개인 빌드는 Desktop OAuth JSON 파일을 가져올 수 있습니다.</p>
-          </div>
         </div>
       </div>
 
@@ -195,6 +180,7 @@
   <footer>
     <div class="footer-links">
       <a href="/TaskPilotSignalPages/" class="nav-en">Home</a><a href="/TaskPilotSignalPages/" class="nav-ko" style="display:none">홈</a>
+      <a href="/TaskPilotSignalPages/#guide" class="nav-en">Guide</a><a href="/TaskPilotSignalPages/#guide" class="nav-ko" style="display:none">가이드</a>
       <a href="/TaskPilotSignalPages/roadmap/" class="nav-en">Roadmap</a><a href="/TaskPilotSignalPages/roadmap/" class="nav-ko" style="display:none">업데이트 계획</a>
       <a href="/TaskPilotSignalPages/privacy/" class="nav-en">Privacy</a><a href="/TaskPilotSignalPages/privacy/" class="nav-ko" style="display:none">개인정보처리방침</a>
       <a href="/TaskPilotSignalPages/eula/" class="nav-en">EULA</a><a href="/TaskPilotSignalPages/eula/" class="nav-ko" style="display:none">이용약관</a>
@@ -217,7 +203,7 @@
       });
       document.querySelectorAll('.nav-en').forEach(function(el) { el.style.display = l === 'en' ? '' : 'none'; });
       document.querySelectorAll('.nav-ko').forEach(function(el) { el.style.display = l === 'ko' ? '' : 'none'; });
-      document.querySelector('.lang-btn').textContent = l === 'en' ? 'English' : '한국어';
+      document.querySelector('.lang-btn').textContent = l === 'en' ? '한국어' : 'English';
     }
   </script>
 </body>
