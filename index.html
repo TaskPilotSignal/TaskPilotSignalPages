@@ -62,8 +62,6 @@
     .image-lightbox[hidden] { display: none; }
     .lightbox-frame { position: relative; max-width: min(1120px, 96vw); max-height: 90vh; background: #101923; border: 1px solid rgba(103,193,245,.35); border-radius: 14px; box-shadow: 0 24px 80px rgba(0,0,0,.5); overflow: hidden; }
     .lightbox-frame img { display: block; max-width: 100%; max-height: 90vh; width: auto; height: auto; }
-    .lightbox-close { position: absolute; top: .65rem; right: .65rem; width: 2.2rem; height: 2.2rem; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; background: rgba(15,22,32,.86); color: #fff; font-size: 1.35rem; line-height: 1; cursor: pointer; }
-    .lightbox-close:hover { background: rgba(103,193,245,.28); border-color: var(--accent); }
     .guide-card ol, .guide-card ul { margin-left: 1.1rem; color: var(--dim); font-size: .84rem; }
     .guide-card li { margin-bottom: .4rem; }
     .guide-card code { display: inline-block; max-width: 100%; overflow-wrap: anywhere; background: rgba(23,29,37,.75); color: #d9edf8; border: 1px solid rgba(103,193,245,.18); border-radius: 4px; padding: .08rem .35rem; font-size: .78rem; }
@@ -536,9 +534,8 @@
     <p class="copy">&copy; 2026 TaskPilotSignal. All rights reserved.</p>
   </footer>
 
-  <div class="image-lightbox" id="guideLightbox" hidden role="dialog" aria-modal="true" aria-label="Screenshot preview">
+  <div class="image-lightbox" id="guideLightbox" hidden role="dialog" aria-modal="true" aria-label="Screenshot preview" tabindex="-1">
     <div class="lightbox-frame">
-      <button class="lightbox-close" type="button" aria-label="Close screenshot preview">&times;</button>
       <img alt="">
     </div>
   </div>
@@ -563,7 +560,6 @@
     (function initGuideLightbox() {
       var lightbox = document.getElementById('guideLightbox');
       var image = lightbox.querySelector('img');
-      var closeButton = lightbox.querySelector('.lightbox-close');
       var lastTrigger = null;
 
       function openLightbox(trigger) {
@@ -573,7 +569,7 @@
         image.alt = sourceImage ? sourceImage.alt : '';
         lightbox.hidden = false;
         document.body.classList.add('lightbox-open');
-        closeButton.focus();
+        lightbox.focus();
       }
 
       function closeLightbox() {
@@ -591,7 +587,6 @@
         });
       });
 
-      closeButton.addEventListener('click', closeLightbox);
       lightbox.addEventListener('click', function(event) {
         if (event.target === lightbox) closeLightbox();
       });
