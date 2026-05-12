@@ -57,6 +57,13 @@
     .guide-shot-tile { margin: 0; }
     .guide-shot-tile figcaption { color: var(--dim); font-size: .78rem; text-align: center; }
     .guide-hint { color: var(--dim); font-size: .78rem; text-align: center; margin: 0 0 .9rem; }
+    .lightbox-open { overflow: hidden; }
+    .image-lightbox { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 2rem; background: rgba(5,10,16,.86); backdrop-filter: blur(8px); }
+    .image-lightbox[hidden] { display: none; }
+    .lightbox-frame { position: relative; max-width: min(1120px, 96vw); max-height: 90vh; background: #101923; border: 1px solid rgba(103,193,245,.35); border-radius: 14px; box-shadow: 0 24px 80px rgba(0,0,0,.5); overflow: hidden; }
+    .lightbox-frame img { display: block; max-width: 100%; max-height: 90vh; width: auto; height: auto; }
+    .lightbox-close { position: absolute; top: .65rem; right: .65rem; width: 2.2rem; height: 2.2rem; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; background: rgba(15,22,32,.86); color: #fff; font-size: 1.35rem; line-height: 1; cursor: pointer; }
+    .lightbox-close:hover { background: rgba(103,193,245,.28); border-color: var(--accent); }
     .guide-card ol, .guide-card ul { margin-left: 1.1rem; color: var(--dim); font-size: .84rem; }
     .guide-card li { margin-bottom: .4rem; }
     .guide-card code { display: inline-block; max-width: 100%; overflow-wrap: anywhere; background: rgba(23,29,37,.75); color: #d9edf8; border: 1px solid rgba(103,193,245,.18); border-radius: 4px; padding: .08rem .35rem; font-size: .78rem; }
@@ -234,13 +241,13 @@
             <h3>1. Create a Pipeline Task</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="assets/guide/dashboard-add-task.png" target="_blank" rel="noopener">
+                <a class="guide-shot" href="assets/guide/dashboard-add-task.png">
                   <img src="assets/guide/dashboard-add-task.png" alt="Dashboard action buttons for opening the guide or adding a new task">
                 </a>
                 <figcaption>Start from the dashboard action button.</figcaption>
               </figure>
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="assets/guide/pipeline-auto-configure.png" target="_blank" rel="noopener">
+                <a class="guide-shot" href="assets/guide/pipeline-auto-configure.png">
                   <img src="assets/guide/pipeline-auto-configure.png" alt="AI auto-configure panel in the pipeline task editor">
                 </a>
                 <figcaption>Use AI Auto-Configure or switch to manual setup.</figcaption>
@@ -259,13 +266,13 @@
             <h3>2. Connect Google Workspace</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="assets/guide/settings-connections-overview.png" target="_blank" rel="noopener">
+                <a class="guide-shot" href="assets/guide/settings-connections-overview.png">
                   <img src="assets/guide/settings-connections-overview.png" alt="Settings connections area with Notion and Google Workspace cards">
                 </a>
                 <figcaption>Open Settings and find the Connections section.</figcaption>
               </figure>
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="assets/guide/google-workspace-connection.png" target="_blank" rel="noopener">
+                <a class="guide-shot" href="assets/guide/google-workspace-connection.png">
                   <img src="assets/guide/google-workspace-connection.png" alt="Google Workspace connection card in Settings">
                 </a>
                 <figcaption>Use the Google Workspace card to start the guided setup.</figcaption>
@@ -284,7 +291,7 @@
             <h3>3. Get a Telegram Bot Token</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="assets/guide/telegram-bot-token.png" target="_blank" rel="noopener">
+                <a class="guide-shot" href="assets/guide/telegram-bot-token.png">
                   <img src="assets/guide/telegram-bot-token.png" alt="Telegram bot token card with a verified demo bot">
                 </a>
                 <figcaption>Add the token after sending /start to the bot once.</figcaption>
@@ -328,13 +335,13 @@
             <h3>1. 작업 파이프라인 만들기</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="assets/guide/dashboard-add-task.png" target="_blank" rel="noopener">
+                <a class="guide-shot" href="assets/guide/dashboard-add-task.png">
                   <img src="assets/guide/dashboard-add-task.png" alt="대시보드의 시작 가이드와 새로운 기능 작업 추가 버튼">
                 </a>
                 <figcaption>대시보드의 작업 추가 버튼에서 시작합니다.</figcaption>
               </figure>
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="assets/guide/pipeline-auto-configure.png" target="_blank" rel="noopener">
+                <a class="guide-shot" href="assets/guide/pipeline-auto-configure.png">
                   <img src="assets/guide/pipeline-auto-configure.png" alt="파이프라인 작업 편집의 AI 자동 설정 화면">
                 </a>
                 <figcaption>AI 자동 설정을 사용하거나 수동 설정으로 전환합니다.</figcaption>
@@ -353,13 +360,13 @@
             <h3>2. Google Workspace 연결</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="assets/guide/settings-connections-overview.png" target="_blank" rel="noopener">
+                <a class="guide-shot" href="assets/guide/settings-connections-overview.png">
                   <img src="assets/guide/settings-connections-overview.png" alt="설정 화면의 연결 섹션과 Notion, Google Workspace 카드">
                 </a>
                 <figcaption>설정 화면에서 연결 섹션을 찾습니다.</figcaption>
               </figure>
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="assets/guide/google-workspace-connection.png" target="_blank" rel="noopener">
+                <a class="guide-shot" href="assets/guide/google-workspace-connection.png">
                   <img src="assets/guide/google-workspace-connection.png" alt="설정 화면의 Google Workspace 연결 카드">
                 </a>
                 <figcaption>Google Workspace 카드에서 단계별 연결을 시작합니다.</figcaption>
@@ -378,7 +385,7 @@
             <h3>3. 텔레그램 봇 토큰 얻기</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="assets/guide/telegram-bot-token.png" target="_blank" rel="noopener">
+                <a class="guide-shot" href="assets/guide/telegram-bot-token.png">
                   <img src="assets/guide/telegram-bot-token.png" alt="검증된 데모 봇이 표시된 텔레그램 봇 토큰 카드">
                 </a>
                 <figcaption>봇에 /start를 한 번 보낸 뒤 토큰을 추가합니다.</figcaption>
@@ -529,6 +536,13 @@
     <p class="copy">&copy; 2026 TaskPilotSignal. All rights reserved.</p>
   </footer>
 
+  <div class="image-lightbox" id="guideLightbox" hidden role="dialog" aria-modal="true" aria-label="Screenshot preview">
+    <div class="lightbox-frame">
+      <button class="lightbox-close" type="button" aria-label="Close screenshot preview">&times;</button>
+      <img alt="">
+    </div>
+  </div>
+
   <script>
     var lang = localStorage.getItem('lang') || 'en';
     apply(lang);
@@ -545,6 +559,46 @@
       document.querySelectorAll('.nav-ko').forEach(function(el) { el.style.display = l === 'ko' ? '' : 'none'; });
       document.querySelector('.lang-btn').textContent = l === 'en' ? '한국어' : 'English';
     }
+
+    (function initGuideLightbox() {
+      var lightbox = document.getElementById('guideLightbox');
+      var image = lightbox.querySelector('img');
+      var closeButton = lightbox.querySelector('.lightbox-close');
+      var lastTrigger = null;
+
+      function openLightbox(trigger) {
+        var sourceImage = trigger.querySelector('img');
+        lastTrigger = trigger;
+        image.src = trigger.getAttribute('href');
+        image.alt = sourceImage ? sourceImage.alt : '';
+        lightbox.hidden = false;
+        document.body.classList.add('lightbox-open');
+        closeButton.focus();
+      }
+
+      function closeLightbox() {
+        if (lightbox.hidden) return;
+        lightbox.hidden = true;
+        image.removeAttribute('src');
+        document.body.classList.remove('lightbox-open');
+        if (lastTrigger) lastTrigger.focus();
+      }
+
+      document.querySelectorAll('a.guide-shot').forEach(function(trigger) {
+        trigger.addEventListener('click', function(event) {
+          event.preventDefault();
+          openLightbox(trigger);
+        });
+      });
+
+      closeButton.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', function(event) {
+        if (event.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') closeLightbox();
+      });
+    })();
   </script>
 </body>
 </html>
