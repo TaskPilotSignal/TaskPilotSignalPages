@@ -42,12 +42,18 @@
     .flow-node { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: .5rem 1rem; font-size: .85rem; }
     .flow-arrow { color: var(--accent); font-size: 1.1rem; }
     .guide-section { background: #162130; border-bottom: 1px solid var(--border); }
+    .guide-section .inner { max-width: 1120px; }
     .guide-lead { max-width: 680px; margin: -0.5rem auto 1.5rem; text-align: center; color: var(--dim); font-size: .92rem; }
     .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
     .guide-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
     .guide-card h3 { font-size: .98rem; color: #dde8f0; margin-bottom: .65rem; }
-    .guide-shot { margin: 0 0 .85rem; border: 1px solid rgba(103,193,245,.22); border-radius: 8px; overflow: hidden; background: #101923; }
+    .guide-shot { display: block; margin: 0 0 .85rem; border: 1px solid rgba(103,193,245,.22); border-radius: 8px; overflow: hidden; background: #101923; }
     .guide-shot img { width: 100%; display: block; }
+    .guide-step { grid-column: 1 / -1; }
+    .guide-step .guide-shot { width: fit-content; max-width: 100%; margin: 0 auto .35rem; text-decoration: none; transition: border-color .15s, transform .15s; }
+    .guide-step .guide-shot:hover { border-color: var(--accent); transform: translateY(-1px); }
+    .guide-step .guide-shot img { width: auto; max-width: 100%; height: auto; }
+    .guide-hint { color: var(--dim); font-size: .78rem; text-align: center; margin: 0 0 .9rem; }
     .guide-card ol, .guide-card ul { margin-left: 1.1rem; color: var(--dim); font-size: .84rem; }
     .guide-card li { margin-bottom: .4rem; }
     .guide-card code { display: inline-block; max-width: 100%; overflow-wrap: anywhere; background: rgba(23,29,37,.75); color: #d9edf8; border: 1px solid rgba(103,193,245,.18); border-radius: 4px; padding: .08rem .35rem; font-size: .78rem; }
@@ -221,11 +227,12 @@
         <h2>Getting Started Guide</h2>
         <p class="guide-lead">The most important setup paths are pipeline creation, Google Workspace connection, and Telegram bot token verification.</p>
         <div class="guide-grid">
-          <div class="guide-card">
+          <div class="guide-card guide-step">
             <h3>1. Create a Pipeline Task</h3>
-            <figure class="guide-shot">
+            <a class="guide-shot" href="assets/guide/pipeline-auto-configure.png" target="_blank" rel="noopener">
               <img src="assets/guide/pipeline-auto-configure.png" alt="AI auto-configure panel in the pipeline task editor">
-            </figure>
+            </a>
+            <p class="guide-hint">Click the screenshot to open it full size.</p>
             <ol>
               <li>Click <strong>Add New Feature / Task</strong> from the dashboard.</li>
               <li>Choose <strong>Pipeline Task</strong>.</li>
@@ -234,11 +241,12 @@
               <li>Save the task. Use <strong>Start</strong> for scheduled runs or <strong>Run Now</strong> for a manual test.</li>
             </ol>
           </div>
-          <div class="guide-card">
+          <div class="guide-card guide-step">
             <h3>2. Connect Google Workspace</h3>
-            <figure class="guide-shot">
+            <a class="guide-shot" href="assets/guide/google-workspace-connection.png" target="_blank" rel="noopener">
               <img src="assets/guide/google-workspace-connection.png" alt="Google Workspace connection card in Settings">
-            </figure>
+            </a>
+            <p class="guide-hint">Click the screenshot to open it full size.</p>
             <ol>
               <li>Open <strong>Settings</strong> and click <strong>Connect Google</strong>.</li>
               <li>Follow the step-by-step Google Cloud guide shown in the app.</li>
@@ -247,11 +255,12 @@
               <li>After connection succeeds, pipeline delivery can write to the Docs or Sheets URLs you provide.</li>
             </ol>
           </div>
-          <div class="guide-card">
+          <div class="guide-card guide-step">
             <h3>3. Get a Telegram Bot Token</h3>
-            <figure class="guide-shot">
+            <a class="guide-shot" href="assets/guide/telegram-bot-token.png" target="_blank" rel="noopener">
               <img src="assets/guide/telegram-bot-token.png" alt="Telegram bot token card with a verified demo bot">
-            </figure>
+            </a>
+            <p class="guide-hint">Click the screenshot to open it full size.</p>
             <ol>
               <li>Open Telegram and search for <strong>@BotFather</strong>.</li>
               <li>Send <code>/newbot</code> and follow BotFather's prompts.</li>
@@ -285,11 +294,12 @@
         <h2>시작 가이드</h2>
         <p class="guide-lead">가장 중요한 설정은 작업 파이프라인 생성, Google Workspace 연결, 텔레그램 봇 토큰 검증입니다.</p>
         <div class="guide-grid">
-          <div class="guide-card">
+          <div class="guide-card guide-step">
             <h3>1. 작업 파이프라인 만들기</h3>
-            <figure class="guide-shot">
+            <a class="guide-shot" href="assets/guide/pipeline-auto-configure.png" target="_blank" rel="noopener">
               <img src="assets/guide/pipeline-auto-configure.png" alt="파이프라인 작업 편집의 AI 자동 설정 화면">
-            </figure>
+            </a>
+            <p class="guide-hint">스크린샷을 누르면 원본 크기로 볼 수 있습니다.</p>
             <ol>
               <li>대시보드에서 <strong>새로운 기능/작업 추가</strong>를 누릅니다.</li>
               <li><strong>파이프라인 작업</strong>을 선택합니다.</li>
@@ -298,11 +308,12 @@
               <li>작업을 저장한 뒤 <strong>시작</strong>으로 예약 실행하거나 <strong>즉시 실행</strong>으로 테스트합니다.</li>
             </ol>
           </div>
-          <div class="guide-card">
+          <div class="guide-card guide-step">
             <h3>2. Google Workspace 연결</h3>
-            <figure class="guide-shot">
+            <a class="guide-shot" href="assets/guide/google-workspace-connection.png" target="_blank" rel="noopener">
               <img src="assets/guide/google-workspace-connection.png" alt="설정 화면의 Google Workspace 연결 카드">
-            </figure>
+            </a>
+            <p class="guide-hint">스크린샷을 누르면 원본 크기로 볼 수 있습니다.</p>
             <ol>
               <li><strong>설정</strong>에서 <strong>Google 연결</strong>을 누릅니다.</li>
               <li>앱에 표시되는 단계별 Google Cloud 가이드를 따릅니다.</li>
@@ -311,11 +322,12 @@
               <li>연결이 완료되면 파이프라인 결과를 사용자가 입력한 Google Docs 또는 Sheets URL로 전달할 수 있습니다.</li>
             </ol>
           </div>
-          <div class="guide-card">
+          <div class="guide-card guide-step">
             <h3>3. 텔레그램 봇 토큰 얻기</h3>
-            <figure class="guide-shot">
+            <a class="guide-shot" href="assets/guide/telegram-bot-token.png" target="_blank" rel="noopener">
               <img src="assets/guide/telegram-bot-token.png" alt="검증된 데모 봇이 표시된 텔레그램 봇 토큰 카드">
-            </figure>
+            </a>
+            <p class="guide-hint">스크린샷을 누르면 원본 크기로 볼 수 있습니다.</p>
             <ol>
               <li>Telegram에서 <strong>@BotFather</strong>를 검색합니다.</li>
               <li><code>/newbot</code>을 보내고 BotFather의 안내를 따릅니다.</li>
