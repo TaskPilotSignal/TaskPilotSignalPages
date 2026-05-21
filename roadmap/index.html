@@ -66,11 +66,11 @@
   <div class="hero">
     <h1>Roadmap</h1>
     <div data-lang="en" class="active">
-      <p>TaskPilotSignal launched on Microsoft Store on May 13, 2026. Version 1.0.6.0 is planned as a stabilization update before the next larger feature cycle.</p>
+      <p>TaskPilotSignal launched on Microsoft Store on May 13, 2026. Version 1.0.6.0 is now available as a stabilization update before the next larger feature cycle.</p>
       <p><a class="store-link" href="https://apps.microsoft.com/store/detail/9NMHF1JZ0Q87?cid=DevShareMCLPCS" target="_blank" rel="noopener">Open on Microsoft Store</a></p>
     </div>
     <div data-lang="ko">
-      <p>TaskPilotSignal은 2026년 5월 13일 Microsoft Store에 출시되었습니다. 1.0.6.0은 다음 큰 기능 업데이트 전 안정화 업데이트로 준비 중입니다.</p>
+      <p>TaskPilotSignal은 2026년 5월 13일 Microsoft Store에 출시되었습니다. 1.0.6.0은 다음 큰 기능 업데이트 전 안정화 업데이트로 출시되었습니다.</p>
       <p><a class="store-link" href="https://apps.microsoft.com/store/detail/9NMHF1JZ0Q87?cid=DevShareMCLPCS" target="_blank" rel="noopener">Microsoft Store에서 열기</a></p>
     </div>
   </div>
@@ -80,31 +80,39 @@
 
       <div data-lang="en" class="active">
         <div class="update-group">
-          <h2>Next Update &mdash; 1.0.6.0 Stabilization</h2>
+          <h2>Current Update &mdash; 1.0.6.0 Stabilization</h2>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> Store Install Reliability</h3>
-            <p>Keep packaged runtime behavior conservative so provider CLI setup works from Microsoft Store installs and app-managed folders.</p>
+            <p>Packaged runtime behavior is kept conservative so provider CLI setup works from Microsoft Store installs and app-managed folders.</p>
           </div>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> Telegram Bot Setup Guidance</h3>
-            <p>Make BotFather token creation, token verification, and first bot message setup easier to follow with clearer app and web guidance.</p>
+            <p>BotFather token creation, token verification, and first bot message setup are easier to follow with clearer app and web guidance.</p>
           </div>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> Pipeline Auto-Configuration</h3>
-            <p>Let users describe tasks naturally, preserve setup context across provider/model changes, and ask only for missing details.</p>
+            <p>Users can describe tasks more naturally while setup context is preserved across provider/model changes.</p>
           </div>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> Safer Failure Messages</h3>
-            <p>Continue reducing raw diagnostic exposure while making incomplete setup states easier for users to understand.</p>
+            <p>Raw diagnostic exposure is reduced while incomplete setup states are easier for users to understand.</p>
           </div>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> Regression Coverage</h3>
-            <p>Expand checks around Telegram bot permissions, pipeline setup, and Store-like packaged execution.</p>
+            <p>Checks around Telegram bot permissions, pipeline setup, and Store-like packaged execution were expanded.</p>
           </div>
         </div>
 
         <div class="update-group">
-          <h2>Planned Improvements</h2>
+          <h2>Next Update &mdash; 1.0.7.0</h2>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> Consistent AI Execution</h3>
+            <p>Unify AI execution behavior across pipeline runs, pipeline auto-configuration, and Telegram bot replies while keeping each task root separate.</p>
+          </div>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> Clearer Incomplete-State Reasons</h3>
+            <p>Show why a setup or run is incomplete with safer, user-friendly messages instead of raw diagnostic output.</p>
+          </div>
           <div class="update-card">
             <h3><span class="tag tag-new">New</span> Ollama Local AI Support in 1.0.7.0</h3>
             <p>Add a local AI option for users who want to run supported models on their own PC.</p>
@@ -130,31 +138,39 @@
 
       <div data-lang="ko">
         <div class="update-group">
-          <h2>다음 업데이트 &mdash; 1.0.6.0 안정화</h2>
+          <h2>현재 업데이트 &mdash; 1.0.6.0 안정화</h2>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> Store 설치 안정성</h3>
-            <p>Microsoft Store 설치와 앱 관리 폴더 기준에서 제공자 CLI 설정이 안정적으로 동작하도록 런타임 흐름을 보수적으로 유지합니다.</p>
+            <p>Microsoft Store 설치와 앱 관리 폴더 기준에서 제공자 CLI 설정이 안정적으로 동작하도록 런타임 흐름을 보수적으로 유지했습니다.</p>
           </div>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> 텔레그램 봇 설정 안내</h3>
-            <p>BotFather 토큰 생성, 토큰 검증, 첫 봇 메시지 설정을 앱과 웹 가이드에서 더 쉽게 따라갈 수 있게 합니다.</p>
+            <p>BotFather 토큰 생성, 토큰 검증, 첫 봇 메시지 설정을 앱과 웹 가이드에서 더 쉽게 따라갈 수 있게 개선했습니다.</p>
           </div>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> 파이프라인 자동 설정</h3>
-            <p>사용자가 자연스럽게 말해도 작업을 이해하고, AI 에이전트나 모델을 바꿔도 설정 중인 내용을 이어가도록 개선합니다.</p>
+            <p>사용자가 자연스럽게 말해도 작업을 이해하고, AI 에이전트나 모델을 바꿔도 설정 중인 내용을 더 잘 이어가도록 개선했습니다.</p>
           </div>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> 더 안전한 오류 메시지</h3>
-            <p>원시 진단 정보 노출을 줄이면서도 설정이 왜 완료되지 않았는지 사용자가 바로 이해할 수 있게 합니다.</p>
+            <p>원시 진단 정보 노출을 줄이면서도 설정이 왜 완료되지 않았는지 사용자가 바로 이해할 수 있게 개선했습니다.</p>
           </div>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> 회귀 테스트 보강</h3>
-            <p>텔레그램 봇 권한, 파이프라인 설정, Store-like 패키지 실행 기준 검증을 더 보강합니다.</p>
+            <p>텔레그램 봇 권한, 파이프라인 설정, Store-like 패키지 실행 기준 검증을 보강했습니다.</p>
           </div>
         </div>
 
         <div class="update-group">
-          <h2>예정된 개선 사항</h2>
+          <h2>다음 업데이트 &mdash; 1.0.7.0</h2>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> 일관된 AI 실행</h3>
+            <p>각 작업 폴더는 분리된 상태로 유지하면서 파이프라인 실행, 자동 설정, 텔레그램 봇 답변의 AI 실행 방식을 더 일관되게 정리합니다.</p>
+          </div>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> 미완료 상태 이유 표시</h3>
+            <p>설정이나 실행이 완료되지 않았을 때 원시 진단 정보 대신 사용자가 이해하기 쉬운 이유를 보여줍니다.</p>
+          </div>
           <div class="update-card">
             <h3><span class="tag tag-new">New</span> 1.0.7.0 Ollama 로컬 AI 지원</h3>
             <p>지원되는 모델을 사용자 PC에서 직접 실행하고 싶은 사용자를 위한 로컬 AI 옵션을 추가할 예정입니다.</p>
