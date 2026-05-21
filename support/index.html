@@ -26,6 +26,10 @@
     .contact-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
     .contact-card h3 { font-size: .95rem; color: #dde8f0; margin-bottom: .5rem; }
     .contact-card p { font-size: .85rem; color: var(--dim); }
+    .support-note { background: rgba(103,193,245,.08); border: 1px solid rgba(103,193,245,.22); border-radius: 10px; padding: 1.2rem 1.5rem; margin: 0 0 2rem; }
+    .support-note ul { margin-left: 1.2rem; color: var(--dim); font-size: .86rem; }
+    .support-note li { margin-bottom: .35rem; }
+    code { background: rgba(23,29,37,.75); color: #d9edf8; border: 1px solid rgba(103,193,245,.18); border-radius: 4px; padding: .08rem .35rem; overflow-wrap: anywhere; }
     .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: .8rem; }
     .faq-q { font-weight: 700; color: #dde8f0; font-size: .92rem; margin-bottom: .4rem; }
     .faq-a { font-size: .85rem; color: var(--dim); }
@@ -67,6 +71,17 @@
         </div>
       </div>
 
+      <h2>Crash or Error Diagnostics</h2>
+      <div class="support-note">
+        <p>If the app repeatedly crashes or shows the same error, please email support with the following information:</p>
+        <ul>
+          <li>The most recent <code>diagnostic_id</code> and <code>error_code</code> near the crash timestamp inside <code>%LOCALAPPDATA%\TaskPilotSignal\logs\app-crash.log</code>.</li>
+          <li>The <code>app-crash.log</code> file as an email attachment if you are comfortable sharing it. It is a plain text file you can open in Notepad before sending.</li>
+          <li>Brief steps that caused the issue, plus your Windows version and app version if known.</li>
+        </ul>
+        <p>The diagnostic log is stored locally on your PC. TaskPilotSignal applies best-effort masking to common token patterns and replaces the current user profile path with <code>%USERPROFILE%</code> before writing this file.</p>
+      </div>
+
       <h2>FAQ</h2>
 
       <div class="faq-item">
@@ -91,7 +106,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">Q: Pipeline fails during execution</div>
-        <div class="faq-a">A: Verify that connected external services (Notion, Google Docs, YouTube, etc.) still have valid access permissions. Release builds store diagnostics under %LOCALAPPDATA%\\TaskPilotSignal if support asks you to check runtime logs.</div>
+        <div class="faq-a">A: Verify that connected external services (Notion, Google Docs, YouTube, etc.) still have valid access permissions. If the issue repeats, email support with the diagnostic ID, error code, and steps that caused the failure.</div>
       </div>
     </div>
 
@@ -104,6 +119,17 @@
           <p>버그 제보, 기능 요청, 일반 문의</p>
           <p><a class="link" href="mailto:rkddkdkdl@gmail.com">rkddkdkdl@gmail.com</a></p>
         </div>
+      </div>
+
+      <h2>크래시 또는 오류 진단</h2>
+      <div class="support-note">
+        <p>앱이 반복적으로 종료되거나 같은 오류가 계속 발생하면 아래 정보를 이메일로 보내주세요:</p>
+        <ul>
+          <li><code>%LOCALAPPDATA%\TaskPilotSignal\logs\app-crash.log</code> 안에서 크래시 시각과 가까운 최신 <code>diagnostic_id</code>와 <code>error_code</code>.</li>
+          <li>공유해도 괜찮다면 이메일에 첨부할 <code>app-crash.log</code> 파일. 일반 텍스트 파일이므로 메모장으로 먼저 확인할 수 있습니다.</li>
+          <li>오류가 발생한 간단한 재현 단계, 알고 있다면 Windows 버전과 앱 버전.</li>
+        </ul>
+        <p>진단 로그는 사용자의 PC에 로컬로 저장됩니다. TaskPilotSignal은 이 파일을 기록하기 전에 일반적인 토큰 패턴을 가능한 범위에서 마스킹하고 현재 사용자 프로필 경로를 <code>%USERPROFILE%</code>로 대체합니다.</p>
       </div>
 
       <h2>자주 묻는 질문</h2>
@@ -130,7 +156,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">Q: 파이프라인 실행 중 오류가 발생해요</div>
-        <div class="faq-a">A: 연결된 외부 서비스(Notion, Google Docs, YouTube 등)의 접근 권한이 여전히 유효한지 확인하세요. 릴리스 빌드의 진단 로그는 보통 %LOCALAPPDATA%\\TaskPilotSignal 아래에 저장되므로, 지원 요청 시 그 경로를 확인하면 됩니다.</div>
+        <div class="faq-a">A: 연결된 외부 서비스(Notion, Google Docs, YouTube 등)의 접근 권한이 여전히 유효한지 확인하세요. 문제가 반복되면 진단 ID, 오류 코드, 오류가 발생한 단계를 이메일로 보내주세요.</div>
       </div>
     </div>
   </main>
