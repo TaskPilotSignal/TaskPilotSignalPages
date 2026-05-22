@@ -180,7 +180,7 @@
           <div class="card">
             <div class="card-icon">&#129302;</div>
             <h3>Telegram AI Bot</h3>
-            <p>Manage Claude, Gemini, and Codex CLI in one unified Telegram bot.</p>
+            <p>Manage Claude, Gemini, Codex, and optional Ollama local models in one unified Telegram bot.</p>
           </div>
           <div class="card">
             <div class="card-icon">&#128187;</div>
@@ -205,7 +205,7 @@
           <div class="card">
             <div class="card-icon">&#129302;</div>
             <h3>텔레그램 AI 봇</h3>
-            <p>Claude, Gemini, Codex CLI를 텔레그램에서 통합 관리합니다.</p>
+            <p>Claude, Gemini, Codex와 선택 기능인 Ollama 로컬 모델을 텔레그램에서 통합 관리합니다.</p>
           </div>
           <div class="card">
             <div class="card-icon">&#128187;</div>
@@ -334,6 +334,15 @@
             </ol>
           </div>
           <div class="guide-card">
+            <h3>Optional: Use Ollama Local AI</h3>
+            <ol>
+              <li>Install Ollama separately from <code>https://ollama.com/download</code>.</li>
+              <li>Start the Ollama app, then download at least one local model such as <code>llama3.2</code>.</li>
+              <li>Open TaskPilotSignal Settings and select Ollama after the app detects a local model.</li>
+              <li>If Ollama is not available, check that the app is running, a model is downloaded, and the host is local to this PC.</li>
+            </ol>
+          </div>
+          <div class="guide-card">
             <h3>Telegram Bot Commands</h3>
             <ul>
               <li><code>/help</code> - show available commands.</li>
@@ -442,6 +451,15 @@
             </ol>
           </div>
           <div class="guide-card">
+            <h3>선택 기능: Ollama 로컬 AI 사용</h3>
+            <ol>
+              <li><code>https://ollama.com/download</code>에서 Ollama를 별도로 설치합니다.</li>
+              <li>Ollama 앱을 실행하고 <code>llama3.2</code> 같은 로컬 모델을 하나 이상 다운로드합니다.</li>
+              <li>TaskPilotSignal 설정에서 로컬 모델이 감지된 뒤 Ollama를 선택합니다.</li>
+              <li>Ollama가 보이지 않으면 앱이 실행 중인지, 모델이 다운로드되어 있는지, host가 이 PC의 로컬 주소인지 확인하세요.</li>
+            </ol>
+          </div>
+          <div class="guide-card">
             <h3>텔레그램 봇 명령어</h3>
             <ul>
               <li><code>/help</code> - 사용할 수 있는 명령어를 확인합니다.</li>
@@ -481,9 +499,9 @@
           <div class="req-card">
             <h3>AI Features</h3>
             <ul>
-              <li>External AI provider account required</li>
-              <li>Anthropic Claude, Google Gemini, etc.</li>
+              <li>External AI provider account required for Claude, Gemini, or Codex</li>
               <li>Local CLI sign-in or service connection required</li>
+              <li>Ollama is optional: install Ollama, start it, and download a local model before selecting it</li>
             </ul>
           </div>
           <div class="req-card">
@@ -509,9 +527,9 @@
           <div class="req-card">
             <h3>AI 기능</h3>
             <ul>
-              <li>외부 AI 제공자 계정 필요</li>
-              <li>Anthropic Claude, Google Gemini 등</li>
+              <li>Claude, Gemini, Codex 사용 시 외부 AI 제공자 계정 필요</li>
               <li>로컬 CLI 로그인 또는 서비스 연결 필요</li>
+              <li>Ollama는 선택 기능: Ollama 설치, 앱 실행, 로컬 모델 다운로드 후 선택 가능</li>
             </ul>
           </div>
           <div class="req-card">
@@ -541,7 +559,7 @@
           </div>
           <div class="soon-item">
             <h3>Ollama in 1.0.7.0</h3>
-            <p>Local AI support is planned so users can run supported models on their own PC.</p>
+            <p>Optional local AI support is being prepared for users who install Ollama and download models on their own PC.</p>
           </div>
         </div>
       </div>
@@ -558,7 +576,7 @@
           </div>
           <div class="soon-item">
             <h3>Ollama는 1.0.7.0 예정</h3>
-            <p>지원되는 모델을 사용자 PC에서 직접 실행할 수 있는 로컬 AI 옵션을 준비합니다.</p>
+            <p>Ollama를 설치하고 모델을 다운로드한 사용자가 선택할 수 있는 로컬 AI 옵션을 준비합니다.</p>
           </div>
         </div>
       </div>
