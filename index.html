@@ -50,7 +50,7 @@
     .guide-section .inner { max-width: 1120px; }
     .guide-lead { max-width: 680px; margin: -0.5rem auto 1.5rem; text-align: center; color: var(--dim); font-size: .92rem; }
     .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-    .guide-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+    .guide-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; scroll-margin-top: 88px; }
     .guide-card h3 { font-size: .98rem; color: #dde8f0; margin-bottom: .65rem; }
     .guide-shot { display: block; margin: 0 0 .85rem; border: 1px solid rgba(103,193,245,.22); border-radius: 8px; overflow: hidden; background: #101923; }
     .guide-shot img { width: 100%; display: block; }
@@ -294,20 +294,20 @@
             <p class="guide-hint">Click any screenshot to open it full size.</p>
             <ol>
               <li>Open <strong>Settings</strong> and click <strong>Connect Google</strong>.</li>
-              <li>Follow the step-by-step Google Cloud guide shown in the app.</li>
-              <li>Create or select a Google Cloud project, enable the required Docs and Sheets APIs, and create a Desktop OAuth client.</li>
-              <li>Select the downloaded OAuth JSON in TaskPilotSignal and complete the Google account authorization.</li>
-              <li>After connection succeeds, pipeline delivery can write to the Docs or Sheets URLs you provide.</li>
+              <li>Follow the setup window one step at a time. It opens the Google pages you need.</li>
+              <li>Use your own Google account and project so Docs/Sheets delivery stays under your control.</li>
+              <li>Select the downloaded Desktop app JSON in TaskPilotSignal and approve Google access in the browser.</li>
+              <li>After connection succeeds, click <strong>Check Connection</strong> in Settings or use <strong>Run Now</strong> on a pipeline to test delivery.</li>
             </ol>
           </div>
-          <div class="guide-card guide-step">
+          <div id="telegram-bot-token-guide" class="guide-card guide-step" data-guide-anchor="telegram-bot-token">
             <h3>3. Get a Telegram Bot Token</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
                 <a class="guide-shot" href="assets/guide/telegram-bot-create-1.png">
                   <img src="assets/guide/telegram-bot-create-1.png" alt="BotFather chat showing /newbot, a display name, and a username ending in bot">
                 </a>
-                <figcaption>Steps 2-3: send /newbot, then enter the bot name and username.</figcaption>
+                <figcaption>Steps 2-3: enter your own bot display name, then a unique username ending in <code>bot</code>.</figcaption>
               </figure>
               <figure class="guide-shot-tile">
                 <a class="guide-shot" href="assets/guide/telegram-bot-create-2.png">
@@ -326,7 +326,7 @@
             <ol>
               <li>Open <strong>Settings > Telegram Bot Tokens</strong> in TaskPilotSignal when you are ready to add the token. Token creation is done in Telegram, then saved here.</li>
               <li>Open Telegram and search for <strong>@BotFather</strong>. Use the official BotFather account, then send <code>/newbot</code>.</li>
-              <li>Enter the display name you want for your bot, then enter a username that ends with <code>bot</code>, such as <code>your_bot_name_bot</code>. Do not copy the example name exactly.</li>
+              <li>When BotFather asks for a name, type the name users should see for your bot. When it asks for a username, type a unique value ending in <code>bot</code>, such as <code>your_bot_name_bot</code>. Do not copy the screenshot example exactly.</li>
               <li>Copy the token BotFather gives you. Treat it like a password and do not share it.</li>
               <li>Open a 1:1 chat with your new bot and send <code>/start</code> or any message once.</li>
               <li>Return to <strong>Settings > Telegram Bot Tokens</strong>, add the token, and click verify. Chat ID is detected automatically from your latest bot message.</li>
@@ -411,20 +411,20 @@
             <p class="guide-hint">스크린샷을 누르면 원본 크기로 볼 수 있습니다.</p>
             <ol>
               <li><strong>설정</strong>에서 <strong>Google 연결</strong>을 누릅니다.</li>
-              <li>앱에 표시되는 단계별 Google Cloud 가이드를 따릅니다.</li>
-              <li>Google Cloud 프로젝트를 만들거나 선택하고, Docs/Sheets API를 활성화한 뒤 Desktop OAuth 클라이언트를 만듭니다.</li>
-              <li>다운로드한 OAuth JSON 파일을 TaskPilotSignal에서 선택하고 Google 계정 권한 승인을 완료합니다.</li>
-              <li>연결이 완료되면 파이프라인 결과를 사용자가 입력한 Google Docs 또는 Sheets URL로 전달할 수 있습니다.</li>
+              <li>설정 창의 안내를 한 단계씩 따라갑니다. 필요한 Google 페이지는 앱에서 열어줍니다.</li>
+              <li>사용자 본인의 Google 계정과 프로젝트를 사용해 Docs/Sheets 전송을 관리합니다.</li>
+              <li>다운로드한 Desktop app JSON을 TaskPilotSignal에서 선택하고 브라우저에서 Google 접근을 승인합니다.</li>
+              <li>연결이 완료되면 설정의 <strong>연결 확인</strong> 또는 파이프라인의 <strong>즉시 실행</strong>으로 실제 전송을 테스트합니다.</li>
             </ol>
           </div>
-          <div class="guide-card guide-step">
+          <div class="guide-card guide-step" data-guide-anchor="telegram-bot-token">
             <h3>3. 텔레그램 봇 토큰 얻기</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
                 <a class="guide-shot" href="assets/guide/telegram-bot-create-1.png">
                   <img src="assets/guide/telegram-bot-create-1.png" alt="BotFather 대화에서 /newbot, 봇 표시 이름, bot으로 끝나는 사용자 이름을 입력한 화면">
                 </a>
-                <figcaption>2-3단계: /newbot을 보내고 봇 이름과 사용자 이름을 입력합니다.</figcaption>
+                <figcaption>2-3단계: 사용자가 볼 봇 표시 이름을 입력하고, <code>bot</code>으로 끝나는 고유한 사용자 이름을 입력합니다.</figcaption>
               </figure>
               <figure class="guide-shot-tile">
                 <a class="guide-shot" href="assets/guide/telegram-bot-create-2.png">
@@ -443,7 +443,7 @@
             <ol>
               <li>TaskPilotSignal에서 <strong>설정 > 텔레그램 봇 토큰</strong>을 열어둡니다. 토큰은 Telegram에서 만든 뒤 이 화면에 저장합니다.</li>
               <li>Telegram에서 <strong>@BotFather</strong>를 검색합니다. 공식 BotFather 계정을 사용하고 <code>/newbot</code>을 보냅니다.</li>
-              <li>표시 이름은 원하는 봇 이름으로 입력하고, 사용자 이름은 <code>your_bot_name_bot</code>처럼 <code>bot</code>으로 끝나게 입력합니다. 예시 이름을 그대로 복사하지 말고 본인만의 이름으로 정하세요.</li>
+              <li>BotFather가 이름을 물으면 사용자가 볼 봇 표시 이름을 입력하세요. 사용자 이름을 물으면 <code>your_bot_name_bot</code>처럼 <code>bot</code>으로 끝나는 고유한 값을 입력하세요. 스크린샷 예시를 그대로 복사하지 마세요.</li>
               <li>BotFather가 알려주는 토큰을 복사합니다. 토큰은 비밀번호처럼 다루고 다른 사람에게 공유하지 마세요.</li>
               <li>새 봇과 1:1 채팅을 열고 <code>/start</code> 또는 아무 메시지를 한 번 보냅니다.</li>
               <li>다시 <strong>설정 > 텔레그램 봇 토큰</strong>으로 돌아와 토큰을 추가하고 검증을 누릅니다. 채팅 ID는 최근 봇 메시지에서 자동 감지됩니다.</li>
@@ -550,16 +550,16 @@
         <h2>Latest and Next</h2>
         <div class="soon-list">
           <div class="soon-item">
-            <h3>1.0.6.0 is now available</h3>
-            <p>The latest Store update improves install reliability, Telegram bot setup guidance, and AI auto-configuration for everyday users.</p>
+            <h3>1.0.7.0 is now available</h3>
+            <p>The current Store update adds optional Ollama local AI support, clearer setup status, and improved Google/Notion delivery checks.</p>
           </div>
           <div class="soon-item">
-            <h3>1.0.7.0 stabilization</h3>
-            <p>The next update focuses on more consistent AI execution, clearer incomplete-state reasons, and better run evidence.</p>
+            <h3>1.0.8.0 preparation</h3>
+            <p>The next work focuses on stabilization, package size optimization, and safer Telegram bot file handling.</p>
           </div>
           <div class="soon-item">
-            <h3>Ollama in 1.0.7.0</h3>
-            <p>Optional local AI support is being prepared for users who install Ollama and download models on their own PC.</p>
+            <h3>Ollama local AI</h3>
+            <p>Optional local AI support is included for users who install Ollama, start it, and download a local model on their own PC.</p>
           </div>
         </div>
       </div>
@@ -567,16 +567,16 @@
         <h2>최신 업데이트와 다음 계획</h2>
         <div class="soon-list">
           <div class="soon-item">
-            <h3>1.0.6.0 출시 완료</h3>
-            <p>최신 Store 업데이트에서 설치 안정성, 텔레그램 봇 설정 안내, AI 자동 설정 흐름을 개선했습니다.</p>
+            <h3>1.0.7.0 출시 완료</h3>
+            <p>현재 Store 업데이트에서 Ollama 로컬 AI 선택 기능, 더 명확한 설정 상태, Google/Notion 전송 확인을 개선했습니다.</p>
           </div>
           <div class="soon-item">
-            <h3>1.0.7.0 안정화</h3>
-            <p>다음 업데이트는 더 일관된 AI 실행, 미완료 상태 이유 표시, 실행 증거 정리를 중심으로 준비합니다.</p>
+            <h3>1.0.8.0 준비</h3>
+            <p>다음 작업은 안정화, 패키지 크기 최적화, 텔레그램 봇 파일 처리 안전성 개선에 집중합니다.</p>
           </div>
           <div class="soon-item">
-            <h3>Ollama는 1.0.7.0 예정</h3>
-            <p>Ollama를 설치하고 모델을 다운로드한 사용자가 선택할 수 있는 로컬 AI 옵션을 준비합니다.</p>
+            <h3>Ollama 로컬 AI</h3>
+            <p>Ollama를 설치하고 실행한 뒤 로컬 모델을 다운로드한 사용자가 선택할 수 있는 로컬 AI 옵션을 포함합니다.</p>
           </div>
         </div>
       </div>
@@ -616,7 +616,18 @@
       document.querySelectorAll('.nav-en').forEach(function(el) { el.style.display = l === 'en' ? '' : 'none'; });
       document.querySelectorAll('.nav-ko').forEach(function(el) { el.style.display = l === 'ko' ? '' : 'none'; });
       document.querySelector('.lang-btn').textContent = l === 'en' ? '한국어' : 'English';
+      scrollToGuideAnchor();
     }
+    function scrollToGuideAnchor() {
+      if (window.location.hash !== '#telegram-bot-token-guide') return;
+      var target = document.querySelector('[data-lang].active [data-guide-anchor="telegram-bot-token"]')
+        || document.getElementById('telegram-bot-token-guide');
+      if (!target) return;
+      window.setTimeout(function() {
+        target.scrollIntoView({ block: 'start' });
+      }, 0);
+    }
+    window.addEventListener('hashchange', scrollToGuideAnchor);
 
     (function initGuideLightbox() {
       var lightbox = document.getElementById('guideLightbox');
