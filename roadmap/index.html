@@ -66,11 +66,11 @@
   <div class="hero">
     <h1>Roadmap</h1>
     <div data-lang="en" class="active">
-      <p>TaskPilotSignal launched on Microsoft Store on May 13, 2026. Version 1.0.7.0 is the current Store baseline, and 1.0.8.0 is focused on stabilization and package optimization.</p>
+      <p>TaskPilotSignal launched on Microsoft Store on May 13, 2026. Version 1.0.8.0 is the current Store baseline, with Workspace-centered Telegram and pipeline improvements, local AI support, and package-size guardrails.</p>
       <p><a class="store-link" href="https://apps.microsoft.com/store/detail/9NMHF1JZ0Q87?cid=DevShareMCLPCS" target="_blank" rel="noopener">Open on Microsoft Store</a></p>
     </div>
     <div data-lang="ko">
-      <p>TaskPilotSignal은 2026년 5월 13일 Microsoft Store에 출시되었습니다. 1.0.7.0은 현재 Store 기준 버전이고, 1.0.8.0은 안정화와 패키지 최적화에 집중합니다.</p>
+      <p>TaskPilotSignal은 2026년 5월 13일 Microsoft Store에 출시되었습니다. 1.0.8.0은 현재 Store 기준 버전이며, Workspace 중심 텔레그램/파이프라인 개선, 로컬 AI 지원, 패키지 크기 가드레일을 포함합니다.</p>
       <p><a class="store-link" href="https://apps.microsoft.com/store/detail/9NMHF1JZ0Q87?cid=DevShareMCLPCS" target="_blank" rel="noopener">Microsoft Store에서 열기</a></p>
     </div>
   </div>
@@ -80,50 +80,50 @@
 
       <div data-lang="en" class="active">
         <div class="update-group">
-          <h2>Current Store Baseline &mdash; 1.0.7.0</h2>
+          <h2>Current Store Baseline &mdash; 1.0.8.0</h2>
           <div class="update-card">
             <h3><span class="tag tag-new">New</span> Ollama Local AI Support</h3>
             <p>Use an optional local AI provider after installing Ollama, starting the app, and downloading at least one local model. TaskPilotSignal uses local Ollama access only.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Consistent AI Execution</h3>
-            <p>Pipeline runs, pipeline auto-configuration, and Telegram bot replies now use more consistent AI execution behavior while keeping each task root separate.</p>
+            <h3><span class="tag tag-new">New</span> Antigravity (Gemini) Provider Path</h3>
+            <p>Gemini-facing workflows move to Antigravity (Gemini) while Claude, Codex, and optional Ollama remain available through user-owned accounts or local setup.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Clearer Incomplete-State Reasons</h3>
-            <p>Setup and run screens show safer, user-friendly reasons when something is incomplete instead of exposing raw diagnostic output.</p>
+            <h3><span class="tag tag-improve">Improve</span> Workspace Telegram and Pipeline Context</h3>
+            <p>Pipeline Telegram notifications can keep durable context so users can continue from a pipeline result without mixing normal bot chat and notification replies.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Google and Notion Delivery Checks</h3>
-            <p>Connection status, delivery readiness, and run evidence are clearer for Google Docs, Google Sheets, Notion, and Telegram delivery flows.</p>
+            <h3><span class="tag tag-improve">Improve</span> Google, Notion, and Telegram Delivery Checks</h3>
+            <p>Connection status, delivery readiness, optional text-file result delivery, and run evidence are clearer for Google Docs, Google Sheets, Notion, and Telegram flows.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Store-like QA Coverage</h3>
-            <p>Validation around packaged installs, AI provider setup, pipeline setup, Telegram bot behavior, and Ollama runtime was expanded.</p>
+            <h3><span class="tag tag-improve">Improve</span> GUI Readability and Package Hygiene</h3>
+            <p>Dialog layout, non-developer guidance, package-size guardrails, and Store staging cleanup were improved for safer update preparation.</p>
           </div>
         </div>
 
         <div class="update-group">
-          <h2>Next Stabilization &mdash; 1.0.8.0</h2>
+          <h2>Next Follow-up &mdash; Post 1.0.8</h2>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Package Size Optimization</h3>
-            <p>Reduce bundled runtime size while keeping Store-installed AI setup, Google Workspace delivery, and local runtime behavior reliable.</p>
+            <h3><span class="tag tag-improve">Improve</span> Store-installed QA Follow-up</h3>
+            <p>Keep live Store install/update checks separate from sideload candidate QA, and watch for provider setup or delivery regressions after propagation.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Stability and Refactoring</h3>
-            <p>Continue simplifying release QA helpers, provider setup paths, and app-managed runtime checks before the next feature cycle.</p>
+            <h3><span class="tag tag-improve">Improve</span> First-use Templates</h3>
+            <p>Add clearer starting templates for competitor monitoring, YouTube summaries, recurring research briefings, and Notion or Google Sheets reports.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-new">New</span> Telegram Bot File Handling</h3>
-            <p>Planned work covers safe file receive/send flows for Telegram bot tasks, including file size, path, and execution safeguards.</p>
+            <h3><span class="tag tag-improve">Improve</span> Google Workspace Guidance</h3>
+            <p>Continue reducing setup friction for non-developers while keeping OAuth files, tokens, and account state local and user-owned.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-new">New</span> Continue Pipeline Results in Telegram</h3>
-            <p>Send scheduled pipeline results to Telegram and continue the conversation with the Telegram AI bot using the pipeline result as context.</p>
+            <h3><span class="tag tag-new">Later</span> Telegram-driven Pipeline Creation</h3>
+            <p>Pipeline creation from bot chat remains a later feature after the Workspace context model and duplicate-response guard stay stable.</p>
           </div>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> AI Usage Visibility</h3>
-            <p>Show task-level token usage, provider limit status, and documented plan reference limits for Telegram bots and pipeline runs.</p>
+            <p>Continue improving task-level usage summaries and provider limit explanations for Telegram bots and pipeline runs.</p>
           </div>
         </div>
 
@@ -138,50 +138,50 @@
 
       <div data-lang="ko">
         <div class="update-group">
-          <h2>현재 Store 기준 버전 &mdash; 1.0.7.0</h2>
+          <h2>현재 Store 기준 버전 &mdash; 1.0.8.0</h2>
           <div class="update-card">
             <h3><span class="tag tag-new">New</span> Ollama 로컬 AI 지원</h3>
             <p>Ollama를 설치하고 앱을 실행한 뒤 로컬 모델을 다운로드한 사용자가 선택할 수 있는 로컬 AI 제공자를 포함합니다. TaskPilotSignal은 로컬 Ollama 접근만 사용합니다.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> 일관된 AI 실행</h3>
-            <p>각 작업 폴더는 분리된 상태로 유지하면서 파이프라인 실행, 자동 설정, 텔레그램 봇 답변의 AI 실행 방식을 더 일관되게 정리했습니다.</p>
+            <h3><span class="tag tag-new">New</span> Antigravity(Gemini) 제공자 경로</h3>
+            <p>Gemini 계열 워크플로우는 Antigravity(Gemini)로 이동하고, Claude, Codex, 선택형 Ollama는 사용자 계정 또는 로컬 설정 기준으로 유지합니다.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> 미완료 상태 이유 표시</h3>
-            <p>설정이나 실행이 완료되지 않았을 때 원시 진단 정보 대신 사용자가 이해하기 쉬운 이유를 보여줍니다.</p>
+            <h3><span class="tag tag-improve">Improve</span> Workspace 텔레그램/파이프라인 문맥</h3>
+            <p>파이프라인 텔레그램 알림이 오래 유지되는 문맥을 가질 수 있어, 일반 봇 대화와 알림 답장이 섞이지 않도록 이어서 대화할 수 있습니다.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Google과 Notion 전송 확인</h3>
-            <p>Google Docs, Google Sheets, Notion, Telegram 전송 흐름에서 연결 상태, 전송 준비 상태, 실행 결과 확인을 더 명확하게 했습니다.</p>
+            <h3><span class="tag tag-improve">Improve</span> Google, Notion, Telegram 전송 확인</h3>
+            <p>Google Docs, Google Sheets, Notion, Telegram 전송 흐름에서 연결 상태, 전송 준비 상태, 선택형 텍스트 파일 전송, 실행 결과 확인을 더 명확하게 했습니다.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Store-like QA 보강</h3>
-            <p>패키지 설치, AI 제공자 설정, 파이프라인 설정, 텔레그램 봇 동작, Ollama 런타임 기준 검증을 보강했습니다.</p>
+            <h3><span class="tag tag-improve">Improve</span> GUI 가독성과 패키지 관리</h3>
+            <p>대화창 레이아웃, 비개발자 안내, 패키지 크기 가드레일, Store staging 정리를 개선해 업데이트 준비 안정성을 높였습니다.</p>
           </div>
         </div>
 
         <div class="update-group">
-          <h2>다음 안정화 &mdash; 1.0.8.0</h2>
+          <h2>다음 후속 작업 &mdash; 1.0.8 이후</h2>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> 패키지 크기 최적화</h3>
-            <p>Store 설치 기준 AI 설정, Google Workspace 전송, 로컬 런타임 안정성을 유지하면서 포함 런타임 크기를 줄입니다.</p>
+            <h3><span class="tag tag-improve">Improve</span> Store 설치 기준 QA 후속 확인</h3>
+            <p>실제 Store 설치/업데이트 확인과 sideload 후보 QA를 분리하고, 전파 이후 제공자 설정이나 전송 회귀가 없는지 계속 확인합니다.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> 안정화와 리팩토링</h3>
-            <p>다음 기능 개발 전에 release QA 도구, 제공자 설정 흐름, 앱 관리 런타임 확인 로직을 계속 단순화합니다.</p>
+            <h3><span class="tag tag-improve">Improve</span> 첫 사용 템플릿</h3>
+            <p>경쟁사 모니터링, YouTube 요약, 정기 리서치 브리핑, Notion 또는 Google Sheets 보고용 시작 템플릿을 더 명확하게 추가합니다.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-new">New</span> 텔레그램 봇 파일 처리</h3>
-            <p>파일 크기, 경로, 실행 안전장치를 포함한 텔레그램 봇 파일 수신/전송 흐름을 준비합니다.</p>
+            <h3><span class="tag tag-improve">Improve</span> Google Workspace 안내</h3>
+            <p>OAuth 파일, 토큰, 계정 상태를 로컬 사용자 소유로 유지하면서 비개발자 설정 부담을 계속 줄입니다.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-new">New</span> 파이프라인 결과를 텔레그램 대화로 이어가기</h3>
-            <p>예약 파이프라인 결과를 텔레그램으로 받은 뒤, 해당 결과를 문맥으로 삼아 텔레그램 AI 봇과 이어서 대화할 수 있게 합니다.</p>
+            <h3><span class="tag tag-new">Later</span> 텔레그램에서 파이프라인 만들기</h3>
+            <p>봇 대화로 파이프라인을 새로 만드는 기능은 Workspace 문맥 모델과 중복 응답 방지가 안정된 뒤 이후 기능으로 둡니다.</p>
           </div>
           <div class="update-card">
             <h3><span class="tag tag-improve">Improve</span> AI 사용량 표시</h3>
-            <p>텔레그램 봇과 파이프라인 실행별 토큰 사용량, 제공자 제한 상태, 요금제별 공식 참고 한도를 함께 확인할 수 있게 합니다.</p>
+            <p>텔레그램 봇과 파이프라인 실행별 사용량 요약과 제공자 제한 설명을 계속 개선합니다.</p>
           </div>
         </div>
 

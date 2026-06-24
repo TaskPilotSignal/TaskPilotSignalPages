@@ -1,6 +1,6 @@
 # TaskPilotSignal
 
-AI 파이프라인 자동화 & 텔레그램 봇 관리 도구
+Telegram, Notion, Google Workspace로 받는 로컬 AI 브리핑 자동화
 
 - [홈페이지](https://taskpilotsignal.github.io/TaskPilotSignalPages/)
 - [개인정보처리방침](https://taskpilotsignal.github.io/TaskPilotSignalPages/privacy/)
