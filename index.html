@@ -267,6 +267,7 @@
               </figure>
             </div>
             <p class="guide-hint">Click any screenshot to open it full size.</p>
+            <p class="guide-hint">Screenshots hide account names, project IDs, and local file names. Use your own values on your PC.</p>
             <ol>
               <li>Click <strong>Add New Feature / Task</strong> from the dashboard.</li>
               <li>Choose <strong>Pipeline Task</strong>.</li>
@@ -275,7 +276,7 @@
               <li>Save the task. Use <strong>Start</strong> for scheduled runs or <strong>Run Now</strong> for a manual test.</li>
             </ol>
           </div>
-          <div class="guide-card guide-step">
+          <div id="google-workspace-guide" class="guide-card guide-step" data-guide-anchor="google-workspace">
             <h3>2. Connect Google Workspace</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
@@ -295,6 +296,7 @@
             <ol>
               <li>Open <strong>Settings</strong> and click <strong>Connect Google</strong>.</li>
               <li>Follow the setup window one step at a time. It opens the Google pages you need.</li>
+              <li>If a Google page opens in the wrong place, use the visible Google Cloud Console menu or search for <strong>OAuth consent screen</strong> and <strong>Credentials</strong>.</li>
               <li>Use your own Google account and project so Docs/Sheets delivery stays under your control.</li>
               <li>Select the downloaded Desktop app JSON in TaskPilotSignal and approve Google access in the browser.</li>
               <li>After connection succeeds, click <strong>Check Connection</strong> in Settings or use <strong>Run Now</strong> on a pipeline to test delivery.</li>
@@ -384,6 +386,7 @@
               </figure>
             </div>
             <p class="guide-hint">스크린샷을 누르면 원본 크기로 볼 수 있습니다.</p>
+            <p class="guide-hint">스크린샷의 계정 이름, 프로젝트 ID, 로컬 파일 이름은 가려져 있습니다. 실제 설정에서는 본인 PC의 값을 사용하세요.</p>
             <ol>
               <li>대시보드에서 <strong>새로운 기능/작업 추가</strong>를 누릅니다.</li>
               <li><strong>파이프라인 작업</strong>을 선택합니다.</li>
@@ -392,7 +395,7 @@
               <li>작업을 저장한 뒤 <strong>시작</strong>으로 예약 실행하거나 <strong>즉시 실행</strong>으로 테스트합니다.</li>
             </ol>
           </div>
-          <div class="guide-card guide-step">
+          <div class="guide-card guide-step" data-guide-anchor="google-workspace">
             <h3>2. Google Workspace 연결</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
@@ -412,6 +415,7 @@
             <ol>
               <li><strong>설정</strong>에서 <strong>Google 연결</strong>을 누릅니다.</li>
               <li>설정 창의 안내를 한 단계씩 따라갑니다. 필요한 Google 페이지는 앱에서 열어줍니다.</li>
+              <li>Google 페이지가 다른 위치로 열리면 Google Cloud Console 메뉴 또는 검색에서 <strong>OAuth 동의 화면</strong>과 <strong>사용자 인증 정보</strong>를 찾으세요.</li>
               <li>사용자 본인의 Google 계정과 프로젝트를 사용해 Docs/Sheets 전송을 관리합니다.</li>
               <li>다운로드한 Desktop app JSON을 TaskPilotSignal에서 선택하고 브라우저에서 Google 접근을 승인합니다.</li>
               <li>연결이 완료되면 설정의 <strong>연결 확인</strong> 또는 파이프라인의 <strong>즉시 실행</strong>으로 실제 전송을 테스트합니다.</li>
@@ -619,9 +623,12 @@
       scrollToGuideAnchor();
     }
     function scrollToGuideAnchor() {
-      if (window.location.hash !== '#telegram-bot-token-guide') return;
-      var target = document.querySelector('[data-lang].active [data-guide-anchor="telegram-bot-token"]')
-        || document.getElementById('telegram-bot-token-guide');
+      var anchor = '';
+      if (window.location.hash === '#telegram-bot-token-guide') anchor = 'telegram-bot-token';
+      if (window.location.hash === '#google-workspace-guide') anchor = 'google-workspace';
+      if (!anchor) return;
+      var target = document.querySelector('[data-lang].active [data-guide-anchor="' + anchor + '"]')
+        || document.getElementById(window.location.hash.slice(1));
       if (!target) return;
       window.setTimeout(function() {
         target.scrollIntoView({ block: 'start' });
