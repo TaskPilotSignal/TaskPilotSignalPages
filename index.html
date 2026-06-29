@@ -120,7 +120,7 @@
     <h1>TaskPilotSignal</h1>
     <div data-lang="en" class="active">
       <p class="tagline">Local AI briefing automation for Telegram, Notion, and Google Workspace</p>
-      <p class="release-note">Version 1.0.8.0 is available on Microsoft Store</p>
+      <p class="release-note">Version 1.0.9.0 is available on Microsoft Store</p>
       <p>
         <a class="store-badge" href="https://get.microsoft.com/installer/download/9nmhf1jz0q87?referrer=appbadge&cid=homepage_hero_en" target="_self" aria-label="Download TaskPilotSignal from the Microsoft Store">
           <img src="https://get.microsoft.com/images/en-us%20light.svg" width="200" alt="Download from the Microsoft Store">
@@ -129,7 +129,7 @@
     </div>
     <div data-lang="ko">
       <p class="tagline">Telegram, Notion, Google Workspace로 받는 로컬 AI 브리핑 자동화</p>
-      <p class="release-note">1.0.8.0 버전을 Microsoft Store에서 사용할 수 있습니다</p>
+      <p class="release-note">1.0.9.0 버전을 Microsoft Store에서 사용할 수 있습니다</p>
       <p>
         <a class="store-badge" href="https://get.microsoft.com/installer/download/9nmhf1jz0q87?referrer=appbadge&cid=homepage_hero_ko" target="_self" aria-label="Microsoft Store에서 TaskPilotSignal 다운로드">
           <img src="https://get.microsoft.com/images/ko%20light.svg" width="200" alt="Microsoft Store에서 다운로드">
@@ -294,13 +294,15 @@
             </div>
             <p class="guide-hint">Click any screenshot to open it full size.</p>
             <ol>
-              <li>Open <strong>Settings</strong> and click <strong>Connect Google</strong>.</li>
-              <li>Follow the setup window one step at a time. It opens the Google pages you need.</li>
-              <li>If a Google page opens in the wrong place, use the visible Google Cloud Console menu or search for <strong>OAuth consent screen</strong> and <strong>Credentials</strong>.</li>
-              <li>Use your own Google account and project so Docs/Sheets delivery stays under your control.</li>
-              <li>Select the downloaded Desktop app JSON in TaskPilotSignal and approve Google access in the browser.</li>
-              <li>After connection succeeds, click <strong>Check Connection</strong> in Settings or use <strong>Run Now</strong> on a pipeline to test delivery.</li>
+              <li>Open <strong>Settings</strong> and click <strong>Connect Google</strong>. You only need this when a pipeline sends results to Google Docs or Sheets.</li>
+              <li>Keep the TaskPilotSignal setup window open and follow only the current step. The app opens the Google page that is needed for that step.</li>
+              <li>Use your own Google account and Google Cloud project. This keeps Workspace delivery under your account, quota, and permissions.</li>
+              <li>If a Google page opens one menu away from the expected screen, use <strong>APIs &amp; Services</strong>, then find <strong>OAuth consent screen</strong> or <strong>Credentials</strong>.</li>
+              <li>When creating credentials, choose <strong>OAuth client ID</strong> and <strong>Desktop app</strong>, then use Google's <strong>Download JSON</strong> button.</li>
+              <li>Select that Desktop app JSON in TaskPilotSignal. You do not need to copy Client ID or Secret values manually.</li>
+              <li>Approve Google access in the browser, return to TaskPilotSignal, then click <strong>Check Connection</strong> or use <strong>Run Now</strong> on a pipeline to test delivery.</li>
             </ol>
+            <p class="guide-hint">If Google blocks approval, add the same Google account under Test users and retry. If approval works normally, you can skip the Test users step.</p>
           </div>
           <div id="telegram-bot-token-guide" class="guide-card guide-step" data-guide-anchor="telegram-bot-token">
             <h3>3. Get a Telegram Bot Token</h3>
@@ -413,13 +415,15 @@
             </div>
             <p class="guide-hint">스크린샷을 누르면 원본 크기로 볼 수 있습니다.</p>
             <ol>
-              <li><strong>설정</strong>에서 <strong>Google 연결</strong>을 누릅니다.</li>
-              <li>설정 창의 안내를 한 단계씩 따라갑니다. 필요한 Google 페이지는 앱에서 열어줍니다.</li>
-              <li>Google 페이지가 다른 위치로 열리면 Google Cloud Console 메뉴 또는 검색에서 <strong>OAuth 동의 화면</strong>과 <strong>사용자 인증 정보</strong>를 찾으세요.</li>
-              <li>사용자 본인의 Google 계정과 프로젝트를 사용해 Docs/Sheets 전송을 관리합니다.</li>
-              <li>다운로드한 Desktop app JSON을 TaskPilotSignal에서 선택하고 브라우저에서 Google 접근을 승인합니다.</li>
-              <li>연결이 완료되면 설정의 <strong>연결 확인</strong> 또는 파이프라인의 <strong>즉시 실행</strong>으로 실제 전송을 테스트합니다.</li>
+              <li><strong>설정</strong>에서 <strong>Google 연결</strong>을 누릅니다. 파이프라인 결과를 Google Docs나 Sheets로 보낼 때만 필요합니다.</li>
+              <li>TaskPilotSignal 설정 창을 열어둔 채 현재 단계만 따라갑니다. 앱이 해당 단계에 필요한 Google 페이지를 열어줍니다.</li>
+              <li>사용자 본인의 Google 계정과 Google Cloud 프로젝트를 사용합니다. 이렇게 하면 전송 권한과 사용량이 사용자 계정/프로젝트 기준으로 관리됩니다.</li>
+              <li>Google 페이지가 예상 화면보다 한 메뉴 앞뒤로 열리면 <strong>API 및 서비스</strong>에서 <strong>OAuth 동의 화면</strong> 또는 <strong>사용자 인증 정보</strong>를 찾으세요.</li>
+              <li>사용자 인증 정보를 만들 때는 <strong>OAuth 클라이언트 ID</strong>와 <strong>Desktop app</strong>을 선택한 뒤 Google의 <strong>Download JSON</strong> 버튼으로 파일을 받습니다.</li>
+              <li>다운로드한 Desktop app JSON을 TaskPilotSignal에서 선택합니다. Client ID나 Secret 값을 직접 복사해 붙여넣을 필요는 없습니다.</li>
+              <li>브라우저에서 Google 접근을 승인한 뒤 TaskPilotSignal로 돌아와 <strong>연결 확인</strong> 또는 파이프라인의 <strong>즉시 실행</strong>으로 실제 전송을 테스트합니다.</li>
             </ol>
+            <p class="guide-hint">Google이 승인을 차단할 때만 같은 Google 계정을 테스트 사용자에 추가하고 다시 시도하세요. 승인 화면이 정상으로 열리면 테스트 사용자 단계는 건너뛰어도 됩니다.</p>
           </div>
           <div class="guide-card guide-step" data-guide-anchor="telegram-bot-token">
             <h3>3. 텔레그램 봇 토큰 얻기</h3>
@@ -554,12 +558,12 @@
         <h2>Latest and Next</h2>
         <div class="soon-list">
           <div class="soon-item">
-            <h3>1.0.8.0 is now available</h3>
-            <p>The current Store update improves Workspace-centered Telegram and pipeline flows, optional text-file delivery, Antigravity (Gemini) provider support, GUI readability, package-size guardrails, and safer Store staging cleanup.</p>
+            <h3>1.0.9.0 is now available</h3>
+            <p>This update improves the Google Workspace setup guide, clarifies task creation and settings copy for non-technical users, and improves reliability around Telegram notifications and pipeline workflows.</p>
           </div>
           <div class="soon-item">
-            <h3>Post-1.0.8 focus</h3>
-            <p>Next work focuses on Store-installed QA follow-up, first-use templates, Google Workspace guidance, and smaller reliability refinements.</p>
+            <h3>Post-1.0.9 focus</h3>
+            <p>Next work focuses on first-use templates, clearer usage and failure explanations, Telegram reply workflows, and continued Store-installed QA automation.</p>
           </div>
           <div class="soon-item">
             <h3>Ollama local AI</h3>
@@ -571,12 +575,12 @@
         <h2>최신 업데이트와 다음 계획</h2>
         <div class="soon-list">
           <div class="soon-item">
-            <h3>1.0.8.0 출시 완료</h3>
-            <p>현재 Store 업데이트에서 Workspace 중심 텔레그램/파이프라인 흐름, 선택형 텍스트 파일 전송, Antigravity(Gemini) 지원, GUI 가독성, 패키지 크기 가드레일, Store staging 정리를 개선했습니다.</p>
+            <h3>1.0.9.0 출시 완료</h3>
+            <p>이번 업데이트는 Google Workspace 단계별 설정 안내를 개선하고, 비개발자가 작업 추가와 설정 화면을 더 쉽게 이해할 수 있도록 문구를 다듬었으며, Telegram 알림과 작업 파이프라인 흐름의 안정성을 개선했습니다.</p>
           </div>
           <div class="soon-item">
-            <h3>1.0.8 이후 작업</h3>
-            <p>다음 작업은 Store 설치 기준 QA 후속 확인, 첫 사용 템플릿, Google Workspace 안내, 작은 안정성 개선에 집중합니다.</p>
+            <h3>1.0.9 이후 작업</h3>
+            <p>다음 작업은 첫 사용 템플릿, 사용량과 실패 이유 설명, Telegram 답장 워크플로우, Store 설치 기준 QA 자동화 개선에 집중합니다.</p>
           </div>
           <div class="soon-item">
             <h3>Ollama 로컬 AI</h3>
