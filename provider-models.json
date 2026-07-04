@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-05",
+  "models": {
+    "antigravity": [
+      "Gemini 3.5 Flash (High)",
+      "Gemini 3.5 Flash (Medium)",
+      "Gemini 3.5 Flash (Low)",
+      "Gemini 3.1 Pro (High)",
+      "Gemini 3.1 Pro (Low)",
+      "Claude Opus 4.6 (Thinking)"
+    ],
+    "claude": [
+      "claude-opus-4-8",
+      "claude-fable-5",
+      "claude-sonnet-5",
+      "claude-haiku-4-5"
+    ],
+    "codex": [
+      "gpt-5.5",
+      "gpt-5.4",
+      "gpt-5.4-mini",
+      "gpt-5.3-codex",
+      "gpt-5.3-codex-spark"
+    ],
+    "ollama": [
+      "llama3.2",
+      "llama3.1",
+      "qwen2.5-coder",
+      "qwen2.5",
+      "mistral",
+      "gemma3"
+    ]
+  }
+}

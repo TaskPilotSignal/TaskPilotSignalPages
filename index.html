@@ -6,7 +6,7 @@
   <title>TaskPilotSignal - Local AI Briefing Automation</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #1b2838; --card: #2a3f5f; --nav: #171d25; --text: #c7d5e0; --dim: #8f98a0; --accent: #67c1f5; --border: #3d5a7a; }
+    :root { --bg: #111318; --card: #1f2933; --nav: #0f1115; --text: #e4e7ec; --dim: #9aa3af; --accent: #2dd4bf; --accent2: #f59e0b; --border: #303946; }
     body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; }
     nav { background: var(--nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
     .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; height: 50px; display: flex; align-items: center; justify-content: space-between; }
@@ -17,19 +17,44 @@
     nav a:hover { color: var(--accent); }
     .lang-btn { background: transparent; border: 1px solid var(--border); color: var(--accent); padding: .25rem .7rem; border-radius: 4px; cursor: pointer; font-size: .8rem; font-weight: 600; transition: background .15s; }
     .lang-btn:hover { background: rgba(103,193,245,.12); }
-    .hero { text-align: center; padding: 5rem 1.5rem 4rem; background: linear-gradient(160deg, #1b2838, #1e3a5f, #1b2838); border-bottom: 1px solid var(--border); }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: #e8f0f7; margin-bottom: .5rem; }
-    .tagline { font-size: 1.2rem; color: var(--accent); font-weight: 600; margin-bottom: 2rem; }
+    .hero { position: relative; overflow: hidden; min-height: 620px; display: flex; align-items: center; padding: 5.2rem 1.5rem 3.5rem; background: #111318; border-bottom: 1px solid var(--border); }
+    .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17,19,24,.96), rgba(17,19,24,.72), rgba(17,19,24,.42)), url("assets/screenshots/01_dashboard.png") center right / min(980px, 72vw) auto no-repeat; opacity: .95; }
+    .hero::after { content: ""; position: absolute; inset: auto 0 0; height: 180px; background: linear-gradient(0deg, var(--bg), rgba(17,19,24,0)); pointer-events: none; }
+    .hero-content { position: relative; z-index: 1; width: min(980px, 100%); margin: 0 auto; text-align: left; }
+    .hero h1 { max-width: 700px; font-size: 4.15rem; line-height: 1.05; color: #f8fafc; margin-bottom: 1rem; letter-spacing: 0; }
+    .tagline { max-width: 640px; font-size: 1.22rem; color: #cbd5e1; font-weight: 500; margin-bottom: 1.3rem; }
+    .hero-points { display: grid; gap: .55rem; margin: 1.25rem 0 1.45rem; max-width: 620px; color: #d7dde6; font-size: .94rem; }
+    .hero-point { display: flex; gap: .55rem; align-items: flex-start; }
+    .hero-point::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--accent); margin-top: .5rem; flex: none; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; align-items: center; margin-top: .35rem; }
+    .secondary-link { display: inline-flex; align-items: center; min-height: 44px; padding: .55rem .95rem; border: 1px solid rgba(229,231,235,.18); border-radius: 8px; color: #e5e7eb; text-decoration: none; font-size: .88rem; font-weight: 700; background: rgba(17,19,24,.38); }
+    .secondary-link:hover { border-color: var(--accent); color: #ffffff; }
     .release-note { display: inline-block; margin-top: -1rem; padding: .45rem .85rem; border: 1px solid rgba(103,193,245,.35); border-radius: 999px; background: rgba(103,193,245,.12); color: #d9edf8; font-size: .85rem; font-weight: 600; }
     .store-link { display: inline-block; margin-top: .75rem; padding: .5rem 1rem; border-radius: 8px; background: var(--accent); color: #102033; text-decoration: none; font-size: .86rem; font-weight: 700; transition: transform .15s, filter .15s; }
     .store-link:hover { transform: translateY(-1px); filter: brightness(1.06); color: #102033; }
     .store-badge { display: inline-flex; margin-top: .9rem; line-height: 0; transition: transform .15s, filter .15s; }
     .store-badge:hover { transform: translateY(-1px); filter: brightness(1.06); }
     .store-badge img { display: block; width: 200px; max-width: 100%; height: auto; }
-    .showcase { background: #162130; border-bottom: 1px solid var(--border); }
+    .landing-band { background: #151922; border-bottom: 1px solid var(--border); }
+    .landing-lead { max-width: 720px; margin: -.6rem auto 1.6rem; text-align: center; color: var(--dim); font-size: .94rem; }
+    .usecase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+    .usecase-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+    .usecase-card strong { display: block; color: #f8fafc; margin-bottom: .45rem; }
+    .usecase-card p { color: var(--dim); font-size: .86rem; }
+    .workflow-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .9rem; margin-top: 1rem; }
+    .workflow-step { position: relative; background: #171d25; border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem; }
+    .workflow-step span { display: inline-flex; align-items: center; justify-content: center; width: 1.7rem; height: 1.7rem; border-radius: 999px; background: rgba(45,212,191,.16); color: var(--accent); font-size: .78rem; font-weight: 800; margin-bottom: .6rem; }
+    .workflow-step h3 { font-size: .92rem; color: #f8fafc; margin-bottom: .35rem; }
+    .workflow-step p { color: var(--dim); font-size: .82rem; }
+    .info-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .info-card { background: rgba(31,41,51,.86); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; }
+    .info-card h3 { font-size: .94rem; color: #f8fafc; margin-bottom: .45rem; }
+    .info-card p { color: var(--dim); font-size: .84rem; margin-bottom: .75rem; }
+    .info-card a { color: var(--accent); font-size: .84rem; font-weight: 700; text-decoration: none; }
+    .showcase { background: #151922; border-bottom: 1px solid var(--border); }
     .showcase-lead { max-width: 640px; margin: -0.6rem auto 1.6rem; text-align: center; color: var(--dim); font-size: .92rem; }
     .screenshot-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(240px, .8fr); gap: 1rem; align-items: stretch; }
-    .shot-card { background: #101923; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 18px 45px rgba(0,0,0,.22); }
+    .shot-card { background: #101923; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: 0 18px 45px rgba(0,0,0,.22); }
     .shot-card img { width: 100%; height: 100%; display: block; object-fit: cover; }
     .shot-stack { display: grid; gap: 1rem; }
     .shot-caption { padding: .8rem 1rem; border-top: 1px solid rgba(103,193,245,.18); color: var(--dim); font-size: .82rem; background: rgba(23,29,37,.86); }
@@ -37,20 +62,20 @@
     .inner { max-width: 900px; margin: 0 auto; }
     h2 { font-size: 1.4rem; color: #dde8f0; margin-bottom: 1.5rem; text-align: center; }
     .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; transition: border-color .2s; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; transition: border-color .2s; }
     .card:hover { border-color: var(--accent); }
     .card-icon { font-size: 1.5rem; margin-bottom: .6rem; }
     .card h3 { font-size: .95rem; color: #dde8f0; margin-bottom: .4rem; }
     .card p { font-size: .83rem; color: var(--dim); }
-    .pipeline-section { background: #192535; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .pipeline-section { background: #171d25; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .flow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem; margin-top: 1rem; }
     .flow-node { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: .5rem 1rem; font-size: .85rem; }
     .flow-arrow { color: var(--accent); font-size: 1.1rem; }
-    .guide-section { background: #162130; border-bottom: 1px solid var(--border); }
+    .guide-section { background: #151922; border-bottom: 1px solid var(--border); }
     .guide-section .inner { max-width: 1120px; }
     .guide-lead { max-width: 680px; margin: -0.5rem auto 1.5rem; text-align: center; color: var(--dim); font-size: .92rem; }
     .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-    .guide-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; scroll-margin-top: 88px; }
+    .guide-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; scroll-margin-top: 88px; }
     .guide-card h3 { font-size: .98rem; color: #dde8f0; margin-bottom: .65rem; }
     .guide-shot { display: block; margin: 0 0 .85rem; border: 1px solid rgba(103,193,245,.22); border-radius: 8px; overflow: hidden; background: #101923; }
     .guide-shot img { width: 100%; display: block; }
@@ -80,7 +105,7 @@
     .req-card ul { list-style: none; }
     .req-card li { font-size: .83rem; color: var(--dim); padding-left: 1rem; position: relative; margin-bottom: .3rem; }
     .req-card li::before { content: "\2022"; color: var(--accent); position: absolute; left: 0; }
-    .soon-section { background: #192535; border-top: 1px solid var(--border); }
+    .soon-section { background: #171d25; border-top: 1px solid var(--border); }
     .soon-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
     .soon-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.2rem; }
     .soon-item h3 { font-size: .9rem; color: #dde8f0; margin-bottom: .35rem; }
@@ -94,8 +119,19 @@
     [data-lang].active { display: block; }
     .hero [data-lang].active { display: block; }
     .features [data-lang].active, .req-grid [data-lang].active { display: block; }
+    @media(max-width:900px) { .hero::before { background: linear-gradient(0deg, rgba(17,19,24,.98), rgba(17,19,24,.72)), url("assets/screenshots/01_dashboard.png") center bottom / 820px auto no-repeat; } .hero { min-height: 680px; align-items: flex-start; } .hero h1 { font-size: 2.8rem; } .tagline { font-size: 1.05rem; } }
     @media(max-width:760px) { .screenshot-grid { grid-template-columns: 1fr; } .shot-card img { height: auto; } }
-    @media(max-width:600px) { nav ul { gap: .75rem; } section { padding: 2.5rem 1rem; } .nav-right { gap: .75rem; } }
+    @media(max-width:600px) {
+      .nav-inner { height: auto; min-height: 72px; align-items: flex-start; flex-direction: column; gap: .45rem; padding: .75rem 1rem; }
+      .nav-right { width: 100%; align-items: flex-start; justify-content: space-between; gap: .75rem; }
+      nav ul { flex-wrap: wrap; gap: .45rem .8rem; }
+      nav a { font-size: .82rem; }
+      .lang-btn { flex: none; }
+      .hero { padding: 4rem 1.5rem 3rem; min-height: 720px; }
+      .hero h1 { font-size: 2.35rem; }
+      .tagline { font-size: 1rem; }
+      section { padding: 2.5rem 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -117,26 +153,90 @@
   </nav>
 
   <div class="hero">
-    <h1>TaskPilotSignal</h1>
-    <div data-lang="en" class="active">
-      <p class="tagline">Local AI briefing automation for Telegram, Notion, and Google Workspace</p>
-      <p class="release-note">Version 1.0.9.0 is available on Microsoft Store</p>
-      <p>
-        <a class="store-badge" href="https://get.microsoft.com/installer/download/9nmhf1jz0q87?referrer=appbadge&cid=homepage_hero_en" target="_self" aria-label="Download TaskPilotSignal from the Microsoft Store">
-          <img src="https://get.microsoft.com/images/en-us%20light.svg" width="200" alt="Download from the Microsoft Store">
-        </a>
-      </p>
-    </div>
-    <div data-lang="ko">
-      <p class="tagline">Telegram, Notion, Google Workspace로 받는 로컬 AI 브리핑 자동화</p>
-      <p class="release-note">1.0.9.0 버전을 Microsoft Store에서 사용할 수 있습니다</p>
-      <p>
-        <a class="store-badge" href="https://get.microsoft.com/installer/download/9nmhf1jz0q87?referrer=appbadge&cid=homepage_hero_ko" target="_self" aria-label="Microsoft Store에서 TaskPilotSignal 다운로드">
-          <img src="https://get.microsoft.com/images/ko%20light.svg" width="200" alt="Microsoft Store에서 다운로드">
-        </a>
-      </p>
+    <div class="hero-content">
+      <div data-lang="en" class="active">
+        <h1>Turn repeated web checks into daily AI briefings.</h1>
+        <p class="tagline">TaskPilotSignal runs on your Windows PC, summarizes websites, YouTube, and API docs with your AI tools, then delivers results to Telegram, Notion, Google Docs, or Google Sheets.</p>
+        <div class="hero-points" aria-label="Main benefits">
+          <div class="hero-point">Create recurring research tasks without running a separate server.</div>
+          <div class="hero-point">Use your own Claude, Antigravity (Gemini), Codex, or Ollama setup.</div>
+          <div class="hero-point">Start with practical workflows such as competitor monitoring, YouTube summaries, and weekly reports.</div>
+        </div>
+        <p class="release-note">Version 1.1.0.0 is available on Microsoft Store</p>
+        <div class="hero-actions">
+          <a class="store-badge" href="https://get.microsoft.com/installer/download/9nmhf1jz0q87?referrer=appbadge&cid=homepage_landing_en" target="_self" aria-label="Download TaskPilotSignal from the Microsoft Store">
+            <img src="https://get.microsoft.com/images/en-us%20light.svg" width="200" alt="Download from the Microsoft Store">
+          </a>
+          <a class="secondary-link" href="#use-cases">See workflow examples</a>
+        </div>
+      </div>
+      <div data-lang="ko">
+        <h1>매일 확인하던 웹사이트를 AI 브리핑으로 바꾸세요.</h1>
+        <p class="tagline">TaskPilotSignal은 내 Windows PC에서 실행되며 웹사이트, YouTube, API 문서를 사용자의 AI 도구로 요약해 Telegram, Notion, Google Docs, Google Sheets로 보내줍니다.</p>
+        <div class="hero-points" aria-label="주요 장점">
+          <div class="hero-point">별도 서버 없이 반복 리서치 작업을 예약 실행합니다.</div>
+          <div class="hero-point">사용자 본인의 Claude, Antigravity(Gemini), Codex, Ollama 설정을 사용합니다.</div>
+          <div class="hero-point">경쟁사 모니터링, YouTube 요약, 주간 보고서 같은 실제 업무에서 시작할 수 있습니다.</div>
+        </div>
+        <p class="release-note">1.1.0.0 버전을 Microsoft Store에서 사용할 수 있습니다</p>
+        <div class="hero-actions">
+          <a class="store-badge" href="https://get.microsoft.com/installer/download/9nmhf1jz0q87?referrer=appbadge&cid=homepage_landing_ko" target="_self" aria-label="Microsoft Store에서 TaskPilotSignal 다운로드">
+            <img src="https://get.microsoft.com/images/ko%20light.svg" width="200" alt="Microsoft Store에서 다운로드">
+          </a>
+          <a class="secondary-link" href="#use-cases">사용 예시 보기</a>
+        </div>
+      </div>
     </div>
   </div>
+
+  <section id="use-cases" class="landing-band">
+    <div class="inner">
+      <div data-lang="en" class="active">
+        <h2>Start with a real repeated task</h2>
+        <p class="landing-lead">TaskPilotSignal works best when you already check the same sources every day or week. These are the first workflows to try.</p>
+        <div class="usecase-grid">
+          <div class="usecase-card">
+            <strong>Daily competitor briefing</strong>
+            <p>Watch pricing pages, release notes, blogs, and landing pages. Receive a short Telegram summary every morning.</p>
+          </div>
+          <div class="usecase-card">
+            <strong>YouTube channel summary</strong>
+            <p>Monitor a channel or playlist, summarize new videos, and keep action points for content planning.</p>
+          </div>
+          <div class="usecase-card">
+            <strong>API or stock watch</strong>
+            <p>Check a public endpoint or API document, then turn the result into a scheduled briefing when the source is usable.</p>
+          </div>
+          <div class="usecase-card">
+            <strong>Weekly research report</strong>
+            <p>Collect market, product, or customer updates and save the summary to Notion, Google Docs, or Google Sheets.</p>
+          </div>
+        </div>
+      </div>
+      <div data-lang="ko">
+        <h2>실제 반복 업무에서 시작하세요</h2>
+        <p class="landing-lead">TaskPilotSignal은 매일 또는 매주 같은 출처를 확인하는 업무에 가장 잘 맞습니다. 먼저 아래 흐름부터 시도해보세요.</p>
+        <div class="usecase-grid">
+          <div class="usecase-card">
+            <strong>매일 경쟁사 브리핑</strong>
+            <p>가격 페이지, 릴리스 노트, 블로그, 랜딩페이지를 확인하고 매일 아침 Telegram 요약을 받습니다.</p>
+          </div>
+          <div class="usecase-card">
+            <strong>YouTube 채널 요약</strong>
+            <p>채널이나 플레이리스트의 새 영상을 확인하고 핵심 내용과 콘텐츠 아이디어를 정리합니다.</p>
+          </div>
+          <div class="usecase-card">
+            <strong>API 또는 주가 확인</strong>
+            <p>공개 엔드포인트나 API 문서를 확인하고, 사용 가능한 출처라면 예약 브리핑 작업으로 전환합니다.</p>
+          </div>
+          <div class="usecase-card">
+            <strong>주간 리서치 보고서</strong>
+            <p>시장, 제품, 고객 업데이트를 모아 Notion, Google Docs, Google Sheets에 요약 보고서로 저장합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="showcase">
     <div class="inner">
@@ -155,12 +255,12 @@
         </figure>
         <div class="shot-stack">
           <figure class="shot-card">
-            <img src="assets/screenshots/02_pipeline_editor.png" alt="Pipeline editor with AI setup and scheduling options">
-            <figcaption class="shot-caption">AI-assisted pipeline setup.</figcaption>
+            <img src="assets/screenshots/03_recommendation_request.png" alt="Recommendation-first task creation screen with role-based task suggestions">
+            <figcaption class="shot-caption">Recommendation-first task creation for repeated work.</figcaption>
           </figure>
           <figure class="shot-card">
-            <img src="assets/screenshots/04_settings_connections.png" alt="Settings page showing AI and service connection setup">
-            <figcaption class="shot-caption">Service connections and setup guide.</figcaption>
+            <img src="assets/screenshots/04_pipeline_auto_setup.png" alt="Pipeline auto setup dialog with proposal-style AI conversation">
+            <figcaption class="shot-caption">Proposal-style AI setup with clearer follow-up prompts.</figcaption>
           </figure>
         </div>
       </div>
@@ -225,21 +325,103 @@
   <section class="pipeline-section">
     <div class="inner">
       <div data-lang="en" class="active">
-        <h2>Pipeline Flow</h2>
+        <h2>How it works</h2>
+        <p class="landing-lead">The app keeps the setup local and walks you from source selection to delivery.</p>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <span>1</span>
+            <h3>Choose a source</h3>
+            <p>Use a web page, YouTube channel, public API document, or a research topic.</p>
+          </div>
+          <div class="workflow-step">
+            <span>2</span>
+            <h3>Pick AI and schedule</h3>
+            <p>Select your connected AI tool or Ollama model, then choose when the task should run.</p>
+          </div>
+          <div class="workflow-step">
+            <span>3</span>
+            <h3>Deliver the result</h3>
+            <p>Send the summary to Telegram, Notion, Google Docs, or Google Sheets.</p>
+          </div>
+          <div class="workflow-step">
+            <span>4</span>
+            <h3>Reply when needed</h3>
+            <p>Use Telegram follow-up replies for pipeline notifications when the workflow is configured.</p>
+          </div>
+        </div>
       </div>
       <div data-lang="ko">
-        <h2>파이프라인 흐름</h2>
+        <h2>작동 방식</h2>
+        <p class="landing-lead">설정은 내 PC에 두고, 출처 선택부터 결과 전달까지 단계적으로 진행합니다.</p>
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <span>1</span>
+            <h3>출처 선택</h3>
+            <p>웹페이지, YouTube 채널, 공개 API 문서, 리서치 주제를 사용할 수 있습니다.</p>
+          </div>
+          <div class="workflow-step">
+            <span>2</span>
+            <h3>AI와 실행 시간 선택</h3>
+            <p>연결된 AI 도구나 Ollama 모델을 고르고, 언제 실행할지 정합니다.</p>
+          </div>
+          <div class="workflow-step">
+            <span>3</span>
+            <h3>결과 전송</h3>
+            <p>요약 결과를 Telegram, Notion, Google Docs, Google Sheets로 보냅니다.</p>
+          </div>
+          <div class="workflow-step">
+            <span>4</span>
+            <h3>필요하면 답장</h3>
+            <p>설정된 경우 Telegram 파이프라인 알림에서 후속 답장을 이어갈 수 있습니다.</p>
+          </div>
+        </div>
       </div>
-      <div class="flow">
-        <div class="flow-node">YouTube / Web</div>
-        <span class="flow-arrow">&rarr;</span>
-        <div class="flow-node">AI Analysis</div>
-        <span class="flow-arrow">&rarr;</span>
-        <div class="flow-node">Notion</div>
-        <span class="flow-arrow">&middot;</span>
-        <div class="flow-node">Telegram</div>
-        <span class="flow-arrow">&middot;</span>
-        <div class="flow-node">Google Docs / Sheets</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <div data-lang="en" class="active">
+        <h2>Need details?</h2>
+        <p class="landing-lead">The landing page stays focused on the workflow. Setup, update history, and support are separated so users can find the right next step.</p>
+        <div class="info-split">
+          <div class="info-card">
+            <h3>Setup guide</h3>
+            <p>Pipeline creation, Telegram bot token setup, Google Workspace, and Ollama connection notes.</p>
+            <a href="#guide">Open guide</a>
+          </div>
+          <div class="info-card">
+            <h3>Roadmap</h3>
+            <p>Current Store version, recent improvements, and planned follow-up work.</p>
+            <a href="/TaskPilotSignalPages/roadmap/">Open roadmap</a>
+          </div>
+          <div class="info-card">
+            <h3>Support</h3>
+            <p>Where to get help, what information to include, and how to avoid sharing secrets.</p>
+            <a href="/TaskPilotSignalPages/support/">Open support</a>
+          </div>
+        </div>
+      </div>
+      <div data-lang="ko">
+        <h2>자세한 정보가 필요하다면</h2>
+        <p class="landing-lead">메인은 사용 흐름에 집중하고, 설정 방법과 업데이트 내역, 지원 정보는 사용자가 필요한 곳으로 바로 갈 수 있게 분리했습니다.</p>
+        <div class="info-split">
+          <div class="info-card">
+            <h3>설정 가이드</h3>
+            <p>작업 파이프라인 만들기, Telegram 봇 토큰, Google Workspace, Ollama 연결 안내입니다.</p>
+            <a href="#guide">가이드 보기</a>
+          </div>
+          <div class="info-card">
+            <h3>업데이트 계획</h3>
+            <p>현재 Store 버전, 최근 개선 내용, 다음 후속 작업을 확인할 수 있습니다.</p>
+            <a href="/TaskPilotSignalPages/roadmap/">로드맵 보기</a>
+          </div>
+          <div class="info-card">
+            <h3>고객지원</h3>
+            <p>도움 요청 방법, 포함하면 좋은 정보, 민감 정보 공유를 피하는 방법입니다.</p>
+            <a href="/TaskPilotSignalPages/support/">지원 보기</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -558,12 +740,12 @@
         <h2>Latest and Next</h2>
         <div class="soon-list">
           <div class="soon-item">
-            <h3>1.0.9.0 is now available</h3>
-            <p>This update improves the Google Workspace setup guide, clarifies task creation and settings copy for non-technical users, and improves reliability around Telegram notifications and pipeline workflows.</p>
+            <h3>1.1.0.0 is now available</h3>
+            <p>This update improves first-use task recommendations, proposal-style pipeline setup, Telegram follow-up replies for pipeline notifications, and compact-window readability.</p>
           </div>
           <div class="soon-item">
-            <h3>Post-1.0.9 focus</h3>
-            <p>Next work focuses on first-use templates, clearer usage and failure explanations, Telegram reply workflows, and continued Store-installed QA automation.</p>
+            <h3>Post-1.1 focus</h3>
+            <p>Next work focuses on simpler troubleshooting screens, clearer workflow templates, public model-list updates, and continued Store-installed QA automation.</p>
           </div>
           <div class="soon-item">
             <h3>Ollama local AI</h3>
@@ -575,12 +757,12 @@
         <h2>최신 업데이트와 다음 계획</h2>
         <div class="soon-list">
           <div class="soon-item">
-            <h3>1.0.9.0 출시 완료</h3>
-            <p>이번 업데이트는 Google Workspace 단계별 설정 안내를 개선하고, 비개발자가 작업 추가와 설정 화면을 더 쉽게 이해할 수 있도록 문구를 다듬었으며, Telegram 알림과 작업 파이프라인 흐름의 안정성을 개선했습니다.</p>
+            <h3>1.1.0.0 출시 완료</h3>
+            <p>이번 업데이트는 첫 작업 추천, 제안형 파이프라인 자동 설정, Telegram 파이프라인 알림 후속 답장, 작은 창에서의 가독성을 개선했습니다.</p>
           </div>
           <div class="soon-item">
-            <h3>1.0.9 이후 작업</h3>
-            <p>다음 작업은 첫 사용 템플릿, 사용량과 실패 이유 설명, Telegram 답장 워크플로우, Store 설치 기준 QA 자동화 개선에 집중합니다.</p>
+            <h3>1.1 이후 작업</h3>
+            <p>다음 작업은 더 쉬운 문제 확인 화면, 명확한 업무 템플릿, 공개 모델 목록 업데이트, Store 설치 기준 QA 자동화 개선에 집중합니다.</p>
           </div>
           <div class="soon-item">
             <h3>Ollama 로컬 AI</h3>
