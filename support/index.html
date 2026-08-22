@@ -76,11 +76,11 @@
       <div class="support-note">
         <p>If the app repeatedly crashes or shows the same error, please email support with the following information:</p>
         <ul>
-          <li>The most recent <code>diagnostic_id</code> and <code>error_code</code> near the crash timestamp inside <code>%LOCALAPPDATA%\TaskPilotSignal\logs\app-crash.log</code>.</li>
-          <li>The <code>app-crash.log</code> file as an email attachment if you are comfortable sharing it. It is a plain text file you can open in Notepad before sending.</li>
+          <li>The <code>diagnostic_id</code> and <code>error_code</code> shown near the problem time.</li>
+          <li>The diagnostic file as an email attachment only if you are comfortable sharing it. Use <strong>Status &amp; Help &gt; Copy diagnostic path</strong>, then open the text file before sending.</li>
           <li>Brief steps that caused the issue, plus your Windows version and app version if known.</li>
         </ul>
-        <p>The diagnostic log is stored locally on your PC. TaskPilotSignal applies best-effort masking to common token patterns and replaces the current user profile path with <code>%USERPROFILE%</code> before writing this file.</p>
+        <p>The diagnostic log is stored in app-owned per-user storage on your PC. TaskPilotSignal applies best-effort masking to common token patterns and user profile paths before writing this file.</p>
       </div>
 
       <h2>FAQ</h2>
@@ -102,12 +102,12 @@
         <div class="faq-a">A: Ensure you are running Windows 10 or later. Try restarting Windows, then reinstall the app if the issue continues. Runtime settings and logs are stored under the user's app-data folder, not the installation folder.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Q: Why does Google Workspace ask for a Desktop app JSON file?</div>
-        <div class="faq-a">A: TaskPilotSignal writes to Google Docs and Sheets through your own Google account and project. The Desktop app JSON tells TaskPilotSignal how to open your Google approval page; it is not something you need to edit or paste by hand. Follow Settings > Google Workspace, choose the downloaded Desktop app JSON, approve Google access in the browser, then use Check Connection.</div>
+        <div class="faq-q">Q: How does NotebookLM Personal sign-in work?</div>
+        <div class="faq-a">A: Open an existing NotebookLM notebook in the system default browser, sign in visibly, and save that notebook's address in Settings. Delivery opens a visible browser confirmation. TaskPilotSignal does not copy browser cookies, profiles, or notebook page contents.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Q: Do I need Test users or Publishing settings?</div>
-        <div class="faq-a">A: Only if Google blocks approval with access_denied, app not verified, or test-user messages. If Google approval opens normally, skip Test users. If it is blocked, add the same Google account under Test users, retry approval, and use Publishing settings later if you want the approval to last longer.</div>
+        <div class="faq-q">Q: Where are TXT, HTML, and DOCX files saved?</div>
+        <div class="faq-a">A: They are saved in the app-owned workspace under your per-user app data, not in WindowsApps. Use the Open Folder button in Settings or the task editor to open the exact folder.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Q: Are my credentials safe?</div>
@@ -115,7 +115,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">Q: Pipeline fails during execution</div>
-        <div class="faq-a">A: Verify that connected external services (Notion, Google Docs, YouTube, etc.) still have valid access permissions. If the issue repeats, email support with the diagnostic ID, error code, and steps that caused the failure.</div>
+        <div class="faq-a">A: Verify the selected AI tool, source URL, and delivery connection such as Telegram, Notion, or NotebookLM. For local files, use Open Folder and confirm the app workspace is available. If the issue repeats, email support with the diagnostic ID, error code, and steps that caused the failure.</div>
       </div>
     </div>
 
@@ -134,11 +134,11 @@
       <div class="support-note">
         <p>앱이 반복적으로 종료되거나 같은 오류가 계속 발생하면 아래 정보를 이메일로 보내주세요:</p>
         <ul>
-          <li><code>%LOCALAPPDATA%\TaskPilotSignal\logs\app-crash.log</code> 안에서 크래시 시각과 가까운 최신 <code>diagnostic_id</code>와 <code>error_code</code>.</li>
-          <li>공유해도 괜찮다면 이메일에 첨부할 <code>app-crash.log</code> 파일. 일반 텍스트 파일이므로 메모장으로 먼저 확인할 수 있습니다.</li>
+          <li>문제가 발생한 시각과 가까운 <code>diagnostic_id</code>와 <code>error_code</code>.</li>
+          <li>공유해도 괜찮다면 이메일에 첨부할 진단 파일. <strong>상태/도움말 &gt; 진단 로그 경로 복사</strong>를 사용하고 보내기 전에 텍스트 파일을 직접 확인하세요.</li>
           <li>오류가 발생한 간단한 재현 단계, 알고 있다면 Windows 버전과 앱 버전.</li>
         </ul>
-        <p>진단 로그는 사용자의 PC에 로컬로 저장됩니다. TaskPilotSignal은 이 파일을 기록하기 전에 일반적인 토큰 패턴을 가능한 범위에서 마스킹하고 현재 사용자 프로필 경로를 <code>%USERPROFILE%</code>로 대체합니다.</p>
+        <p>진단 로그는 사용자 PC의 앱 전용 사용자별 저장소에 기록됩니다. TaskPilotSignal은 이 파일을 기록하기 전에 일반적인 토큰 패턴과 사용자 프로필 경로를 가능한 범위에서 마스킹합니다.</p>
       </div>
 
       <h2>자주 묻는 질문</h2>
@@ -160,12 +160,12 @@
         <div class="faq-a">A: Windows 10 이상인지 확인하세요. Windows를 재시작한 뒤 문제가 계속되면 앱을 재설치해보세요. 런타임 설정과 로그는 설치 폴더가 아니라 사용자별 앱 데이터 폴더에 저장됩니다.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Q: Google Workspace에서 Desktop app JSON 파일을 요구하는 이유가 뭔가요?</div>
-        <div class="faq-a">A: TaskPilotSignal은 사용자의 Google 계정과 프로젝트를 통해 Google Docs와 Sheets에 씁니다. Desktop app JSON은 TaskPilotSignal이 Google 승인 화면을 열기 위한 설정 파일이며, 사용자가 값을 직접 수정하거나 붙여넣을 필요는 없습니다. 설정 > Google Workspace에서 다운로드한 Desktop app JSON을 선택하고, 브라우저에서 Google 접근을 승인한 뒤 연결 확인을 눌러보세요.</div>
+        <div class="faq-q">Q: NotebookLM Personal 로그인은 어떻게 하나요?</div>
+        <div class="faq-a">A: 시스템 기본 브라우저에서 기존 NotebookLM 노트북을 열고 직접 로그인한 뒤 설정에 해당 노트북 주소를 저장합니다. 전달할 때는 보이는 브라우저 확인이 열립니다. TaskPilotSignal은 브라우저 쿠키, 프로필 또는 노트북 페이지 내용을 복사하지 않습니다.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Q: 테스트 사용자나 게시 설정을 꼭 해야 하나요?</div>
-        <div class="faq-a">A: Google이 access_denied, 앱 미확인, 테스트 사용자 필요 같은 메시지로 승인을 차단할 때만 필요합니다. 승인 화면이 정상으로 열리면 테스트 사용자는 건너뛰세요. 차단되면 같은 Google 계정을 테스트 사용자에 추가하고 다시 승인하면 됩니다. 게시 설정은 연결이 정상 동작한 뒤 승인을 더 오래 유지하고 싶을 때 확인하세요.</div>
+        <div class="faq-q">Q: TXT, HTML, DOCX 파일은 어디에 저장되나요?</div>
+        <div class="faq-a">A: WindowsApps가 아니라 사용자별 앱 데이터 아래의 앱 전용 작업공간에 저장됩니다. 설정 또는 작업 편집 화면의 폴더 열기 버튼을 사용하면 정확한 폴더를 바로 열 수 있습니다.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Q: 인증 정보는 안전한가요?</div>
@@ -173,7 +173,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">Q: 파이프라인 실행 중 오류가 발생해요</div>
-        <div class="faq-a">A: 연결된 외부 서비스(Notion, Google Docs, YouTube 등)의 접근 권한이 여전히 유효한지 확인하세요. 문제가 반복되면 진단 ID, 오류 코드, 오류가 발생한 단계를 이메일로 보내주세요.</div>
+        <div class="faq-a">A: 선택한 AI 도구, 소스 URL, Telegram·Notion·NotebookLM 같은 전달 연결을 확인하세요. 로컬 파일은 폴더 열기로 앱 작업공간을 확인합니다. 문제가 반복되면 진단 ID, 오류 코드, 오류가 발생한 단계를 이메일로 보내주세요.</div>
       </div>
     </div>
   </main>

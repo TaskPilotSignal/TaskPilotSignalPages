@@ -54,15 +54,14 @@
   <main>
     <div data-lang="en" class="active">
       <h1>Privacy Policy</h1>
-      <p class="subtitle">Last updated: 2026-05-12</p>
-
       <h2>1. Information We Process</h2>
       <p>TaskPilotSignal processes information that users directly provide or generate while using the app, including:</p>
       <ul>
         <li>Telegram bot tokens</li>
-        <li>Notion, Google Workspace, YouTube, or other service connection data that the user chooses to configure</li>
+        <li>Telegram, Notion, NotebookLM notebook binding, or other service connection data that the user chooses to configure</li>
         <li>Task definitions, app settings, and bot/session metadata required for local operation</li>
-        <li>Local sign-in or session data used by third-party CLI tools that the user chooses to use</li>
+        <li>Local sign-in or session data owned by third-party CLI tools that the user chooses to use; TaskPilotSignal does not copy those provider session files into its package or managed configuration</li>
+        <li>TXT, HTML, or DOCX output that the user chooses to create in the app-owned local workspace</li>
       </ul>
       <p>Sensitive local settings are stored on the user's PC. On Windows, supported secret fields are protected with Windows DPAPI.</p>
 
@@ -71,28 +70,32 @@
       <ul>
         <li>AI providers or AI CLI tools chosen by the user — prompt/response processing</li>
         <li>Telegram API — bot message communication</li>
-        <li>Notion MCP/API, Google Workspace API — document creation/editing</li>
+        <li>Notion API — page delivery selected by the user</li>
+        <li>NotebookLM Personal — visible default-browser interaction with an existing notebook selected by the user</li>
         <li>YouTube and web sources — user-requested content access</li>
       </ul>
       <p><strong>We do not operate our own relay or storage server for this app.</strong> TaskPilotSignal does not send your data to a separate developer-run backend.</p>
+      <p>Local TXT, HTML, and DOCX delivery stays on the user's PC unless the user later shares those files. NotebookLM Personal does not copy or store browser cookies, browser profiles, session tokens, or notebook page contents.</p>
 
       <h2>3. Telegram Data</h2>
       <p>The app communicates with the Telegram API using the user's own bot token. Raw transcript persistence is off by default, but limited local session/state metadata may be stored privately so the bot can operate and resume safely.</p>
 
       <h2>4. Local Storage</h2>
-      <p>Release builds are designed to store settings, logs, and session/state files in app-specific per-user storage such as <code>%LOCALAPPDATA%\TaskPilotSignal</code>, not in the app installation directory.</p>
-      <p>These local files may include diagnostics, queue/session state, and configuration data needed for runtime stability.</p>
+      <p>Release builds store settings, logs, session/state files, and local document output in app-specific per-user storage under LocalAppData or package LocalState/LocalCache, not in the WindowsApps installation directory.</p>
+      <p>These local files may include diagnostics, queue/session state, configuration data, saved notebook binding, and user-requested local documents needed for the selected workflow.</p>
 
       <h2>5. Third-Party Services</h2>
       <p>Each AI provider and external service has its own privacy policy:</p>
       <ul>
-        <li>Anthropic: <a class="link" href="https://www.anthropic.com/privacy">anthropic.com/privacy</a></li>
+        <li>Anthropic: <a class="link" href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a></li>
+        <li>OpenAI: <a class="link" href="https://openai.com/policies/privacy-policy/">openai.com/policies/privacy-policy</a></li>
         <li>Google: <a class="link" href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+        <li>Notion: <a class="link" href="https://www.notion.com/trust/privacy-policy">notion.com/trust/privacy-policy</a></li>
         <li>Telegram: <a class="link" href="https://telegram.org/privacy">telegram.org/privacy</a></li>
       </ul>
 
       <h2>6. Data Deletion</h2>
-      <p>Uninstalling the app may not automatically remove per-user app data. Users can remove local settings, logs, and stored credentials by deleting the TaskPilotSignal app-data folder, typically under <code>%LOCALAPPDATA%\TaskPilotSignal</code>.</p>
+      <p>Uninstalling the app may not automatically remove every per-user file. Before removal, users can open the app-owned workspace with Open Folder and delete exported documents they no longer need. For help locating other local app data, use Status &amp; Help or contact support.</p>
 
       <h2>7. Contact</h2>
       <p>Privacy inquiries: <a class="link" href="mailto:rkddkdkdl@gmail.com">rkddkdkdl@gmail.com</a></p>
@@ -100,15 +103,14 @@
 
     <div data-lang="ko">
       <h1>개인정보처리방침</h1>
-      <p class="subtitle">최종 수정일: 2026-05-12</p>
-
       <h2>1. 처리하는 정보</h2>
       <p>TaskPilotSignal은 사용자가 직접 입력하거나 사용 중에 생성되는 다음 정보를 처리합니다:</p>
       <ul>
         <li>텔레그램 봇 토큰</li>
-        <li>사용자가 연결한 Notion, Google Workspace, YouTube 등 외부 서비스 연결 정보</li>
+        <li>사용자가 설정한 Telegram, Notion, NotebookLM 노트북 연결 정보 등 외부 서비스 연결 정보</li>
         <li>작업 정의, 앱 설정, 봇/세션 운영에 필요한 메타데이터</li>
-        <li>사용자가 선택한 외부 CLI 도구의 로컬 로그인 또는 세션 정보</li>
+        <li>사용자가 선택한 외부 CLI 도구가 소유하는 로컬 로그인 또는 세션 정보. TaskPilotSignal은 해당 공급자 세션 파일을 패키지나 앱 관리 설정으로 복사하지 않습니다.</li>
+        <li>사용자가 앱 전용 로컬 작업공간에 만들도록 선택한 TXT, HTML, DOCX 결과물</li>
       </ul>
       <p>민감한 로컬 설정값은 사용자 PC에 저장되며, Windows에서는 지원되는 항목이 Windows DPAPI로 보호됩니다.</p>
 
@@ -117,28 +119,32 @@
       <ul>
         <li>사용자가 선택한 AI 제공자 또는 AI CLI 도구 — 프롬프트/응답 처리</li>
         <li>Telegram API — 봇 메시지 송수신</li>
-        <li>Notion MCP/API, Google Workspace API — 문서 작성/수정</li>
+        <li>Notion API — 사용자가 선택한 페이지로 결과 전달</li>
+        <li>NotebookLM Personal — 사용자가 선택한 기존 노트북과 보이는 기본 브라우저에서 상호작용</li>
         <li>YouTube 및 웹 소스 — 사용자가 요청한 콘텐츠 접근</li>
       </ul>
       <p><strong>별도의 개발자 운영 중계/저장 서버로 데이터를 보내지 않습니다.</strong> TaskPilotSignal은 이 앱을 위한 별도 백엔드를 운영하지 않습니다.</p>
+      <p>로컬 TXT, HTML, DOCX 전달은 사용자가 나중에 해당 파일을 공유하지 않는 한 PC 안에 남습니다. NotebookLM Personal 기능은 브라우저 쿠키, 브라우저 프로필, 세션 토큰 또는 노트북 페이지 내용을 복사하거나 저장하지 않습니다.</p>
 
       <h2>3. 텔레그램 데이터</h2>
       <p>사용자의 텔레그램 봇 토큰을 사용하여 Telegram API와 통신합니다. 원문 대화 저장은 기본적으로 꺼져 있지만, 봇의 안정적 동작과 세션 복구를 위해 제한적인 로컬 상태/메타데이터가 비공개 저장소에 기록될 수 있습니다.</p>
 
       <h2>4. 로컬 저장</h2>
-      <p>릴리스 빌드는 설정, 로그, 세션/상태 파일을 앱 설치 폴더가 아니라 보통 <code>%LOCALAPPDATA%\TaskPilotSignal</code> 같은 사용자별 앱 데이터 경로에 저장하도록 설계되어 있습니다.</p>
-      <p>이 로컬 파일에는 진단 로그, 큐/세션 상태, 런타임 안정성을 위한 설정 데이터가 포함될 수 있습니다.</p>
+      <p>릴리스 빌드는 설정, 로그, 세션/상태 파일, 로컬 문서 결과물을 WindowsApps 설치 폴더가 아니라 LocalAppData 또는 패키지 LocalState/LocalCache 아래의 앱 전용 사용자별 저장소에 기록합니다.</p>
+      <p>이 로컬 파일에는 진단 로그, 큐/세션 상태, 설정 데이터, 저장한 노트북 연결 정보, 사용자가 요청한 로컬 문서가 포함될 수 있습니다.</p>
 
       <h2>5. 제3자 서비스</h2>
       <p>각 AI 제공자 및 외부 서비스의 개인정보 처리방침은 해당 서비스의 약관에 따릅니다:</p>
       <ul>
-        <li>Anthropic: <a class="link" href="https://www.anthropic.com/privacy">anthropic.com/privacy</a></li>
+        <li>Anthropic: <a class="link" href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a></li>
+        <li>OpenAI: <a class="link" href="https://openai.com/policies/privacy-policy/">openai.com/policies/privacy-policy</a></li>
         <li>Google: <a class="link" href="https://policies.google.com/privacy">policies.google.com/privacy</a></li>
+        <li>Notion: <a class="link" href="https://www.notion.com/trust/privacy-policy">notion.com/trust/privacy-policy</a></li>
         <li>Telegram: <a class="link" href="https://telegram.org/privacy">telegram.org/privacy</a></li>
       </ul>
 
       <h2>6. 데이터 삭제</h2>
-      <p>앱 제거만으로 사용자별 앱 데이터가 항상 자동 삭제되는 것은 아닙니다. 로컬 설정, 로그, 저장된 인증 정보는 보통 <code>%LOCALAPPDATA%\TaskPilotSignal</code> 아래의 앱 데이터 폴더를 삭제하여 함께 제거할 수 있습니다.</p>
+      <p>앱 제거만으로 모든 사용자별 파일이 자동 삭제되지 않을 수 있습니다. 제거 전에 폴더 열기로 앱 전용 작업공간을 열고 필요 없는 내보낸 문서를 삭제할 수 있습니다. 다른 로컬 앱 데이터 위치는 상태/도움말 또는 고객지원을 통해 확인하세요.</p>
 
       <h2>7. 문의</h2>
       <p>개인정보 관련 문의: <a class="link" href="mailto:rkddkdkdl@gmail.com">rkddkdkdl@gmail.com</a></p>

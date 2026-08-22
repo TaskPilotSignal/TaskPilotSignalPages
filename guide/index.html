@@ -155,7 +155,7 @@
     <div class="inner">
       <div data-lang="en" class="active">
         <h2>Getting Started Guide</h2>
-        <p class="guide-lead">The most important setup paths are pipeline creation, Google Workspace connection, and Telegram bot token verification.</p>
+        <p class="guide-lead">The main setup paths are pipeline creation, choosing a delivery target, and Telegram bot token verification.</p>
         <div class="guide-grid">
           <div class="guide-card guide-step">
             <h3>1. Create a Pipeline Task</h3>
@@ -176,40 +176,37 @@
             <p class="guide-hint">Click any screenshot to open it full size.</p>
             <p class="guide-hint">Screenshots hide account names, project IDs, and local file names. Use your own values on your PC.</p>
             <ol>
-              <li>Click <strong>Add New Feature / Task</strong> from the dashboard.</li>
-              <li>Choose <strong>Pipeline Task</strong>.</li>
-              <li>Use <strong>AI Auto-Configure</strong> for a guided setup, or switch to manual setup.</li>
+              <li>Click <strong>Create New Task</strong> from the dashboard.</li>
+              <li>Start with a recommendation, a step-by-step draft, or <strong>AI Auto Setup</strong>.</li>
+              <li>Use the guided buttons when you want sensible defaults, or switch to manual setup for full control.</li>
               <li>Select an AI agent and model, add a web or YouTube source, choose a delivery target, and set a schedule time.</li>
               <li>Save the task. Use <strong>Start</strong> for scheduled runs or <strong>Run Now</strong> for a manual test.</li>
             </ol>
           </div>
-          <div id="google-workspace-guide" class="guide-card guide-step" data-guide-anchor="google-workspace">
-            <h3>2. Connect Google Workspace</h3>
+          <div id="delivery-target-guide" class="guide-card guide-step" data-guide-anchor="delivery-target">
+            <h3>2. Choose Where Results Go</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/settings-connections-overview.png">
-                  <img src="/TaskPilotSignalPages/assets/guide/settings-connections-overview.png" alt="Settings connections area with Notion and Google Workspace cards">
+                <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/guided-delivery-options.png">
+                  <img src="/TaskPilotSignalPages/assets/guide/guided-delivery-options.png" alt="Guided pipeline draft with Telegram, Notion, Local files, and NotebookLM buttons">
                 </a>
-                <figcaption>Open Settings and find the Connections section.</figcaption>
+                <figcaption>Choose a delivery target while building the draft.</figcaption>
               </figure>
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/google-workspace-connection.png">
-                  <img src="/TaskPilotSignalPages/assets/guide/google-workspace-connection.png" alt="Google Workspace connection card in Settings">
+                <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/settings-ai-tools.png">
+                  <img src="/TaskPilotSignalPages/assets/guide/settings-ai-tools.png" alt="Settings page showing Antigravity, Claude, Codex, and optional Ollama">
                 </a>
-                <figcaption>Use the Google Workspace card to start the guided setup.</figcaption>
+                <figcaption>Confirm the AI tool you want to use in Settings.</figcaption>
               </figure>
             </div>
             <p class="guide-hint">Click any screenshot to open it full size.</p>
             <ol>
-              <li>Open <strong>Settings</strong> and click <strong>Connect Google</strong>. You only need this when a pipeline sends results to Google Docs or Sheets.</li>
-              <li>Keep the TaskPilotSignal setup window open and follow only the current step. The app opens the Google page that is needed for that step.</li>
-              <li>Use your own Google account and Google Cloud project. This keeps Workspace delivery under your account, quota, and permissions.</li>
-              <li>If a Google page opens one menu away from the expected screen, use <strong>APIs &amp; Services</strong>, then find <strong>OAuth consent screen</strong> or <strong>Credentials</strong>.</li>
-              <li>When creating credentials, choose <strong>OAuth client ID</strong> and <strong>Desktop app</strong>, then use Google's <strong>Download JSON</strong> button.</li>
-              <li>Select that Desktop app JSON in TaskPilotSignal. You do not need to copy Client ID or Secret values manually.</li>
-              <li>Approve Google access in the browser, return to TaskPilotSignal, then click <strong>Check Connection</strong> or use <strong>Run Now</strong> on a pipeline to test delivery.</li>
+              <li>Choose <strong>Telegram</strong> for chat delivery or <strong>Notion</strong> for a connected Notion page.</li>
+              <li>Choose <strong>Local files</strong> to save TXT, HTML, or DOCX output in the app-owned per-user workspace. Use <strong>Open Folder</strong> to view it.</li>
+              <li>Choose <strong>NotebookLM</strong> to append to one existing NotebookLM Personal notebook. Sign in visibly in the default browser and save that notebook's address.</li>
+              <li>NotebookLM opens a visible browser confirmation during delivery. The app does not copy browser cookies, profiles, or notebook page contents.</li>
+              <li>Google Workspace, Drive, Docs, and Sheets are not delivery targets in version 1.2.0.0.</li>
             </ol>
-            <p class="guide-hint">If Google blocks approval, add the same Google account under Test users and retry. If approval works normally, you can skip the Test users step.</p>
           </div>
           <div id="telegram-bot-token-guide" class="guide-card guide-step" data-guide-anchor="telegram-bot-token">
             <h3>3. Get a Telegram Bot Token</h3>
@@ -268,15 +265,15 @@
             <div class="example-list">
               <div class="example-box"><strong>Microsoft news digest</strong>Check <code>https://blogs.windows.com/windowsdeveloper/tag/news/</code> every day at 09:00 and send a Telegram summary.</div>
               <div class="example-box"><strong>YouTube channel summary</strong>Check a YouTube channel once a day, summarize new videos, and save the result to Notion.</div>
-              <div class="example-box"><strong>Google Docs report</strong>Collect updates from a web page every weekday and append the AI summary to a Google Docs document.</div>
-              <div class="example-box"><strong>Google Sheets tracker</strong>Monitor a web source and add date, title, source URL, and short summary rows to Google Sheets.</div>
+              <div class="example-box"><strong>Local document report</strong>Collect weekday updates and save a readable TXT, HTML, or DOCX report in the app workspace.</div>
+              <div class="example-box"><strong>NotebookLM research source</strong>Collect selected output and append it to an existing NotebookLM notebook through the visible browser flow.</div>
             </div>
           </div>
         </div>
       </div>
       <div data-lang="ko">
         <h2>시작 가이드</h2>
-        <p class="guide-lead">가장 중요한 설정은 작업 파이프라인 생성, Google Workspace 연결, 텔레그램 봇 토큰 검증입니다.</p>
+        <p class="guide-lead">가장 중요한 설정은 작업 파이프라인 생성, 전달 대상 선택, 텔레그램 봇 토큰 검증입니다.</p>
         <div class="guide-grid">
           <div class="guide-card guide-step">
             <h3>1. 작업 파이프라인 만들기</h3>
@@ -297,40 +294,37 @@
             <p class="guide-hint">스크린샷을 누르면 원본 크기로 볼 수 있습니다.</p>
             <p class="guide-hint">스크린샷의 계정 이름, 프로젝트 ID, 로컬 파일 이름은 가려져 있습니다. 실제 설정에서는 본인 PC의 값을 사용하세요.</p>
             <ol>
-              <li>대시보드에서 <strong>새로운 기능/작업 추가</strong>를 누릅니다.</li>
-              <li><strong>파이프라인 작업</strong>을 선택합니다.</li>
-              <li>처음에는 <strong>AI 자동 설정</strong>으로 안내를 받거나, 직접 구성하려면 수동 설정으로 전환합니다.</li>
+              <li>대시보드에서 <strong>새 작업 만들기</strong>를 누릅니다.</li>
+              <li>작업 추천, 단계별 초안, <strong>AI 자동 설정</strong> 중에서 시작 방식을 고릅니다.</li>
+              <li>추천 기본값을 쓰려면 버튼 안내를 따르고, 모든 항목을 직접 정하려면 수동 설정으로 전환합니다.</li>
               <li>AI 에이전트와 모델, 웹 또는 YouTube 소스, 전달 대상, 실행 시간을 설정합니다.</li>
               <li>작업을 저장한 뒤 <strong>시작</strong>으로 예약 실행하거나 <strong>즉시 실행</strong>으로 테스트합니다.</li>
             </ol>
           </div>
-          <div class="guide-card guide-step" data-guide-anchor="google-workspace">
-            <h3>2. Google Workspace 연결</h3>
+          <div class="guide-card guide-step" data-guide-anchor="delivery-target">
+            <h3>2. 결과 전달 위치 선택</h3>
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/settings-connections-overview.png">
-                  <img src="/TaskPilotSignalPages/assets/guide/settings-connections-overview.png" alt="설정 화면의 연결 섹션과 Notion, Google Workspace 카드">
+                <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/guided-delivery-options.png">
+                  <img src="/TaskPilotSignalPages/assets/guide/guided-delivery-options.png" alt="Telegram, Notion, 로컬 파일, NotebookLM 버튼이 있는 단계별 파이프라인 초안">
                 </a>
-                <figcaption>설정 화면에서 연결 섹션을 찾습니다.</figcaption>
+                <figcaption>초안을 만들면서 결과 전달 대상을 선택합니다.</figcaption>
               </figure>
               <figure class="guide-shot-tile">
-                <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/google-workspace-connection.png">
-                  <img src="/TaskPilotSignalPages/assets/guide/google-workspace-connection.png" alt="설정 화면의 Google Workspace 연결 카드">
+                <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/settings-ai-tools.png">
+                  <img src="/TaskPilotSignalPages/assets/guide/settings-ai-tools.png" alt="Antigravity, Claude, Codex, 선택 기능인 Ollama가 표시된 설정 화면">
                 </a>
-                <figcaption>Google Workspace 카드에서 단계별 연결을 시작합니다.</figcaption>
+                <figcaption>설정에서 사용할 AI 도구의 연결 상태를 확인합니다.</figcaption>
               </figure>
             </div>
             <p class="guide-hint">스크린샷을 누르면 원본 크기로 볼 수 있습니다.</p>
             <ol>
-              <li><strong>설정</strong>에서 <strong>Google 연결</strong>을 누릅니다. 파이프라인 결과를 Google Docs나 Sheets로 보낼 때만 필요합니다.</li>
-              <li>TaskPilotSignal 설정 창을 열어둔 채 현재 단계만 따라갑니다. 앱이 해당 단계에 필요한 Google 페이지를 열어줍니다.</li>
-              <li>사용자 본인의 Google 계정과 Google Cloud 프로젝트를 사용합니다. 이렇게 하면 전송 권한과 사용량이 사용자 계정/프로젝트 기준으로 관리됩니다.</li>
-              <li>Google 페이지가 예상 화면보다 한 메뉴 앞뒤로 열리면 <strong>API 및 서비스</strong>에서 <strong>OAuth 동의 화면</strong> 또는 <strong>사용자 인증 정보</strong>를 찾으세요.</li>
-              <li>사용자 인증 정보를 만들 때는 <strong>OAuth 클라이언트 ID</strong>와 <strong>Desktop app</strong>을 선택한 뒤 Google의 <strong>Download JSON</strong> 버튼으로 파일을 받습니다.</li>
-              <li>다운로드한 Desktop app JSON을 TaskPilotSignal에서 선택합니다. Client ID나 Secret 값을 직접 복사해 붙여넣을 필요는 없습니다.</li>
-              <li>브라우저에서 Google 접근을 승인한 뒤 TaskPilotSignal로 돌아와 <strong>연결 확인</strong> 또는 파이프라인의 <strong>즉시 실행</strong>으로 실제 전송을 테스트합니다.</li>
+              <li>채팅으로 받으려면 <strong>Telegram</strong>, 연결한 페이지에 쓰려면 <strong>Notion</strong>을 선택합니다.</li>
+              <li><strong>로컬 파일</strong>은 앱이 관리하는 사용자별 작업공간에 TXT, HTML, DOCX 파일로 저장합니다. <strong>폴더 열기</strong>로 바로 확인할 수 있습니다.</li>
+              <li><strong>NotebookLM</strong>은 기존 NotebookLM Personal 노트북 하나에 추가합니다. 기본 브라우저에서 직접 로그인하고 기존 노트북 주소를 저장하세요.</li>
+              <li>NotebookLM 전달 시 보이는 브라우저 확인이 열립니다. 앱은 브라우저 쿠키, 프로필, 노트북 페이지 내용을 복사하지 않습니다.</li>
+              <li>버전 1.2.0.0에서는 Google Workspace, Drive, Docs, Sheets를 전달 대상으로 제공하지 않습니다.</li>
             </ol>
-            <p class="guide-hint">Google이 승인을 차단할 때만 같은 Google 계정을 테스트 사용자에 추가하고 다시 시도하세요. 승인 화면이 정상으로 열리면 테스트 사용자 단계는 건너뛰어도 됩니다.</p>
           </div>
           <div class="guide-card guide-step" data-guide-anchor="telegram-bot-token">
             <h3>3. 텔레그램 봇 토큰 얻기</h3>
@@ -389,8 +383,8 @@
             <div class="example-list">
               <div class="example-box"><strong>Microsoft 뉴스 요약</strong><code>https://blogs.windows.com/windowsdeveloper/tag/news/</code>를 매일 09:00에 확인하고 텔레그램으로 요약을 보냅니다.</div>
               <div class="example-box"><strong>YouTube 채널 요약</strong>YouTube 채널을 하루 한 번 확인하고 새 영상 요약을 Notion에 저장합니다.</div>
-              <div class="example-box"><strong>Google Docs 리포트</strong>웹페이지 업데이트를 평일마다 수집하고 AI 요약을 Google Docs 문서에 추가합니다.</div>
-              <div class="example-box"><strong>Google Sheets 추적</strong>웹 소스를 확인해 날짜, 제목, URL, 짧은 요약을 Google Sheets 행으로 추가합니다.</div>
+              <div class="example-box"><strong>로컬 문서 보고서</strong>평일마다 업데이트를 수집하고 앱 작업공간에 TXT, HTML, DOCX 보고서로 저장합니다.</div>
+              <div class="example-box"><strong>NotebookLM 리서치 자료</strong>선택한 결과를 보이는 브라우저 흐름으로 기존 NotebookLM 노트북에 추가합니다.</div>
             </div>
           </div>
         </div>
