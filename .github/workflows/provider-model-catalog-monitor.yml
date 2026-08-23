@@ -1,0 +1,120 @@
+name: Provider model catalog guard
+
+on:
+  push:
+    paths:
+      - '.github/workflows/provider-model-catalog-monitor.yml'
+      - 'scripts/ProviderModelCatalogPublisher.psm1'
+      - 'scripts/publish-provider-model-catalog.ps1'
+      - 'scripts/test-provider-model-catalog-publisher.ps1'
+  pull_request:
+    paths:
+      - '.github/workflows/provider-model-catalog-monitor.yml'
+      - 'scripts/ProviderModelCatalogPublisher.psm1'
+      - 'scripts/publish-provider-model-catalog.ps1'
+      - 'scripts/test-provider-model-catalog-publisher.ps1'
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: provider-model-catalog-${{ github.event_name }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out Pages sources
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Run offline publisher tests
+        shell: pwsh
+        run: >-
+          pwsh -NoLogo -NoProfile -NonInteractive -File
+          scripts/test-provider-model-catalog-publisher.ps1
+
+  monitor:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: windows-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Check out monitor sources
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify public signature and expiry
+        id: catalog
+        continue-on-error: true
+        shell: pwsh
+        run: |
+          $resultPath = Join-Path $env:RUNNER_TEMP 'provider-model-catalog-monitor.json'
+          & pwsh -NoLogo -NoProfile -NonInteractive -File `
+            scripts/publish-provider-model-catalog.ps1 `
+            -Mode Monitor `
+            -ResultPath $resultPath
+          $monitorExit = $LASTEXITCODE
+          $failure = 'CATALOG_MONITOR_BLOCKED'
+          $sequence = 'unknown'
+          if (Test-Path -LiteralPath $resultPath) {
+            $result = Get-Content -Raw -LiteralPath $resultPath | ConvertFrom-Json
+            if ($result.status -ceq 'pass' -and $null -ne $result.sequence) {
+              $sequence = [string]$result.sequence
+            }
+            if ($result.status -ceq 'blocked' -and
+                [string]$result.FailureSignature -match '\A[A-Z0-9_]{3,80}\z') {
+              $failure = [string]$result.FailureSignature
+            }
+          }
+          "failure=$failure" | Add-Content -LiteralPath $env:GITHUB_OUTPUT
+          "sequence=$sequence" | Add-Content -LiteralPath $env:GITHUB_OUTPUT
+          exit $monitorExit
+      - name: Open or close the monitor issue
+        if: always()
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MONITOR_OUTCOME: ${{ steps.catalog.outcome }}
+          FAILURE_SIGNATURE: ${{ steps.catalog.outputs.failure }}
+          CATALOG_SEQUENCE: ${{ steps.catalog.outputs.sequence }}
+        run: |
+          $title = '[자동 점검] Provider 모델 카탈로그 확인 필요'
+          $issues = gh issue list --state open --limit 100 --json number,title | ConvertFrom-Json
+          $existing = @($issues | Where-Object { $_.title -ceq $title } | Select-Object -First 1)
+          if ($env:MONITOR_OUTCOME -cne 'success') {
+            $failure = if ($env:FAILURE_SIGNATURE -match '\A[A-Z0-9_]{3,80}\z') {
+              $env:FAILURE_SIGNATURE
+            } else {
+              'CATALOG_MONITOR_BLOCKED'
+            }
+            $body = @"
+          공개 provider 모델 카탈로그의 서명, 형식 또는 남은 유효기간 자동 점검이 실패했습니다.
+
+          - FailureSignature: ``$failure``
+          - Environment: ``github-monitor``
+          - 조치: Windows 예약 게시자의 ``latest-result.json``과 Actions 실행 결과를 확인하세요.
+
+          원격 입력이나 provider stderr는 이 이슈에 포함하지 않습니다.
+          "@
+            if ($existing.Count -eq 1) {
+              gh issue edit $existing[0].number --body $body | Out-Null
+            } else {
+              gh issue create --title $title --body $body | Out-Null
+            }
+          } elseif ($existing.Count -eq 1) {
+            gh issue close $existing[0].number `
+              --comment "자동 점검이 복구되었습니다. 확인된 sequence: $env:CATALOG_SEQUENCE" | Out-Null
+          }
+      - name: Keep failed checks visible
+        if: steps.catalog.outcome != 'success'
+        shell: pwsh
+        run: exit 1
