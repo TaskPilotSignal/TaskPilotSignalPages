@@ -55,7 +55,8 @@ function Install-CatalogPublisherTask {
     Assert-LocalAutomationPaths
     if (-not $IsWindows) { throw [PlatformNotSupportedException]::new('SCHEDULE_INSTALL_BLOCKED') }
     $entryPoint = [IO.Path]::GetFullPath($PSCommandPath)
-    $pwsh = (Get-Command pwsh -CommandType Application -ErrorAction Stop).Source
+    $pwsh = (Get-Command pwsh -CommandType Application -ErrorAction Stop |
+            Select-Object -First 1).Source
     $arguments = '-NoLogo -NoProfile -NonInteractive -WindowStyle Hidden -File "{0}" -Mode Publish' -f $entryPoint
     $action = New-ScheduledTaskAction -Execute $pwsh -Argument $arguments `
         -WorkingDirectory ([IO.Path]::GetFullPath($PagesRepositoryPath))
