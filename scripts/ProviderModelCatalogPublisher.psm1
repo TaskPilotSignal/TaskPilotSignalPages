@@ -870,7 +870,7 @@ function Invoke-SafeGit {
         if (-not $process.Start()) { Throw-PublisherBlocker 'GIT_WORKTREE_BLOCKED' }
         $stdoutTask = $process.StandardOutput.ReadToEndAsync()
         $stderrTask = $process.StandardError.ReadToEndAsync()
-        try { $process.WaitForExitAsync().WaitAsync([timespan]::FromSeconds($TimeoutSeconds)).GetAwaiter().GetResult() }
+        try { [void]$process.WaitForExitAsync().WaitAsync([timespan]::FromSeconds($TimeoutSeconds)).GetAwaiter().GetResult() }
         catch { Throw-PublisherBlocker 'GIT_WORKTREE_BLOCKED' }
         $stdout = $stdoutTask.GetAwaiter().GetResult()
         $stderr = $stderrTask.GetAwaiter().GetResult()
