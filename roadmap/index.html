@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Current TaskPilotSignal release improvements, platform history, and user-facing follow-up plans.">
   <title>Roadmap - TaskPilotSignal</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,7 +43,14 @@
     .copy { font-size: .78rem; color: #576370; }
     [data-lang] { display: none; }
     [data-lang].active { display: block; }
-    @media(max-width:600px) { nav ul { gap: .75rem; } section { padding: 2rem 1rem; } }
+    @media(max-width:600px) {
+      .nav-inner { height: auto; min-height: 72px; align-items: flex-start; flex-direction: column; gap: .45rem; padding: .75rem 1rem; }
+      .nav-right { width: 100%; align-items: flex-start; justify-content: space-between; gap: .75rem; }
+      nav ul { flex-wrap: wrap; gap: .45rem .8rem; }
+      nav a { font-size: .82rem; }
+      .lang-btn { flex: none; }
+      section { padding: 2rem 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -66,11 +74,11 @@
   <div class="hero">
     <h1>Roadmap</h1>
     <div data-lang="en" class="active">
-      <p>TaskPilotSignal launched on Microsoft Store on May 13, 2026. The 1.2.0.0 package adds NotebookLM Personal existing-notebook delivery, local TXT/HTML/DOCX output with Open Folder, clearer task setup, and safer Status &amp; Help guidance.</p>
+      <p>TaskPilotSignal launched on Microsoft Store on May 13, 2026. The 1.2.0.0 package adds NotebookLM Personal existing-notebook delivery, local TXT/HTML/DOCX output with Open Folder, clearer task setup, safer Status &amp; Help guidance, and independently refreshed provider model choices.</p>
       <p><a class="store-link" href="https://apps.microsoft.com/store/detail/9NMHF1JZ0Q87?cid=DevShareMCLPCS" target="_blank" rel="noopener">Open on Microsoft Store</a></p>
     </div>
     <div data-lang="ko">
-      <p>TaskPilotSignal은 2026년 5월 13일 Microsoft Store에 출시되었습니다. 1.2.0.0 패키지에는 NotebookLM Personal 기존 노트북 전달, 폴더 열기를 포함한 로컬 TXT/HTML/DOCX 출력, 더 쉬운 작업 설정, 안전한 상태/도움말 안내가 포함됩니다.</p>
+      <p>TaskPilotSignal은 2026년 5월 13일 Microsoft Store에 출시되었습니다. 1.2.0.0 패키지에는 NotebookLM Personal 기존 노트북 전달, 폴더 열기를 포함한 로컬 TXT/HTML/DOCX 출력, 더 쉬운 작업 설정, 안전한 상태/도움말 안내, 앱 업데이트와 별개로 새로 확인하는 제공자 모델 선택지가 포함됩니다.</p>
       <p><a class="store-link" href="https://apps.microsoft.com/store/detail/9NMHF1JZ0Q87?cid=DevShareMCLPCS" target="_blank" rel="noopener">Microsoft Store에서 열기</a></p>
     </div>
   </div>
@@ -97,6 +105,10 @@
             <h3><span class="tag tag-improve">Improve</span> Guided Setup and Help</h3>
             <p>Start with recommendations, a button-guided draft, AI setup, or a Telegram bot, then use Status &amp; Help for safe next steps.</p>
           </div>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> Verified Provider Model Refresh</h3>
+            <p>Refresh model choices from signed public metadata and connected CLI discovery without a full app update, while keeping a compatible verified choice when refresh is unavailable.</p>
+          </div>
         </div>
 
         <div class="update-group">
@@ -110,16 +122,12 @@
             <p>Add more polished examples for competitor monitoring, stock or API monitoring, YouTube summaries, recurring research briefings, Notion, local documents, and NotebookLM.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Provider Model Updates</h3>
-            <p>Continue improving the public model manifest and local CLI discovery path so model-name changes do not require a full app update.</p>
-          </div>
-          <div class="update-card">
             <h3><span class="tag tag-new">Later</span> Telegram-driven Pipeline Creation</h3>
             <p>Pipeline creation from bot chat remains a later feature after task context and duplicate-response safeguards stay stable.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Store-installed QA Automation</h3>
-            <p>Keep tightening VMware Store-like QA, Telegram Desktop button checks, provider/model sampling, and screenshot-based GUI clipping checks.</p>
+            <h3><span class="tag tag-improve">Improve</span> Windows Reliability</h3>
+            <p>Continue improving startup guidance, connection checks, Telegram controls, provider selection, and readable layouts across supported Windows window sizes.</p>
           </div>
         </div>
 
@@ -151,6 +159,10 @@
             <h3><span class="tag tag-improve">Improve</span> 단계별 설정과 도움말</h3>
             <p>작업 추천, 버튼식 초안, AI 설정, Telegram 봇 중에서 시작하고 상태/도움말에서 안전한 다음 조치를 확인합니다.</p>
           </div>
+          <div class="update-card">
+            <h3><span class="tag tag-improve">Improve</span> 검증된 제공자 모델 새로 고침</h3>
+            <p>서명된 공개 정보와 연결된 CLI 탐지로 앱 전체 업데이트 없이 모델 선택지를 새로 확인하고, 새로 고침을 사용할 수 없으면 이미 검증된 호환 선택지를 유지합니다.</p>
+          </div>
         </div>
 
         <div class="update-group">
@@ -164,16 +176,12 @@
             <p>경쟁사 모니터링, 주식 또는 API 모니터링, YouTube 요약, 정기 리서치 브리핑, Notion, 로컬 문서, NotebookLM 예시를 더 구체화합니다.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> 제공자 모델 업데이트</h3>
-            <p>모델명이 바뀔 때마다 앱 전체 업데이트가 필요하지 않도록 공개 모델 매니페스트와 로컬 CLI 탐지 흐름을 계속 개선합니다.</p>
-          </div>
-          <div class="update-card">
             <h3><span class="tag tag-new">Later</span> 텔레그램에서 파이프라인 만들기</h3>
             <p>봇 대화로 파이프라인을 새로 만드는 기능은 작업 문맥과 중복 응답 방지가 안정된 뒤 이후 기능으로 둡니다.</p>
           </div>
           <div class="update-card">
-            <h3><span class="tag tag-improve">Improve</span> Store 설치 기준 QA 자동화</h3>
-            <p>VMware Store-like QA, Telegram Desktop 버튼 테스트, 제공자/모델 샘플링, 스크린샷 기반 GUI 잘림 검사를 계속 강화합니다.</p>
+            <h3><span class="tag tag-improve">Improve</span> Windows 안정성</h3>
+            <p>지원하는 Windows 창 크기에서 시작 안내, 연결 확인, Telegram 조작, 제공자 선택, 읽기 쉬운 화면 구성을 계속 개선합니다.</p>
           </div>
         </div>
 
@@ -210,6 +218,7 @@
       apply(lang);
     }
     function apply(l) {
+      document.documentElement.lang = l;
       document.querySelectorAll('[data-lang]').forEach(function(el) {
         el.classList.toggle('active', el.getAttribute('data-lang') === l);
       });

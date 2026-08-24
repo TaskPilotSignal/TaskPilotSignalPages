@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Local Windows AI briefing automation with Telegram, Notion, NotebookLM Personal, local documents, and optional Ollama.">
   <title>TaskPilotSignal - Local AI Briefing Automation</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,7 +22,7 @@
     .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(17,19,24,.96), rgba(17,19,24,.72), rgba(17,19,24,.42)), url("assets/screenshots/01_dashboard.png") center right / min(980px, 72vw) auto no-repeat; opacity: .95; }
     .hero::after { content: ""; position: absolute; inset: auto 0 0; height: 180px; background: linear-gradient(0deg, var(--bg), rgba(17,19,24,0)); pointer-events: none; }
     .hero-content { position: relative; z-index: 1; width: min(980px, 100%); margin: 0 auto; text-align: left; }
-    .hero h1 { max-width: 700px; font-size: 4.15rem; line-height: 1.05; color: #f8fafc; margin-bottom: 1rem; letter-spacing: 0; }
+    .hero h1 { max-width: 700px; font-size: 4.15rem; line-height: 1.05; color: #f8fafc; margin-bottom: 1rem; letter-spacing: 0; word-break: keep-all; overflow-wrap: anywhere; }
     .tagline { max-width: 640px; font-size: 1.22rem; color: #cbd5e1; font-weight: 500; margin-bottom: 1.3rem; }
     .hero-points { display: grid; gap: .55rem; margin: 1.25rem 0 1.45rem; max-width: 620px; color: #d7dde6; font-size: .94rem; }
     .hero-point { display: flex; gap: .55rem; align-items: flex-start; }
@@ -251,16 +252,19 @@
       <div class="screenshot-grid" aria-label="TaskPilotSignal product screenshots">
         <figure class="shot-card">
           <img src="assets/screenshots/01_dashboard.png" alt="TaskPilotSignal dashboard with pipeline cards and quick actions">
-          <figcaption class="shot-caption">Dashboard overview with pipeline status and quick actions.</figcaption>
+            <figcaption class="shot-caption nav-en">Dashboard overview with pipeline status and quick actions.</figcaption>
+            <figcaption class="shot-caption nav-ko" style="display:none">파이프라인 상태와 빠른 실행을 한눈에 보는 대시보드입니다.</figcaption>
         </figure>
         <div class="shot-stack">
           <figure class="shot-card">
-            <img src="assets/screenshots/03_recommendation_request.png" alt="Add Automation window with four clear starting paths">
-            <figcaption class="shot-caption">Choose recommendations, guided setup, AI setup, or a Telegram bot.</figcaption>
+            <img src="assets/screenshots/02_add_automation.png" alt="Add Automation window with four clear starting paths">
+            <figcaption class="shot-caption nav-en">Choose recommendations, guided setup, AI setup, or a Telegram bot.</figcaption>
+            <figcaption class="shot-caption nav-ko" style="display:none">작업 추천, 단계별 설정, AI 설정, Telegram 봇 중에서 시작합니다.</figcaption>
           </figure>
           <figure class="shot-card">
-            <img src="assets/screenshots/04_pipeline_auto_setup.png" alt="Guided pipeline draft with source, schedule, and delivery buttons">
-            <figcaption class="shot-caption">Pick Telegram, Notion, local files, or NotebookLM with clear buttons.</figcaption>
+            <img src="assets/screenshots/03_guided_delivery.png" alt="Guided pipeline draft with source, schedule, and delivery buttons">
+            <figcaption class="shot-caption nav-en">Pick Telegram, Notion, local files, or NotebookLM with clear buttons.</figcaption>
+            <figcaption class="shot-caption nav-ko" style="display:none">명확한 버튼으로 Telegram, Notion, 로컬 파일, NotebookLM을 고릅니다.</figcaption>
           </figure>
         </div>
       </div>
@@ -494,7 +498,7 @@
         <div class="soon-list">
           <div class="soon-item">
             <h3>NotebookLM Personal and local documents</h3>
-            <p>Append selected output to an existing NotebookLM notebook through a visible browser flow, or save TXT, HTML, and DOCX files in the app-owned workspace.</p>
+            <p>Sign in visibly to append output to an existing NotebookLM notebook, or save TXT, HTML, and DOCX files in the app-owned per-user workspace and open that folder directly.</p>
           </div>
           <div class="soon-item">
             <h3>Clearer task setup and help</h3>
@@ -504,6 +508,10 @@
             <h3>Ollama local AI</h3>
             <p>Optional local AI support is included for users who install Ollama, start it, and download a local model on their own PC.</p>
           </div>
+          <div class="soon-item">
+            <h3>Current provider model choices</h3>
+            <p>Signed public model metadata and connected CLI discovery can refresh model choices without an app update. If refresh is unavailable or cannot be verified, the app keeps a compatible verified choice already available on this PC.</p>
+          </div>
         </div>
       </div>
       <div data-lang="ko">
@@ -511,7 +519,7 @@
         <div class="soon-list">
           <div class="soon-item">
             <h3>NotebookLM Personal과 로컬 문서</h3>
-            <p>보이는 브라우저 흐름으로 기존 NotebookLM 노트북에 결과를 추가하거나, 앱 작업공간에 TXT, HTML, DOCX 파일로 저장합니다.</p>
+            <p>보이는 브라우저에서 직접 로그인해 기존 NotebookLM 노트북에 결과를 추가하거나, 앱 전용 사용자별 작업공간에 TXT, HTML, DOCX 파일로 저장하고 폴더를 바로 엽니다.</p>
           </div>
           <div class="soon-item">
             <h3>더 쉬운 작업 설정과 도움말</h3>
@@ -520,6 +528,10 @@
           <div class="soon-item">
             <h3>Ollama 로컬 AI</h3>
             <p>Ollama를 설치하고 실행한 뒤 로컬 모델을 다운로드한 사용자가 선택할 수 있는 로컬 AI 옵션을 포함합니다.</p>
+          </div>
+          <div class="soon-item">
+            <h3>최신 제공자 모델 선택지</h3>
+            <p>서명된 공개 모델 정보와 연결된 CLI 탐지를 통해 앱 업데이트 없이 모델 선택지를 새로 확인합니다. 새로 고침을 사용할 수 없거나 검증하지 못하면 이 PC에서 이미 확인된 호환 선택지를 유지합니다.</p>
           </div>
         </div>
       </div>
@@ -548,6 +560,7 @@
       apply(lang);
     }
     function apply(l) {
+      document.documentElement.lang = l;
       document.querySelectorAll('[data-lang]').forEach(function(el) {
         el.classList.toggle('active', el.getAttribute('data-lang') === l);
       });

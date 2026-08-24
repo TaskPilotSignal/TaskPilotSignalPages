@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bilingual setup guide for TaskPilotSignal pipelines, delivery targets, AI tools, and Telegram bots.">
   <title>Guide - TaskPilotSignal</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -162,15 +163,9 @@
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
                 <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/dashboard-add-task.png">
-                  <img src="/TaskPilotSignalPages/assets/guide/dashboard-add-task.png" alt="Dashboard action buttons for opening the guide or adding a new task">
+                  <img src="/TaskPilotSignalPages/assets/guide/dashboard-add-task.png" alt="Add Automation window with recommendations, guided setup, AI setup, and Telegram bot options">
                 </a>
-                <figcaption>Start from the dashboard action button.</figcaption>
-              </figure>
-              <figure class="guide-shot-tile">
-                <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/pipeline-auto-configure.png">
-                  <img src="/TaskPilotSignalPages/assets/guide/pipeline-auto-configure.png" alt="AI auto-configure panel in the pipeline task editor">
-                </a>
-                <figcaption>Use AI Auto-Configure or switch to manual setup.</figcaption>
+                <figcaption>Choose a clear starting path from Add Automation.</figcaption>
               </figure>
             </div>
             <p class="guide-hint">Click any screenshot to open it full size.</p>
@@ -205,7 +200,7 @@
               <li>Choose <strong>Local files</strong> to save TXT, HTML, or DOCX output in the app-owned per-user workspace. Use <strong>Open Folder</strong> to view it.</li>
               <li>Choose <strong>NotebookLM</strong> to append to one existing NotebookLM Personal notebook. Sign in visibly in the default browser and save that notebook's address.</li>
               <li>NotebookLM opens a visible browser confirmation during delivery. The app does not copy browser cookies, profiles, or notebook page contents.</li>
-              <li>Google Workspace, Drive, Docs, and Sheets are not delivery targets in version 1.2.0.0.</li>
+              <li>Google Workspace, Drive, Docs, and Sheets are not available delivery targets.</li>
             </ol>
           </div>
           <div id="telegram-bot-token-guide" class="guide-card guide-step" data-guide-anchor="telegram-bot-token">
@@ -245,10 +240,18 @@
             <h3>Optional: Use Ollama Local AI</h3>
             <ol>
               <li>Install Ollama separately from <code>https://ollama.com/download</code>.</li>
-              <li>Start the Ollama app, then download at least one local model such as <code>llama3.2</code>.</li>
+              <li>Start the Ollama app, then download at least one local model.</li>
               <li>Open TaskPilotSignal Settings and select Ollama after the app detects a local model.</li>
               <li>If Ollama is not available, check that the app is running, a model is downloaded, and the host is local to this PC.</li>
             </ol>
+          </div>
+          <div class="guide-card">
+            <h3>Provider Model Choices and Safe Fallback</h3>
+            <ul>
+              <li>TaskPilotSignal can refresh provider model choices independently of an app update by using signed public model metadata and the connected provider CLI.</li>
+              <li>If a refresh is unavailable or fails verification, the app keeps a compatible verified choice already available on this PC instead of applying unverified data.</li>
+              <li>Sign in with each provider's own CLI on this PC. TaskPilotSignal does not import the provider's account or session files.</li>
+            </ul>
           </div>
           <div class="guide-card">
             <h3>Telegram Bot Commands</h3>
@@ -280,15 +283,9 @@
             <div class="guide-shot-row">
               <figure class="guide-shot-tile">
                 <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/dashboard-add-task.png">
-                  <img src="/TaskPilotSignalPages/assets/guide/dashboard-add-task.png" alt="대시보드의 시작 가이드와 새로운 기능 작업 추가 버튼">
+                  <img src="/TaskPilotSignalPages/assets/guide/dashboard-add-task.png" alt="작업 추천, 단계별 설정, AI 설정, Telegram 봇 선택지가 있는 자동화 추가 화면">
                 </a>
-                <figcaption>대시보드의 작업 추가 버튼에서 시작합니다.</figcaption>
-              </figure>
-              <figure class="guide-shot-tile">
-                <a class="guide-shot" href="/TaskPilotSignalPages/assets/guide/pipeline-auto-configure.png">
-                  <img src="/TaskPilotSignalPages/assets/guide/pipeline-auto-configure.png" alt="파이프라인 작업 편집의 AI 자동 설정 화면">
-                </a>
-                <figcaption>AI 자동 설정을 사용하거나 수동 설정으로 전환합니다.</figcaption>
+                <figcaption>자동화 추가 화면에서 알맞은 시작 방식을 고릅니다.</figcaption>
               </figure>
             </div>
             <p class="guide-hint">스크린샷을 누르면 원본 크기로 볼 수 있습니다.</p>
@@ -323,7 +320,7 @@
               <li><strong>로컬 파일</strong>은 앱이 관리하는 사용자별 작업공간에 TXT, HTML, DOCX 파일로 저장합니다. <strong>폴더 열기</strong>로 바로 확인할 수 있습니다.</li>
               <li><strong>NotebookLM</strong>은 기존 NotebookLM Personal 노트북 하나에 추가합니다. 기본 브라우저에서 직접 로그인하고 기존 노트북 주소를 저장하세요.</li>
               <li>NotebookLM 전달 시 보이는 브라우저 확인이 열립니다. 앱은 브라우저 쿠키, 프로필, 노트북 페이지 내용을 복사하지 않습니다.</li>
-              <li>버전 1.2.0.0에서는 Google Workspace, Drive, Docs, Sheets를 전달 대상으로 제공하지 않습니다.</li>
+              <li>Google Workspace, Drive, Docs, Sheets는 전달 대상으로 제공하지 않습니다.</li>
             </ol>
           </div>
           <div class="guide-card guide-step" data-guide-anchor="telegram-bot-token">
@@ -363,10 +360,18 @@
             <h3>선택 기능: Ollama 로컬 AI 사용</h3>
             <ol>
               <li><code>https://ollama.com/download</code>에서 Ollama를 별도로 설치합니다.</li>
-              <li>Ollama 앱을 실행하고 <code>llama3.2</code> 같은 로컬 모델을 하나 이상 다운로드합니다.</li>
+              <li>Ollama 앱을 실행하고 로컬 모델을 하나 이상 다운로드합니다.</li>
               <li>TaskPilotSignal 설정에서 로컬 모델이 감지된 뒤 Ollama를 선택합니다.</li>
               <li>Ollama가 보이지 않으면 앱이 실행 중인지, 모델이 다운로드되어 있는지, host가 이 PC의 로컬 주소인지 확인하세요.</li>
             </ol>
+          </div>
+          <div class="guide-card">
+            <h3>제공자 모델 선택지와 안전한 대체 선택</h3>
+            <ul>
+              <li>TaskPilotSignal은 서명된 공개 모델 정보와 연결된 제공자 CLI를 사용해 앱 업데이트와 별개로 모델 선택지를 새로 확인할 수 있습니다.</li>
+              <li>새로 고침을 사용할 수 없거나 검증에 실패하면 검증되지 않은 정보를 적용하지 않고, 이 PC에서 이미 확인된 호환 선택지를 유지합니다.</li>
+              <li>각 제공자의 CLI에서 이 PC에 직접 로그인하세요. TaskPilotSignal은 제공자 계정 또는 세션 파일을 가져오지 않습니다.</li>
+            </ul>
           </div>
           <div class="guide-card">
             <h3>텔레그램 봇 명령어</h3>
@@ -420,6 +425,7 @@
       apply(lang);
     }
     function apply(l) {
+      document.documentElement.lang = l;
       document.querySelectorAll('[data-lang]').forEach(function(el) {
         el.classList.toggle('active', el.getAttribute('data-lang') === l);
       });

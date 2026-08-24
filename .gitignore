@@ -1,0 +1,2 @@
+# Unsigned publisher working payload; only the signed catalog is published.
+provider-models.v2.payload.json

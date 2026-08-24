@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskPilotSignal support, troubleshooting, local file locations, and connection guidance in English and Korean.">
   <title>Support - TaskPilotSignal</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,6 +41,13 @@
     .footer-links a { color: var(--dim); text-decoration: none; font-size: .85rem; }
     .footer-links a:hover { color: var(--accent); }
     .copy { font-size: .78rem; color: #576370; }
+    @media(max-width:600px) {
+      .nav-inner { height: auto; min-height: 72px; align-items: flex-start; flex-direction: column; gap: .45rem; padding: .75rem 1rem; }
+      .nav-right { width: 100%; align-items: flex-start; justify-content: space-between; gap: .75rem; }
+      nav ul { flex-wrap: wrap; gap: .45rem .8rem; }
+      nav a { font-size: .82rem; }
+      .lang-btn { flex: none; }
+    }
   </style>
 </head>
 <body>
@@ -88,6 +96,10 @@
       <div class="faq-item">
         <div class="faq-q">Q: AI features are not working</div>
         <div class="faq-a">A: Verify that the required provider CLI is installed and signed in, or that the needed third-party credentials are configured in the app. Check the connection status in Settings before retrying.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: Why can provider model choices change without an app update?</div>
+        <div class="faq-a">A: TaskPilotSignal can refresh choices from signed public model metadata and the connected provider CLI. The public catalog contains model and compatibility metadata only, not account credentials or provider session data. If the refresh is unavailable or cannot be verified, the app keeps a compatible verified choice already available on this PC.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Q: Ollama is not available in the app</div>
@@ -148,6 +160,10 @@
         <div class="faq-a">A: 필요한 AI CLI가 설치되어 있고 로그인되어 있는지, 또는 필요한 외부 서비스 자격 정보가 앱에 설정되어 있는지 확인하세요. 다시 시도하기 전에 설정 화면에서 연결 상태를 확인해보세요.</div>
       </div>
       <div class="faq-item">
+        <div class="faq-q">Q: 앱을 업데이트하지 않았는데 제공자 모델 선택지가 바뀔 수 있나요?</div>
+        <div class="faq-a">A: TaskPilotSignal은 서명된 공개 모델 정보와 연결된 제공자 CLI에서 선택지를 새로 확인할 수 있습니다. 공개 카탈로그에는 모델 및 호환성 정보만 있으며 계정 자격 정보나 제공자 세션 데이터는 포함되지 않습니다. 새로 고침을 사용할 수 없거나 검증하지 못하면 이 PC에서 이미 확인된 호환 선택지를 유지합니다.</div>
+      </div>
+      <div class="faq-item">
         <div class="faq-q">Q: Ollama가 앱에서 사용할 수 없다고 나와요</div>
         <div class="faq-a">A: Ollama는 선택 기능이며 별도로 설치해야 합니다. Ollama를 설치하고 앱을 실행한 뒤 로컬 모델을 하나 이상 다운로드하고 설정 화면에서 다시 확인하세요. TaskPilotSignal은 사용자 PC의 로컬 Ollama 접근만 지원합니다.</div>
       </div>
@@ -199,12 +215,13 @@
       apply(lang);
     }
     function apply(l) {
+      document.documentElement.lang = l;
       document.querySelectorAll('[data-lang]').forEach(function(el) {
         el.classList.toggle('active', el.getAttribute('data-lang') === l);
       });
       document.querySelectorAll('.nav-en').forEach(function(el) { el.style.display = l === 'en' ? '' : 'none'; });
       document.querySelectorAll('.nav-ko').forEach(function(el) { el.style.display = l === 'ko' ? '' : 'none'; });
-      document.querySelector('.lang-btn').textContent = l === 'en' ? 'English' : '한국어';
+      document.querySelector('.lang-btn').textContent = l === 'en' ? '한국어' : 'English';
     }
   </script>
 </body>

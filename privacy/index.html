@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TaskPilotSignal privacy policy covering local storage and user-selected third-party service connections.">
   <title>Privacy Policy - TaskPilotSignal</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,6 +32,13 @@
     .footer-links a { color: var(--dim); text-decoration: none; font-size: .85rem; }
     .footer-links a:hover { color: var(--accent); }
     .copy { font-size: .78rem; color: #576370; }
+    @media(max-width:600px) {
+      .nav-inner { height: auto; min-height: 72px; align-items: flex-start; flex-direction: column; gap: .45rem; padding: .75rem 1rem; }
+      .nav-right { width: 100%; align-items: flex-start; justify-content: space-between; gap: .75rem; }
+      nav ul { flex-wrap: wrap; gap: .45rem .8rem; }
+      nav a { font-size: .82rem; }
+      .lang-btn { flex: none; }
+    }
   </style>
 </head>
 <body>
@@ -66,13 +74,14 @@
       <p>Sensitive local settings are stored on the user's PC. On Windows, supported secret fields are protected with Windows DPAPI.</p>
 
       <h2>2. External Transmission</h2>
-      <p>TaskPilotSignal sends data only to the external services that the user chooses to connect:</p>
+      <p>TaskPilotSignal communicates only with the services or tools the user chooses to connect, plus its public signed provider-model catalog. Depending on the selected workflow, these interactions include:</p>
       <ul>
-        <li>AI providers or AI CLI tools chosen by the user — prompt/response processing</li>
+        <li>User-selected AI tools — Claude (Anthropic), Codex (OpenAI), Antigravity (Gemini by Google), or optional local Ollama — for prompt/response processing as applicable</li>
         <li>Telegram API — bot message communication</li>
         <li>Notion API — page delivery selected by the user</li>
         <li>NotebookLM Personal — visible default-browser interaction with an existing notebook selected by the user</li>
         <li>YouTube and web sources — user-requested content access</li>
+        <li>TaskPilotSignal public provider-model catalog — download of signed model and compatibility metadata only; the catalog contains no account credentials or provider session data</li>
       </ul>
       <p><strong>We do not operate our own relay or storage server for this app.</strong> TaskPilotSignal does not send your data to a separate developer-run backend.</p>
       <p>Local TXT, HTML, and DOCX delivery stays on the user's PC unless the user later shares those files. NotebookLM Personal does not copy or store browser cookies, browser profiles, session tokens, or notebook page contents.</p>
@@ -115,13 +124,14 @@
       <p>민감한 로컬 설정값은 사용자 PC에 저장되며, Windows에서는 지원되는 항목이 Windows DPAPI로 보호됩니다.</p>
 
       <h2>2. 외부 전송</h2>
-      <p>사용자가 설정한 외부 서비스에만 요청을 전송합니다:</p>
+      <p>TaskPilotSignal은 사용자가 연결한 서비스 또는 도구와 공개 서명 제공자 모델 카탈로그에만 통신합니다. 선택한 작업 흐름에 따라 다음과 같이 동작합니다:</p>
       <ul>
-        <li>사용자가 선택한 AI 제공자 또는 AI CLI 도구 — 프롬프트/응답 처리</li>
+        <li>사용자가 선택한 AI 도구 — Claude(Anthropic), Codex(OpenAI), Antigravity(Google Gemini) 또는 선택 기능인 로컬 Ollama — 해당하는 경우 프롬프트/응답 처리</li>
         <li>Telegram API — 봇 메시지 송수신</li>
         <li>Notion API — 사용자가 선택한 페이지로 결과 전달</li>
         <li>NotebookLM Personal — 사용자가 선택한 기존 노트북과 보이는 기본 브라우저에서 상호작용</li>
         <li>YouTube 및 웹 소스 — 사용자가 요청한 콘텐츠 접근</li>
+        <li>TaskPilotSignal 공개 제공자 모델 카탈로그 — 서명된 모델 및 호환성 정보만 다운로드하며 카탈로그에는 계정 자격 정보나 제공자 세션 데이터가 포함되지 않음</li>
       </ul>
       <p><strong>별도의 개발자 운영 중계/저장 서버로 데이터를 보내지 않습니다.</strong> TaskPilotSignal은 이 앱을 위한 별도 백엔드를 운영하지 않습니다.</p>
       <p>로컬 TXT, HTML, DOCX 전달은 사용자가 나중에 해당 파일을 공유하지 않는 한 PC 안에 남습니다. NotebookLM Personal 기능은 브라우저 쿠키, 브라우저 프로필, 세션 토큰 또는 노트북 페이지 내용을 복사하거나 저장하지 않습니다.</p>
@@ -172,12 +182,13 @@
       apply(lang);
     }
     function apply(l) {
+      document.documentElement.lang = l;
       document.querySelectorAll('[data-lang]').forEach(function(el) {
         el.classList.toggle('active', el.getAttribute('data-lang') === l);
       });
       document.querySelectorAll('.nav-en').forEach(function(el) { el.style.display = l === 'en' ? '' : 'none'; });
       document.querySelectorAll('.nav-ko').forEach(function(el) { el.style.display = l === 'ko' ? '' : 'none'; });
-      document.querySelector('.lang-btn').textContent = l === 'en' ? 'English' : '한국어';
+      document.querySelector('.lang-btn').textContent = l === 'en' ? '한국어' : 'English';
     }
   </script>
 </body>

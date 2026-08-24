@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="End User License Agreement for the TaskPilotSignal Windows application.">
   <title>EULA - TaskPilotSignal</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,6 +31,13 @@
     .footer-links a { color: var(--dim); text-decoration: none; font-size: .85rem; }
     .footer-links a:hover { color: var(--accent); }
     .copy { font-size: .78rem; color: #576370; }
+    @media(max-width:600px) {
+      .nav-inner { height: auto; min-height: 72px; align-items: flex-start; flex-direction: column; gap: .45rem; padding: .75rem 1rem; }
+      .nav-right { width: 100%; align-items: flex-start; justify-content: space-between; gap: .75rem; }
+      nav ul { flex-wrap: wrap; gap: .45rem .8rem; }
+      nav a { font-size: .82rem; }
+      .lang-btn { flex: none; }
+    }
   </style>
 </head>
 <body>
@@ -60,12 +68,13 @@
       <p>Except as permitted by applicable law or applicable third-party open-source licenses included with the software, you may not copy, redistribute, sublicense, sell, or reverse engineer TaskPilotSignal.</p>
 
       <h2>2. Third-Party Services</h2>
-      <p>TaskPilotSignal may interact with third-party services selected or configured by you, including AI tools, Telegram, Notion, Antigravity (Gemini), NotebookLM Personal, YouTube, and similar providers.</p>
+      <p>TaskPilotSignal may interact with third-party services and local tools selected or configured by you, including Claude (Anthropic), Codex (OpenAI), Antigravity (Gemini by Google), optional local Ollama, Telegram, Notion, NotebookLM Personal, YouTube, and similar providers.</p>
       <p>Some features may require third-party accounts, local CLI sign-in, tokens, credentials, or service permissions. You are responsible for obtaining and maintaining those rights and for complying with the terms of the third-party services you use.</p>
 
       <h2>3. Local Storage and Data Flow</h2>
-      <p>TaskPilotSignal stores settings, credentials, logs, and session data locally on your device. In release builds, runtime data is intended to be stored primarily under per-user application data paths rather than the app installation directory.</p>
+      <p>TaskPilotSignal stores app-owned settings, protected connection data, runtime state, logs, and session metadata locally on your device. In release builds, runtime data is intended to be stored primarily under per-user application data paths rather than the app installation directory.</p>
       <p>When you use integrated features, prompts, messages, files, or other content may be transmitted to the third-party services you configured so those services can respond or perform the requested work.</p>
+      <p>Model-choice refresh may download signed public provider-model metadata. That catalog contains no account credentials or provider session data.</p>
       <p>The Licensor does not operate a separate hosted backend service for routing this data.</p>
 
       <h2>4. User Responsibility</h2>
@@ -95,12 +104,13 @@
       <p>적용 법률 또는 소프트웨어에 포함된 제3자 오픈소스 라이선스가 허용하는 범위를 제외하고, 귀하는 TaskPilotSignal을 복제, 재배포, 재허가, 판매 또는 리버스 엔지니어링할 수 없습니다.</p>
 
       <h2>2. 제3자 서비스</h2>
-      <p>TaskPilotSignal은 귀하가 선택하거나 설정한 제3자 서비스와 연동될 수 있으며, 여기에는 AI 도구, Telegram, Notion, Antigravity(Gemini), NotebookLM Personal, YouTube 및 유사한 제공자가 포함됩니다.</p>
+      <p>TaskPilotSignal은 귀하가 선택하거나 설정한 제3자 서비스 및 로컬 도구와 연동될 수 있으며, 여기에는 Claude(Anthropic), Codex(OpenAI), Antigravity(Google Gemini), 선택 기능인 로컬 Ollama, Telegram, Notion, NotebookLM Personal, YouTube 및 유사한 제공자가 포함됩니다.</p>
       <p>일부 기능은 제3자 계정, 로컬 CLI 로그인, 토큰, 자격 정보 또는 서비스 권한을 요구할 수 있습니다. 귀하는 이러한 권한을 스스로 확보하고 유지해야 하며, 사용하는 제3자 서비스의 약관을 준수할 책임이 있습니다.</p>
 
       <h2>3. 로컬 저장 및 데이터 흐름</h2>
-      <p>TaskPilotSignal은 설정, 자격 정보, 로그 및 세션 데이터를 귀하의 장치에 로컬로 저장합니다. 릴리스 빌드에서는 런타임 데이터가 앱 설치 폴더가 아니라 사용자별 앱 데이터 경로에 저장되도록 설계되어 있습니다.</p>
+      <p>TaskPilotSignal은 앱 전용 설정, 보호된 연결 정보, 런타임 상태, 로그 및 세션 메타데이터를 귀하의 장치에 로컬로 저장합니다. 릴리스 빌드에서는 런타임 데이터가 앱 설치 폴더가 아니라 사용자별 앱 데이터 경로에 저장되도록 설계되어 있습니다.</p>
       <p>귀하가 통합 기능을 사용할 때, 프롬프트, 메시지, 파일 또는 기타 콘텐츠는 귀하가 설정한 제3자 서비스로 전송될 수 있으며, 해당 서비스는 이를 바탕으로 응답하거나 요청된 작업을 수행합니다.</p>
+      <p>모델 선택지 새로 고침은 서명된 공개 제공자 모델 정보를 다운로드할 수 있습니다. 해당 카탈로그에는 계정 자격 정보나 제공자 세션 데이터가 포함되지 않습니다.</p>
       <p>Licensor는 이러한 데이터를 중계하거나 저장하기 위한 별도의 호스팅 백엔드 서비스를 운영하지 않습니다.</p>
 
       <h2>4. 사용자 책임</h2>
@@ -143,12 +153,13 @@
       apply(lang);
     }
     function apply(l) {
+      document.documentElement.lang = l;
       document.querySelectorAll('[data-lang]').forEach(function(el) {
         el.classList.toggle('active', el.getAttribute('data-lang') === l);
       });
       document.querySelectorAll('.nav-en').forEach(function(el) { el.style.display = l === 'en' ? '' : 'none'; });
       document.querySelectorAll('.nav-ko').forEach(function(el) { el.style.display = l === 'ko' ? '' : 'none'; });
-      document.querySelector('.lang-btn').textContent = l === 'en' ? 'English' : '한국어';
+      document.querySelector('.lang-btn').textContent = l === 'en' ? '한국어' : 'English';
     }
   </script>
 </body>
